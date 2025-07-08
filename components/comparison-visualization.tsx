@@ -642,8 +642,8 @@ export default function ComparisonVisualization() {
                   />
 
                   {/* Circular Progress */}
-                  <div className="relative w-24 h-24 mx-auto mb-6">
-                    <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                  <div className="relative w-32 h-32 mx-auto mb-6">
+                    <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">
                       <circle
                         cx="50"
                         cy="50"
@@ -668,7 +668,14 @@ export default function ComparisonVisualization() {
                         }}
                         transition={{ duration: 2, delay: 1.2 + index * 0.2 }}
                       />
-                    </svg>
+                    <defs>
+                      <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#3B82F6" />
+                        <stop offset="50%" stopColor="#8B5CF6" />
+                        <stop offset="100%" stopColor="#06B6D4" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
 
                     {/* Value Display */}
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -683,13 +690,6 @@ export default function ComparisonVisualization() {
                       </motion.span>
                     </div>
 
-                    <defs>
-                      <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3B82F6" />
-                        <stop offset="50%" stopColor="#8B5CF6" />
-                        <stop offset="100%" stopColor="#06B6D4" />
-                      </linearGradient>
-                    </defs>
                   </div>
 
                   <h4 className="text-xl font-bold text-foreground dark:text-white mb-2 group-hover:text-purple-300 transition-colors">

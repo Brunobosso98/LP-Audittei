@@ -93,10 +93,10 @@ export default function HeroSection() {
 
         {/* Benefits Section */}
         <motion.div
-          className="mt-20"
+          className="mt-40"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

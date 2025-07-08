@@ -12,7 +12,7 @@ const aiFeatures = [
     details:
       "Redes neurais profundas que analisam padrões complexos em documentos fiscais, identificando anomalias sutis que passariam despercebidas por análises tradicionais.",
     color: "from-purple-500 to-pink-500",
-    stats: { accuracy: 99.9, speed: "10x", learning: "24/7" },
+    stats: { confiança: 99.9, velocidade: "10x", aprendizado: "24/7" },
   },
   {
     icon: Zap,
@@ -21,7 +21,7 @@ const aiFeatures = [
     details:
       "Processamento paralelo distribuído que utiliza GPUs para análise em tempo real de grandes volumes de dados fiscais.",
     color: "from-blue-500 to-cyan-500",
-    stats: { throughput: "10k/min", latency: "<1s", uptime: "99.99%" },
+    stats: { transferência: "10k/min", latência: "<1s", disponibilidade: "99.99%" },
   },
   {
     icon: Target,
@@ -30,7 +30,7 @@ const aiFeatures = [
     details:
       "Algoritmos de detecção de anomalias baseados em análise estatística avançada e reconhecimento de padrões.",
     color: "from-green-500 to-emerald-500",
-    stats: { detection: "99.8%", falsePos: "<0.1%", coverage: "100%" },
+    stats: { detecção: "99.8%", falsePos: "<0.1%", cobertura: "100%" },
   },
   {
     icon: Shield,
@@ -38,7 +38,7 @@ const aiFeatures = [
     description: "Sistema de validação que garante conformidade com as mais recentes legislações fiscais.",
     details: "Base de conhecimento atualizada automaticamente com mudanças na legislação fiscal brasileira.",
     color: "from-orange-500 to-red-500",
-    stats: { compliance: "100%", updates: "Real-time", coverage: "All states" },
+    stats: { confiança: "100%", atualização: "Real-time", cobertura: "All states" },
   },
   {
     icon: BarChart3,
@@ -46,7 +46,7 @@ const aiFeatures = [
     description: "Previsão de tendências e identificação de riscos fiscais antes que se tornem problemas.",
     details: "Modelos preditivos que analisam histórico fiscal para antecipar possíveis problemas e oportunidades.",
     color: "from-indigo-500 to-purple-500",
-    stats: { prediction: "95%", horizon: "6 months", alerts: "Real-time" },
+    stats: { predição: "95%", horizonte: "6 meses", alertas: "Real-time" },
   },
   {
     icon: Cpu,
@@ -55,13 +55,13 @@ const aiFeatures = [
     details:
       "Orquestração inteligente de processos com decisões autônomas baseadas em regras de negócio configuráveis.",
     color: "from-teal-500 to-blue-500",
-    stats: { automation: "95%", efficiency: "+300%", errors: "-99%" },
+    stats: { automação: "95%", eficiência: "+300%", erros: "-99%" },
   },
 ]
 
 const aiStats = [
   { label: "Documentos Processados", value: "1M+", description: "por mês", icon: BarChart3 },
-  { label: "Precisão", value: "99.9%", description: "na detecção", icon: Target },
+  { label: "Confiança", value: "99.9%", description: "na detecção", icon: Target },
   { label: "Velocidade", value: "10x", description: "mais rápido", icon: Zap },
   { label: "Disponibilidade", value: "24/7", description: "processamento", icon: Cpu },
 ]

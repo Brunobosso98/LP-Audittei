@@ -15,9 +15,9 @@ const testimonials = [
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
-      timeReduction: "80%",
-      accuracyIncrease: "25%",
-      clientSatisfaction: "95%",
+      reduçãoTempo: "80%",
+      aumentoPrecisão: "25%",
+      satisfaçãoCliente: "95%",
     },
     videoUrl: "#",
   },
@@ -31,9 +31,9 @@ const testimonials = [
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
-      timeReduction: "75%",
-      accuracyIncrease: "30%",
-      clientSatisfaction: "98%",
+      reduçãoTempo: "75%",
+      aumentoPrecisão: "30%",
+      satisfaçãoCliente: "98%",
     },
     videoUrl: "#",
   },
@@ -47,9 +47,9 @@ const testimonials = [
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
-      timeReduction: "85%",
-      accuracyIncrease: "35%",
-      clientSatisfaction: "97%",
+      reduçãoTempo: "85%",
+      aumentoPrecisão: "35%",
+      satisfaçãoCliente: "97%",
     },
     videoUrl: "#",
   },
@@ -63,9 +63,9 @@ const testimonials = [
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
-      timeReduction: "70%",
-      accuracyIncrease: "28%",
-      clientSatisfaction: "96%",
+      reduçãoTempo: "70%",
+      aumentoPrecisão: "28%",
+      satisfaçãoCliente: "96%",
     },
     videoUrl: "#",
   },
@@ -79,9 +79,9 @@ const testimonials = [
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
-      timeReduction: "90%",
-      accuracyIncrease: "40%",
-      clientSatisfaction: "99%",
+      reduçãoTempo: "90%",
+      aumentoPrecisão: "40%",
+      satisfaçãoCliente: "99%",
     },
     videoUrl: "#",
   },
@@ -173,7 +173,7 @@ export default function TestimonialsCarousel() {
                 initial={{ opacity: 0, x: 300, rotateY: 45 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 exit={{ opacity: 0, x: -300, rotateY: -45 }}
-                transition={{ duration: 0.6, ease: "power3.out" }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="bg-slate-900/90 backdrop-blur-xl border border-purple-500/20 rounded-3xl p-12 relative overflow-hidden"
               >
                 {/* Animated Background */}
@@ -296,9 +296,9 @@ export default function TestimonialsCarousel() {
                               </div>
                             </div>
                             <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                              {key === "timeReduction" && <TrendingUp className="w-6 h-6 text-white" />}
-                              {key === "accuracyIncrease" && <Building className="w-6 h-6 text-white" />}
-                              {key === "clientSatisfaction" && <Users className="w-6 h-6 text-white" />}
+                              {key === "reduçãoTempo" && <TrendingUp className="w-6 h-6 text-white" />}
+                              {key === "aumentoPrecisão" && <Building className="w-6 h-6 text-white" />}
+                              {key === "satisfaçãoCliente" && <Users className="w-6 h-6 text-white" />}
                             </div>
                           </div>
                         </motion.div>

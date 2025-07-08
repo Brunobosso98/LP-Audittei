@@ -271,7 +271,7 @@ export default function AdvancedHero() {
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 4 }}
+            transition={{ delay: 2 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-4">
               Transforme seu Processo Fiscal: Ganhe{" "}

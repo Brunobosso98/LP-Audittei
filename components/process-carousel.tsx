@@ -24,7 +24,7 @@ const processSteps = [
     details:
       "Sistema inteligente que processa milhares de documentos em segundos, validando estrutura e integridade dos dados.",
     color: "from-blue-500 to-cyan-500",
-    stats: { documents: "10k+", time: "< 30s", accuracy: "99.9%" },
+    stats: { documentos: "10k+", tempo: "< 30s", precisão: "99.9%" },
     features: ["Validação automática", "Processamento em lote", "Detecção de erros", "Backup seguro"],
   },
   {
@@ -34,7 +34,7 @@ const processSteps = [
     description: "O sistema identifica e cria automaticamente o cadastro de novos clientes baseado nos documentos.",
     details: "IA avançada que reconhece padrões e cria perfis completos de clientes com dados fiscais atualizados.",
     color: "from-purple-500 to-pink-500",
-    stats: { clients: "500+", automation: "95%", accuracy: "98%" },
+    stats: { clientes: "500+", automação: "95%", precisão: "98%" },
     features: ["Reconhecimento de padrões", "Perfis automáticos", "Dados atualizados", "Integração CRM"],
   },
   {
@@ -45,7 +45,7 @@ const processSteps = [
       "Geração inteligente de cenários tributários e cadastro automático de produtos com classificação fiscal.",
     details: "Algoritmos que analisam histórico fiscal e sugerem os melhores cenários tributários para cada situação.",
     color: "from-green-500 to-emerald-500",
-    stats: { scenarios: "1000+", optimization: "40%", compliance: "100%" },
+    stats: { cenários: "1000+", otimização: "40%", conformidade: "100%" },
     features: ["Análise preditiva", "Otimização fiscal", "Classificação NCM", "Simulações"],
   },
   {
@@ -55,7 +55,7 @@ const processSteps = [
     description: "Revise e aprove os cenários criados automaticamente antes da implementação em produção.",
     details: "Interface intuitiva para revisão e aprovação com simulações em tempo real dos impactos fiscais.",
     color: "from-orange-500 to-red-500",
-    stats: { approval: "< 5min", simulation: "Real-time", accuracy: "99%" },
+    stats: { aprovação: "< 5min", simulações: "Real-time", precisão: "99%" },
     features: ["Interface intuitiva", "Simulações em tempo real", "Aprovação em lote", "Histórico completo"],
   },
   {
@@ -65,7 +65,7 @@ const processSteps = [
     description: "Auditoria automatizada das notas fiscais de entrada com validação de impostos e créditos.",
     details: "Validação completa de ICMS, IPI, PIS/COFINS com detecção automática de inconsistências.",
     color: "from-indigo-500 to-purple-500",
-    stats: { validation: "100%", errors: "< 0.1%", speed: "10x" },
+    stats: { validação: "100%", erros: "< 0.1%", velocidade: "10x" },
     features: ["Validação ICMS/IPI", "Créditos automáticos", "Detecção de erros", "Relatórios detalhados"],
   },
   {
@@ -75,7 +75,7 @@ const processSteps = [
     description: "Análise completa das notas fiscais de saída com verificação de conformidade tributária.",
     details: "Auditoria completa com geração de relatórios detalhados e sugestões de otimização fiscal.",
     color: "from-teal-500 to-blue-500",
-    stats: { compliance: "100%", reports: "Auto", optimization: "30%" },
+    stats: { conformidade: "100%", relatórios: "Auto", otimização: "30%" },
     features: ["Conformidade total", "Relatórios automáticos", "Otimização fiscal", "Alertas inteligentes"],
   },
 ]
@@ -204,7 +204,6 @@ export default function ProcessCarousel() {
                         >
                           {CurrentIcon && <CurrentIcon className="w-10 h-10 text-white" />}
                         </div>
-                        \
                         <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl">
                           {processSteps[currentSlide].id}
                         </div>
