@@ -171,7 +171,7 @@ export default function ProcessCarousel() {
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 exit={{ opacity: 0, x: -300, rotateY: -45 }}
                 // Reduced transition duration from 0.6s to 0.4s for faster animations
-                transition={{ duration: 0.4, ease: "power3.out" }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl border border-purple-500/20 rounded-3xl overflow-hidden"
               >
                 {/* Animated Background */}

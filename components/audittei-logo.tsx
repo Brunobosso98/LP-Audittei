@@ -41,7 +41,7 @@ export default function AuditteiLogo({ className = "", size = "md" }: AuditteLog
           <motion.g
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "power3.out" }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
           >
             {/* Main 'A' structure */}
             <path

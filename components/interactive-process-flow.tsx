@@ -280,7 +280,7 @@ export default function InteractiveProcessFlow() {
                       height: activeStep === step.id ? "auto" : 0,
                       y: activeStep === step.id ? 0 : -20,
                     }}
-                    transition={{ duration: 0.5, ease: "power2.out" }}
+                    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                     className="mt-4 overflow-hidden"
                   >
                     <div className="bg-muted/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">

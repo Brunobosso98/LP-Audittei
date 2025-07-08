@@ -308,7 +308,7 @@ export default function ComparisonVisualization() {
                           height: activeComparison === index ? "auto" : 0,
                           opacity: activeComparison === index ? 1 : 0,
                         }}
-                        transition={{ duration: 0.5, ease: "power2.out" }}
+                        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                         className="overflow-hidden border-t border-purple-500/20"
                       >
                         <div className="p-8 bg-muted/50 dark:bg-slate-800/50">

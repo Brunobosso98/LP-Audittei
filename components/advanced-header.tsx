@@ -40,7 +40,7 @@ export default function AdvancedHeader() {
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "power3.out" }}
+      transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -90,7 +90,7 @@ export default function AdvancedHeader() {
                     initial={{ opacity: 0, y: -20, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                    transition={{ duration: 0.3, ease: "power2.out" }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                     className="absolute top-full mt-4 w-64 bg-background dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/30 overflow-hidden"
                   >
                     <div className="p-2">
@@ -231,7 +231,7 @@ export default function AdvancedHeader() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "power2.out" }}
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               className="md:hidden mt-4 py-4 border-t border-purple-500/20 bg-background/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl"
             >
               <div className="flex flex-col space-y-4 px-4">

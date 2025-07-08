@@ -103,7 +103,7 @@ export default function AdvancedHero() {
               className="space-y-6"
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "power3.out" }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             >
               <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-white leading-tight">
                 {typedText}
@@ -178,7 +178,7 @@ export default function AdvancedHero() {
             className="relative"
             initial={{ opacity: 0, x: 100, rotateY: 45 }}
             animate={{ opacity: 1, x: 0, rotateY: 0 }}
-            transition={{ duration: 1.2, delay: 1, ease: "power3.out" }}
+            transition={{ duration: 1.2, delay: 1, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="relative">
               {/* Floating Elements */}
@@ -288,7 +288,7 @@ export default function AdvancedHero() {
                 className="group relative"
                 initial={{ opacity: 0, y: 100, rotateX: 45 }}
                 animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ delay: 4 + benefit.delay, duration: 0.8, ease: "power3.out" }}
+                transition={{ delay: 4 + benefit.delay, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{
                   scale: 1.05,
                   rotateY: 5,
