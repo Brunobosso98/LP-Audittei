@@ -49,7 +49,7 @@ ${formData.message}
 Enviado automaticamente pelo site da Audittei
 `.trim()
 
-    const whatsappURL = `https://wa.me/5511999999999?text=${encodeURIComponent(whatsappMessage)}`
+    const whatsappURL = `https://wa.me/5519981483536?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappURL, "_blank")
 
     setIsSubmitting(false)
@@ -60,7 +60,7 @@ Enviado automaticamente pelo site da Audittei
     {
       icon: Phone,
       title: "Telefone",
-      value: "(11) 9999-9999",
+      value: "(19) 98148-3536",
       color: "from-blue-500 to-cyan-500",
       note: "Seg-Sex, 08h-18h",
     },
@@ -183,7 +183,7 @@ Enviado automaticamente pelo site da Audittei
                         type="tel"
                         name="phone"
                         required
-                        placeholder="(11) 99999-0000"
+                        placeholder="(19) 98148-3536"
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 outline-none"

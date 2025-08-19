@@ -30,7 +30,7 @@ Empresa: ${formData.company}
 Telefone: ${formData.phone}
 Mensagem: ${formData.message}`
 
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(whatsappMessage)}`
+    const whatsappUrl = `https://wa.me/5519981483536?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappUrl, "_blank")
   }
 
@@ -122,7 +122,7 @@ Mensagem: ${formData.message}`
                       onChange={handleChange}
                       required
                       className="bg-slate-800 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400"
-                      placeholder="(11) 99999-9999"
+                      placeholder="(19) 98148-3536"
                     />
                   </div>
                 </div>
@@ -169,7 +169,7 @@ Mensagem: ${formData.message}`
                   </div>
                   <div>
                     <p className="text-white font-medium">Telefone</p>
-                    <p className="text-gray-300">(11) 9999-9999</p>
+                    <p className="text-gray-300">(19) 98148-3536</p>
                   </div>
                 </div>
 
