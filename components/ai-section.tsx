@@ -8,13 +8,13 @@ const aiFeatures = [
     icon: Brain,
     title: "Machine Learning Avançado",
     description: "Algoritmos que aprendem com cada auditoria, melhorando continuamente a precisão e eficiência.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-pink-500 to-pink-500",
   },
   {
     icon: Zap,
     title: "Processamento Inteligente",
     description: "IA capaz de processar milhares de documentos fiscais em segundos com alta precisão.",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-rose-500 to-cyan-500",
   },
   {
     icon: Target,
@@ -32,13 +32,13 @@ const aiFeatures = [
     icon: BarChart3,
     title: "Análise Preditiva",
     description: "Previsão de tendências e identificação de riscos fiscais antes que se tornem problemas.",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-500 to-pink-500",
   },
   {
     icon: Cpu,
     title: "Automação Completa",
     description: "Fluxos de trabalho totalmente automatizados que reduzem drasticamente a intervenção manual.",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-500 to-rose-500",
   },
 ]
 
@@ -55,7 +55,7 @@ export default function AISection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Inteligência Artificial{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
               no Centro da Inovação
             </span>
           </h2>
@@ -75,7 +75,7 @@ export default function AISection() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 h-full">
+              <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/20 hover:border-pink-500/40 transition-all duration-300 h-full">
                 <div
                   className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6`}
                 >
@@ -86,7 +86,7 @@ export default function AISection() {
 
                 <p className="text-gray-300 leading-relaxed">{feature.description}</p>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-600/5 to-pink-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
             </motion.div>
           ))}
@@ -94,7 +94,7 @@ export default function AISection() {
 
         {/* AI Stats */}
         <motion.div
-          className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl p-8 border border-purple-500/30"
+          className="bg-gradient-to-r from-pink-900/30 to-rose-900/30 rounded-2xl p-8 border border-pink-500/30"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -107,7 +107,7 @@ export default function AISection() {
 
           <div className="grid md:grid-cols-4 gap-8">
             <motion.div className="text-center" whileHover={{ scale: 1.05 }}>
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 99.9%
               </div>
               <p className="text-white font-medium">Precisão</p>
@@ -115,7 +115,7 @@ export default function AISection() {
             </motion.div>
 
             <motion.div className="text-center" whileHover={{ scale: 1.05 }}>
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 10x
               </div>
               <p className="text-white font-medium">Mais Rápido</p>
@@ -123,7 +123,7 @@ export default function AISection() {
             </motion.div>
 
             <motion.div className="text-center" whileHover={{ scale: 1.05 }}>
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 24/7
               </div>
               <p className="text-white font-medium">Disponibilidade</p>
@@ -131,7 +131,7 @@ export default function AISection() {
             </motion.div>
 
             <motion.div className="text-center" whileHover={{ scale: 1.05 }}>
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 1M+
               </div>
               <p className="text-white font-medium">Documentos</p>

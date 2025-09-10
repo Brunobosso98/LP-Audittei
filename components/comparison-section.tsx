@@ -77,7 +77,7 @@ export default function ComparisonSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Auditoria Manual vs{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
               Auditoria Digital
             </span>
           </h2>
@@ -88,17 +88,17 @@ export default function ComparisonSection() {
 
         {/* Comparison Table */}
         <motion.div
-          className="bg-slate-900/80 backdrop-blur-sm rounded-2xl border border-purple-500/20 overflow-hidden mb-16"
+          className="bg-slate-900/80 backdrop-blur-sm rounded-2xl border border-pink-500/20 overflow-hidden mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <div className="grid md:grid-cols-3 gap-0">
-            <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 border-b md:border-b-0 md:border-r border-purple-500/20">
+            <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 border-b md:border-b-0 md:border-r border-pink-500/20">
               <h3 className="text-xl font-semibold text-white text-center">Aspecto</h3>
             </div>
-            <div className="bg-gradient-to-r from-red-900/30 to-red-800/30 p-6 border-b md:border-b-0 md:border-r border-purple-500/20">
+            <div className="bg-gradient-to-r from-red-900/30 to-red-800/30 p-6 border-b md:border-b-0 md:border-r border-pink-500/20">
               <h3 className="text-xl font-semibold text-white text-center">Auditoria Manual</h3>
             </div>
             <div className="bg-gradient-to-r from-green-900/30 to-green-800/30 p-6">
@@ -109,16 +109,16 @@ export default function ComparisonSection() {
           {comparisonData.map((item, index) => (
             <motion.div
               key={index}
-              className="grid md:grid-cols-3 gap-0 border-t border-purple-500/20"
+              className="grid md:grid-cols-3 gap-0 border-t border-pink-500/20"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="p-6 border-b md:border-b-0 md:border-r border-purple-500/20">
+              <div className="p-6 border-b md:border-b-0 md:border-r border-pink-500/20">
                 <p className="text-white font-medium">{item.feature}</p>
               </div>
-              <div className="p-6 border-b md:border-b-0 md:border-r border-purple-500/20 bg-red-900/10">
+              <div className="p-6 border-b md:border-b-0 md:border-r border-pink-500/20 bg-red-900/10">
                 <p className="text-red-300">{item.manual}</p>
               </div>
               <div className="p-6 bg-green-900/10">
@@ -148,8 +148,8 @@ export default function ComparisonSection() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl p-8 border border-purple-500/30 hover:border-purple-500/50 transition-all duration-300">
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                <div className="bg-gradient-to-r from-pink-600/20 to-rose-600/20 rounded-2xl p-8 border border-pink-500/30 hover:border-pink-500/50 transition-all duration-300">
+                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-4">
                     {result.value}
                   </div>
                   <h4 className="text-xl font-semibold text-white mb-2">{result.metric}</h4>

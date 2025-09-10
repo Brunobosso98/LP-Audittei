@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X, Sun, Moon, LogIn } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
-import AuditteiLogo from "@/components/audittei-logo"
+import NttaxLogo from "@/components/nttax-logo"
 import Link from "next/link"
 
 export default function AdvancedHeader() {
@@ -35,7 +35,7 @@ export default function AdvancedHeader() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-purple-500/30 shadow-2xl"
+          ? "bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-pink-500/30 shadow-2xl"
           : "bg-transparent"
       }`}
       initial={{ y: -100 }}
@@ -45,7 +45,7 @@ export default function AdvancedHeader() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <AuditteiLogo size="md" />
+          <NttaxLogo size="md" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -59,14 +59,14 @@ export default function AdvancedHeader() {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="relative text-foreground dark:text-white hover:text-purple-400 transition-colors group"
+                className="relative text-foreground dark:text-white hover:text-pink-400 transition-colors group"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 {item.label}
-                <motion.div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
+                <motion.div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-pink-400 group-hover:w-full transition-all duration-300" />
               </motion.button>
             ))}
 
@@ -74,7 +74,7 @@ export default function AdvancedHeader() {
             <div className="relative">
               <motion.button
                 onClick={() => setIsSystemsOpen(!isSystemsOpen)}
-                className="flex items-center space-x-1 text-foreground dark:text-white hover:text-purple-400 transition-colors group"
+                className="flex items-center space-x-1 text-foreground dark:text-white hover:text-pink-400 transition-colors group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -91,7 +91,7 @@ export default function AdvancedHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -20, scale: 0.9 }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="absolute top-full mt-4 w-64 bg-background dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/30 overflow-hidden"
+                    className="absolute top-full mt-4 w-64 bg-background dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-pink-500/30 overflow-hidden"
                   >
                     <div className="p-2">
                       {[
@@ -106,9 +106,9 @@ export default function AdvancedHeader() {
                         >
                           <Link
                             href={system.href}
-                            className="block p-4 rounded-xl hover:bg-purple-600/20 transition-all duration-300 group"
+                            className="block p-4 rounded-xl hover:bg-pink-600/20 transition-all duration-300 group"
                           >
-                            <div className="font-medium text-foreground dark:text-white group-hover:text-purple-400 transition-colors">
+                            <div className="font-medium text-foreground dark:text-white group-hover:text-pink-400 transition-colors">
                               {system.name}
                             </div>
                             <div className="text-sm text-muted-foreground dark:text-gray-400 mt-1">{system.desc}</div>
@@ -126,7 +126,7 @@ export default function AdvancedHeader() {
             {/* Theme Toggle */}
             <motion.button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg bg-background dark:bg-slate-800 border border-purple-500/20 hover:border-purple-500/40 transition-colors"
+              className="p-2 rounded-lg bg-background dark:bg-slate-800 border border-pink-500/20 hover:border-pink-500/40 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -149,7 +149,7 @@ export default function AdvancedHeader() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Moon className="w-5 h-5 text-blue-500" />
+                    <Moon className="w-5 h-5 text-rose-500" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -159,7 +159,7 @@ export default function AdvancedHeader() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
-                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white bg-transparent"
+                className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white bg-transparent"
                 onClick={() => window.open("https://www.inttax.com.br/portal")}
               >
                 <LogIn className="w-4 h-4 mr-2" />
@@ -170,7 +170,7 @@ export default function AdvancedHeader() {
             {/* Demo Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                className="relative overflow-hidden bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
+                className="relative overflow-hidden bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white border-0"
                 onClick={() => scrollToSection("contato")}
               >
                 Demonstração
@@ -182,13 +182,13 @@ export default function AdvancedHeader() {
           <div className="flex items-center space-x-2 md:hidden">
             <motion.button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg bg-background dark:bg-slate-800 border border-purple-500/20"
+              className="p-2 rounded-lg bg-background dark:bg-slate-800 border border-pink-500/20"
               whileTap={{ scale: 0.9 }}
             >
               {theme === "dark" ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
               ) : (
-                <Moon className="w-5 h-5 text-blue-500" />
+                <Moon className="w-5 h-5 text-rose-500" />
               )}
             </motion.button>
 
@@ -232,7 +232,7 @@ export default function AdvancedHeader() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-              className="md:hidden mt-4 py-4 border-t border-purple-500/20 bg-background/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl"
+              className="md:hidden mt-4 py-4 border-t border-pink-500/20 bg-background/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl"
             >
               <div className="flex flex-col space-y-4 px-4">
                 {[
@@ -245,7 +245,7 @@ export default function AdvancedHeader() {
                   <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left text-foreground dark:text-white hover:text-purple-400 transition-colors py-2"
+                    className="text-left text-foreground dark:text-white hover:text-pink-400 transition-colors py-2"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -257,7 +257,7 @@ export default function AdvancedHeader() {
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
                   <Button
                     variant="outline"
-                    className="w-full border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white mb-2 bg-transparent"
+                    className="w-full border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white mb-2 bg-transparent"
                     onClick={() => window.open("https://www.inttax.com.br/portal")}
                   >
                     <LogIn className="w-4 h-4 mr-2" />
@@ -267,7 +267,7 @@ export default function AdvancedHeader() {
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
                   <Button
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white"
+                    className="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white"
                     onClick={() => scrollToSection("contato")}
                   >
                     Demonstração

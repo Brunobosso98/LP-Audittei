@@ -123,7 +123,7 @@ export default function TestimonialsCarousel() {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-1/2 left-1/3 w-96 h-96 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/3 w-96 h-96 bg-gradient-to-r from-green-500/10 to-rose-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             rotate: [0, 120, 0],
@@ -150,7 +150,7 @@ export default function TestimonialsCarousel() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             O que Nossos{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Clientes Dizem
             </span>
           </motion.h2>
@@ -174,11 +174,11 @@ export default function TestimonialsCarousel() {
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 exit={{ opacity: 0, x: -300, rotateY: -45 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="bg-slate-900/90 backdrop-blur-xl border border-purple-500/20 rounded-3xl p-12 relative overflow-hidden"
+                className="bg-slate-900/90 backdrop-blur-xl border border-pink-500/20 rounded-3xl p-12 relative overflow-hidden"
               >
                 {/* Animated Background */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"
+                  className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-pink-500/5"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                   }}
@@ -199,7 +199,7 @@ export default function TestimonialsCarousel() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                       >
-                        <Quote className="w-16 h-16 text-purple-400 flex-shrink-0 mt-2" />
+                        <Quote className="w-16 h-16 text-pink-400 flex-shrink-0 mt-2" />
                         <div className="flex-1">
                           <motion.p
                             className="text-gray-300 text-lg leading-relaxed mb-6"
@@ -236,7 +236,7 @@ export default function TestimonialsCarousel() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.8 }}
                           >
-                            <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                               <span className="text-white font-bold text-xl">
                                 {testimonials[currentIndex].name.charAt(0)}
                               </span>
@@ -244,7 +244,7 @@ export default function TestimonialsCarousel() {
                             <div>
                               <h4 className="text-white font-bold text-lg">{testimonials[currentIndex].name}</h4>
                               <p className="text-gray-400">{testimonials[currentIndex].position}</p>
-                              <p className="text-purple-400 font-medium">{testimonials[currentIndex].company}</p>
+                              <p className="text-pink-400 font-medium">{testimonials[currentIndex].company}</p>
                             </div>
                           </motion.div>
                         </div>
@@ -252,14 +252,14 @@ export default function TestimonialsCarousel() {
 
                       {/* Video Testimonial Button */}
                       <motion.button
-                        className="flex items-center space-x-3 text-blue-400 hover:text-blue-300 transition-colors group"
+                        className="flex items-center space-x-3 text-rose-400 hover:text-rose-300 transition-colors group"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1 }}
                       >
-                        <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+                        <div className="w-12 h-12 bg-rose-500/20 rounded-full flex items-center justify-center group-hover:bg-rose-500/30 transition-colors">
                           <Play className="w-6 h-6 ml-1" />
                         </div>
                         <span className="font-medium">Assistir depoimento em vídeo</span>
@@ -280,7 +280,7 @@ export default function TestimonialsCarousel() {
                       {Object.entries(testimonials[currentIndex].metrics).map(([key, value], index) => (
                         <motion.div
                           key={key}
-                          className="bg-slate-800/50 rounded-2xl p-6 border border-purple-500/20"
+                          className="bg-slate-800/50 rounded-2xl p-6 border border-pink-500/20"
                           initial={{ opacity: 0, x: 50 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.8 + index * 0.1 }}
@@ -288,7 +288,7 @@ export default function TestimonialsCarousel() {
                         >
                           <div className="flex items-center justify-between">
                             <div>
-                              <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                              <div className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
                                 {value}
                               </div>
                               <div className="text-gray-400 text-sm capitalize">
@@ -314,7 +314,7 @@ export default function TestimonialsCarousel() {
           <div className="flex justify-center items-center space-x-6 mt-12">
             <motion.button
               onClick={prevTestimonial}
-              className="w-14 h-14 bg-slate-800/80 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-purple-500/20 hover:border-purple-500/40"
+              className="w-14 h-14 bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -328,14 +328,14 @@ export default function TestimonialsCarousel() {
                   key={index}
                   onClick={() => goToTestimonial(index)}
                   className={`relative w-4 h-4 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-purple-400" : "bg-slate-600"
+                    index === currentIndex ? "bg-pink-400" : "bg-slate-600"
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   {index === currentIndex && (
                     <motion.div
-                      className="absolute inset-0 bg-purple-400 rounded-full"
+                      className="absolute inset-0 bg-pink-400 rounded-full"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.3 }}
@@ -347,7 +347,7 @@ export default function TestimonialsCarousel() {
 
             <motion.button
               onClick={nextTestimonial}
-              className="w-14 h-14 bg-slate-800/80 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-purple-500/20 hover:border-purple-500/40"
+              className="w-14 h-14 bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -389,8 +389,8 @@ export default function TestimonialsCarousel() {
                 onClick={() => goToTestimonial(index)}
                 className={`relative p-4 rounded-2xl border transition-all duration-300 ${
                   index === currentIndex
-                    ? "border-purple-500/50 bg-purple-500/10"
-                    : "border-slate-600/20 bg-slate-800/30 hover:border-purple-500/30"
+                    ? "border-pink-500/50 bg-pink-500/10"
+                    : "border-slate-600/20 bg-slate-800/30 hover:border-pink-500/30"
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -399,7 +399,7 @@ export default function TestimonialsCarousel() {
                 transition={{ delay: 1.4 + index * 0.1 }}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-white font-bold">{testimonial.name.charAt(0)}</span>
                   </div>
                   <div className="text-white font-medium text-sm mb-1">{testimonial.name}</div>
@@ -408,7 +408,7 @@ export default function TestimonialsCarousel() {
 
                 {index === currentIndex && (
                   <motion.div
-                    className="absolute inset-0 border-2 border-purple-400 rounded-2xl"
+                    className="absolute inset-0 border-2 border-pink-400 rounded-2xl"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}

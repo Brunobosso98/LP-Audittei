@@ -61,14 +61,14 @@ Enviado automaticamente pelo site da inttax
       icon: Phone,
       title: "Telefone",
       value: "(19) 98148-3536",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-rose-500 to-cyan-500",
       note: "Seg-Sex, 08h-18h",
     },
     {
       icon: Mail,
       title: "E-mail",
       value: "contato@inttax.com.br",
-      color: "from-purple-500 to-pink-500",
+      color: "from-pink-500 to-pink-500",
       note: "Resposta em até 2h",
     },
     {
@@ -94,7 +94,7 @@ Enviado automaticamente pelo site da inttax
     <section id="contato" className="py-32 bg-slate-800/30 relative overflow-hidden">
       {/* Decorative blob */}
       <motion.div
-        className="absolute -top-20 -left-32 w-[28rem] h-[28rem] bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"
+        className="absolute -top-20 -left-32 w-[28rem] h-[28rem] bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full blur-3xl"
         animate={{ scale: [1, 1.3, 1], rotate: [0, 120, 0] }}
         transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
       />
@@ -109,7 +109,7 @@ Enviado automaticamente pelo site da inttax
         >
           <h2 className="text-5xl font-bold text-white mb-6">
             Fale&nbsp;
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Conosco</span>
+            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">Conosco</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Entre em contato e descubra como a inttax pode transformar seu escritório contábil
@@ -124,10 +124,10 @@ Enviado automaticamente pelo site da inttax
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9 }}
           >
-            <div className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-10 border border-purple-500/20 overflow-hidden">
+            <div className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-10 border border-pink-500/20 overflow-hidden">
               {/* Subtle background glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5"
+                className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-pink-500/5"
                 animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
                 transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
@@ -147,7 +147,7 @@ Enviado automaticamente pelo site da inttax
                         placeholder="Seu nome completo"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 outline-none"
+                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
                       />
                     </div>
                     <div>
@@ -159,7 +159,7 @@ Enviado automaticamente pelo site da inttax
                         placeholder="voce@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 outline-none"
+                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
                       />
                     </div>
                   </div>
@@ -174,7 +174,7 @@ Enviado automaticamente pelo site da inttax
                         placeholder="Nome da empresa"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 outline-none"
+                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
                       />
                     </div>
                     <div>
@@ -186,7 +186,7 @@ Enviado automaticamente pelo site da inttax
                         placeholder="(19) 98148-3536"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 outline-none"
+                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
                       />
                     </div>
                   </div>
@@ -198,7 +198,7 @@ Enviado automaticamente pelo site da inttax
                       name="employees"
                       value={formData.employees}
                       onChange={handleChange}
-                      className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white focus:border-purple-400 outline-none"
+                      className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white focus:border-pink-400 outline-none"
                     >
                       <option value="">Selecione…</option>
                       <option value="1-10">1-10</option>
@@ -217,14 +217,14 @@ Enviado automaticamente pelo site da inttax
                       placeholder="Conte-nos mais sobre suas necessidades…"
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full bg-slate-800/80 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 outline-none resize-none"
+                      className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none resize-none"
                     />
                   </div>
 
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-4 w-full py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all disabled:opacity-50 flex items-center justify-center"
+                    className="mt-4 w-full py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 transition-all disabled:opacity-50 flex items-center justify-center"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -269,7 +269,7 @@ Enviado automaticamente pelo site da inttax
             {contactInfo.map(({ icon: Icon, ...item }, idx) => (
               <motion.div
                 key={item.title}
-                className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 overflow-hidden"
+                className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20 overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
@@ -286,7 +286,7 @@ Enviado automaticamente pelo site da inttax
                   </div>
                   <div>
                     <p className="text-lg font-semibold text-white">{item.title}</p>
-                    <p className="text-purple-400 font-medium">{item.value}</p>
+                    <p className="text-pink-400 font-medium">{item.value}</p>
                     <p className="text-gray-400 text-sm">{item.note}</p>
                   </div>
                 </div>
@@ -295,13 +295,13 @@ Enviado automaticamente pelo site da inttax
 
             {/* Benefits List */}
             <motion.div
-              className="relative bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-purple-900/30 rounded-3xl p-8 border border-purple-500/30 backdrop-blur-sm overflow-hidden"
+              className="relative bg-gradient-to-r from-pink-900/30 via-rose-900/30 to-pink-900/30 rounded-3xl p-8 border border-pink-500/30 backdrop-blur-sm overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.6 }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"
+                className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-pink-500/5"
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
@@ -310,7 +310,7 @@ Enviado automaticamente pelo site da inttax
                 <ul className="space-y-3 text-gray-300">
                   {benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start space-x-2">
-                      <span className="mt-1 w-2 h-2 bg-purple-400 rounded-full shrink-0"></span>
+                      <span className="mt-1 w-2 h-2 bg-pink-400 rounded-full shrink-0"></span>
                       <span>{benefit}</span>
                     </li>
                   ))}

@@ -32,7 +32,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 inttax: Inteligência Fiscal que{" "}
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
                   Revoluciona
                 </span>{" "}
                 seu Escritório Contábil
@@ -56,7 +56,7 @@ export default function HeroSection() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg"
+                className="bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white px-8 py-4 text-lg"
                 onClick={scrollToContact}
               >
                 Agende uma Demonstração
@@ -64,7 +64,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-4 text-lg bg-transparent"
+                className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white px-8 py-4 text-lg bg-transparent"
               >
                 Saiba Mais
               </Button>
@@ -86,7 +86,7 @@ export default function HeroSection() {
                 height={400}
                 className="w-full h-auto"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent"></div>
             </div>
           </motion.div>
         </div>
@@ -101,7 +101,7 @@ export default function HeroSection() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Transforme seu Processo Fiscal: Ganhe{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
                 Tempo, Segurança e Padronização
               </span>
             </h2>
@@ -109,7 +109,7 @@ export default function HeroSection() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div className="text-center space-y-4" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white">Ganhe Tempo</h3>
@@ -120,7 +120,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div className="text-center space-y-4" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white">Segurança Fiscal</h3>
@@ -131,7 +131,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div className="text-center space-y-4" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                 <Settings className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white">Padronize Processos</h3>

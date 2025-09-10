@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             O que Nossos{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
               Clientes Dizem
             </span>
           </h2>
@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
 
         <div className="relative max-w-4xl mx-auto">
           <motion.div
-            className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20"
+            className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/20"
             key={currentIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -85,21 +85,21 @@ export default function TestimonialsSection() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-start space-x-6">
-              <Quote className="w-12 h-12 text-purple-400 flex-shrink-0 mt-2" />
+              <Quote className="w-12 h-12 text-pink-400 flex-shrink-0 mt-2" />
 
               <div className="flex-1">
                 <p className="text-gray-300 text-lg leading-relaxed mb-6">"{testimonials[currentIndex].content}"</p>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">{testimonials[currentIndex].name.charAt(0)}</span>
                     </div>
 
                     <div>
                       <h4 className="text-white font-semibold">{testimonials[currentIndex].name}</h4>
                       <p className="text-gray-400 text-sm">{testimonials[currentIndex].position}</p>
-                      <p className="text-purple-400 text-sm">{testimonials[currentIndex].company}</p>
+                      <p className="text-pink-400 text-sm">{testimonials[currentIndex].company}</p>
                     </div>
                   </div>
 
@@ -117,7 +117,7 @@ export default function TestimonialsSection() {
           <div className="flex justify-center items-center space-x-4 mt-8">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 bg-slate-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors"
+              className="w-12 h-12 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center transition-colors"
             >
               <span className="text-white">←</span>
             </button>
@@ -128,7 +128,7 @@ export default function TestimonialsSection() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-purple-400" : "bg-slate-600"
+                    index === currentIndex ? "bg-pink-400" : "bg-slate-600"
                   }`}
                 />
               ))}
@@ -136,7 +136,7 @@ export default function TestimonialsSection() {
 
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 bg-slate-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors"
+              className="w-12 h-12 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center transition-colors"
             >
               <span className="text-white">→</span>
             </button>

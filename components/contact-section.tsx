@@ -53,7 +53,7 @@ Mensagem: ${formData.message}`
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Fale{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Conosco</span>
+            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">Conosco</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Entre em contato e descubra como a inttax pode transformar seu escritório contábil
@@ -68,7 +68,7 @@ Mensagem: ${formData.message}`
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
+            <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/20">
               <h3 className="text-2xl font-bold text-white mb-6">Solicite uma Demonstração</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -81,7 +81,7 @@ Mensagem: ${formData.message}`
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-slate-800 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400"
+                      className="bg-slate-800 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-400"
                       placeholder="Seu nome completo"
                     />
                   </div>
@@ -94,7 +94,7 @@ Mensagem: ${formData.message}`
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-slate-800 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400"
+                      className="bg-slate-800 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-400"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -108,7 +108,7 @@ Mensagem: ${formData.message}`
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="bg-slate-800 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400"
+                      className="bg-slate-800 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-400"
                       placeholder="Nome da empresa"
                     />
                   </div>
@@ -121,7 +121,7 @@ Mensagem: ${formData.message}`
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="bg-slate-800 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400"
+                      className="bg-slate-800 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-400"
                       placeholder="(19) 98148-3536"
                     />
                   </div>
@@ -134,7 +134,7 @@ Mensagem: ${formData.message}`
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="bg-slate-800 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-400"
+                    className="bg-slate-800 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-400"
                     placeholder="Conte-nos mais sobre suas necessidades..."
                   />
                 </div>
@@ -142,7 +142,7 @@ Mensagem: ${formData.message}`
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white"
+                  className="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Enviar via WhatsApp
@@ -159,12 +159,12 @@ Mensagem: ${formData.message}`
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
+            <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/20">
               <h3 className="text-2xl font-bold text-white mb-6">Informações de Contato</h3>
 
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -174,7 +174,7 @@ Mensagem: ${formData.message}`
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -184,7 +184,7 @@ Mensagem: ${formData.message}`
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -195,23 +195,23 @@ Mensagem: ${formData.message}`
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl p-8 border border-purple-500/30">
+            <div className="bg-gradient-to-r from-pink-900/30 to-rose-900/30 rounded-2xl p-8 border border-pink-500/30">
               <h4 className="text-xl font-bold text-white mb-4">Por que escolher a inttax?</h4>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                   <span>Suporte técnico especializado</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                   <span>Implementação rápida e eficiente</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                   <span>Treinamento completo da equipe</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                   <span>Atualizações constantes</span>
                 </li>
               </ul>

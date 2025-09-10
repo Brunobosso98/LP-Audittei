@@ -45,7 +45,7 @@ export default function AdvancedHero() {
       title: "Ganhe Tempo",
       description:
         "Elimine horas de trabalho manual e repetitivo. A automação da inttax libera sua equipe para atividades estratégicas.",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-rose-500 to-cyan-500",
       delay: 0.2,
     },
     {
@@ -53,7 +53,7 @@ export default function AdvancedHero() {
       title: "Segurança Fiscal",
       description:
         "Reduza riscos de autuações e multas. Nossa plataforma identifica inconsistências e garante conformidade fiscal.",
-      color: "from-purple-500 to-pink-500",
+      color: "from-pink-500 to-pink-500",
       delay: 0.4,
     },
     {
@@ -70,7 +70,7 @@ export default function AdvancedHero() {
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-rose-500/20 to-pink-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
@@ -82,7 +82,7 @@ export default function AdvancedHero() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
@@ -108,7 +108,7 @@ export default function AdvancedHero() {
               <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-white leading-tight">
                 {typedText}
                 <motion.span
-                  className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-rose-400 via-pink-400 to-pink-400 bg-clip-text text-transparent"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                   }}
@@ -125,7 +125,7 @@ export default function AdvancedHero() {
                 </motion.span>
                 {" seu Escritório Contábil"}
                 <motion.span
-                  className="inline-block w-1 h-12 bg-purple-400 ml-2"
+                  className="inline-block w-1 h-12 bg-pink-400 ml-2"
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
                 />
@@ -150,7 +150,7 @@ export default function AdvancedHero() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   size="lg"
-                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg border-0"
+                  className="group relative overflow-hidden bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white px-8 py-4 text-lg border-0"
                   onClick={scrollToContact}
                 >
                   <span className="relative flex items-center">
@@ -164,7 +164,7 @@ export default function AdvancedHero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="group border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-4 text-lg bg-transparent backdrop-blur-sm"
+                  className="group border-2 border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white px-8 py-4 text-lg bg-transparent backdrop-blur-sm"
                 >
                   <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                   Ver Demo
@@ -183,7 +183,7 @@ export default function AdvancedHero() {
             <div className="relative">
               {/* Floating Elements */}
               <motion.div
-                className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl"
+                className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-2xl"
                 animate={{
                   y: [-10, 10, -10],
                   rotate: [0, 5, 0],
@@ -214,7 +214,7 @@ export default function AdvancedHero() {
               </motion.div>
 
               {/* Main Dashboard */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-purple-500/30 backdrop-blur-sm">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-pink-500/30 backdrop-blur-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-background/90 to-muted/90 dark:from-slate-800/90 dark:to-slate-900/90" />
                 <div className="relative p-8">
                   <div className="grid grid-cols-2 gap-6 mb-6">
@@ -226,7 +226,7 @@ export default function AdvancedHero() {
                     ].map((stat, index) => (
                       <motion.div
                         key={stat.label}
-                        className="bg-muted/50 dark:bg-slate-700/50 rounded-xl p-4 border border-purple-500/20"
+                        className="bg-muted/50 dark:bg-slate-700/50 rounded-xl p-4 border border-pink-500/20"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 2 + index * 0.1 }}
@@ -239,7 +239,7 @@ export default function AdvancedHero() {
                   </div>
 
                   {/* Animated Chart */}
-                  <div className="bg-muted/50 dark:bg-slate-700/50 rounded-xl p-4 border border-purple-500/20">
+                  <div className="bg-muted/50 dark:bg-slate-700/50 rounded-xl p-4 border border-pink-500/20">
                     <div className="flex justify-between items-center mb-4">
                       <span className="text-foreground dark:text-white font-medium">Auditoria em Tempo Real</span>
                       <div className="flex space-x-2">
@@ -251,7 +251,7 @@ export default function AdvancedHero() {
                       {[40, 65, 45, 80, 55, 90, 70, 85].map((height, index) => (
                         <motion.div
                           key={index}
-                          className="flex-1 bg-gradient-to-t from-blue-500 to-purple-500 rounded-t"
+                          className="flex-1 bg-gradient-to-t from-rose-500 to-pink-500 rounded-t"
                           initial={{ height: 0 }}
                           animate={{ height: `${height}%` }}
                           transition={{ delay: 3 + index * 0.1, duration: 0.5 }}
@@ -275,7 +275,7 @@ export default function AdvancedHero() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-4">
               Transforme seu Processo Fiscal: Ganhe{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
                 Tempo, Segurança e Padronização
               </span>
             </h2>
@@ -295,7 +295,7 @@ export default function AdvancedHero() {
                   z: 50,
                 }}
               >
-                <div className="relative bg-background/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-500 overflow-hidden">
+                <div className="relative bg-background/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/40 transition-all duration-500 overflow-hidden">
                   {/* Animated Background */}
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-r ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -325,7 +325,7 @@ export default function AdvancedHero() {
                     />
                   </motion.div>
 
-                  <h3 className="text-2xl font-semibold text-foreground dark:text-white mb-4 group-hover:text-purple-300 transition-colors">
+                  <h3 className="text-2xl font-semibold text-foreground dark:text-white mb-4 group-hover:text-pink-300 transition-colors">
                     {benefit.title}
                   </h3>
 
@@ -334,7 +334,7 @@ export default function AdvancedHero() {
                   </p>
 
                   {/* Hover Effect Lines */}
-                  <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </motion.div>
             ))}

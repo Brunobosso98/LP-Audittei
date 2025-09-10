@@ -23,7 +23,7 @@ const processSteps = [
     description: "Importe automaticamente suas notas fiscais eletrônicas e arquivos SPED para análise completa.",
     details:
       "Sistema inteligente que processa milhares de documentos em segundos, validando estrutura e integridade dos dados.",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-rose-500 to-cyan-500",
     stats: { documentos: "10k+", tempo: "< 30s", precisão: "99.9%" },
     features: ["Validação automática", "Processamento em lote", "Detecção de erros", "Backup seguro"],
   },
@@ -33,7 +33,7 @@ const processSteps = [
     title: "Criação Automática de Clientes",
     description: "O sistema identifica e cria automaticamente o cadastro de novos clientes baseado nos documentos.",
     details: "IA avançada que reconhece padrões e cria perfis completos de clientes com dados fiscais atualizados.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-pink-500 to-pink-500",
     stats: { clientes: "500+", automação: "95%", precisão: "98%" },
     features: ["Reconhecimento de padrões", "Perfis automáticos", "Dados atualizados", "Integração CRM"],
   },
@@ -64,7 +64,7 @@ const processSteps = [
     title: "Cálculo de Auditoria NF-e Entrada",
     description: "Auditoria automatizada das notas fiscais de entrada com validação de impostos e créditos.",
     details: "Validação completa de ICMS, IPI, PIS/COFINS com detecção automática de inconsistências.",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-500 to-pink-500",
     stats: { validação: "100%", erros: "< 0.1%", velocidade: "10x" },
     features: ["Validação ICMS/IPI", "Créditos automáticos", "Detecção de erros", "Relatórios detalhados"],
   },
@@ -74,7 +74,7 @@ const processSteps = [
     title: "Cálculo de Auditoria NF-e Saída",
     description: "Análise completa das notas fiscais de saída com verificação de conformidade tributária.",
     details: "Auditoria completa com geração de relatórios detalhados e sugestões de otimização fiscal.",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-500 to-rose-500",
     stats: { conformidade: "100%", relatórios: "Auto", otimização: "30%" },
     features: ["Conformidade total", "Relatórios automáticos", "Otimização fiscal", "Alertas inteligentes"],
   },
@@ -120,7 +120,7 @@ export default function ProcessCarousel() {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-rose-500/10 to-pink-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             rotate: [0, 90, 0],
@@ -147,7 +147,7 @@ export default function ProcessCarousel() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             Como Funciona o{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Processo inttax
             </span>
           </motion.h2>
@@ -172,7 +172,7 @@ export default function ProcessCarousel() {
                 exit={{ opacity: 0, x: -300, rotateY: -45 }}
                 // Reduced transition duration from 0.6s to 0.4s for faster animations
                 transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                className="bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl border border-purple-500/20 rounded-3xl overflow-hidden"
+                className="bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl border border-pink-500/20 rounded-3xl overflow-hidden"
               >
                 {/* Animated Background */}
                 <motion.div
@@ -204,7 +204,7 @@ export default function ProcessCarousel() {
                         >
                           {CurrentIcon && <CurrentIcon className="w-10 h-10 text-white" />}
                         </div>
-                        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                        <div className="w-16 h-16 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-2xl">
                           {processSteps[currentSlide].id}
                         </div>
                       </motion.div>
@@ -248,7 +248,7 @@ export default function ProcessCarousel() {
                               // Reduced delay for faster feature appearance
                               transition={{ delay: 0.4 + index * 0.05 }}
                             >
-                              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                               <span className="text-sm text-muted-foreground dark:text-gray-300">{feature}</span>
                             </motion.div>
                           ))}
@@ -269,14 +269,14 @@ export default function ProcessCarousel() {
                         {Object.entries(processSteps[currentSlide].stats).map(([key, value], index) => (
                           <motion.div
                             key={key}
-                            className="bg-muted/50 dark:bg-slate-800/50 rounded-xl p-4 text-center border border-purple-500/20"
+                            className="bg-muted/50 dark:bg-slate-800/50 rounded-xl p-4 text-center border border-pink-500/20"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             // Reduced delay for faster stats appearance
                             transition={{ delay: 0.3 + index * 0.05 }}
                             whileHover={{ scale: 1.05 }}
                           >
-                            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-1">
+                            <div className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-1">
                               {value}
                             </div>
                             <div className="text-xs text-muted-foreground dark:text-gray-400 capitalize">
@@ -288,7 +288,7 @@ export default function ProcessCarousel() {
 
                       {/* Visual Representation */}
                       <motion.div
-                        className="bg-muted/30 dark:bg-slate-800/30 rounded-2xl p-8 border border-purple-500/20"
+                        className="bg-muted/30 dark:bg-slate-800/30 rounded-2xl p-8 border border-pink-500/20"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         // Reduced delay for faster visualization appearance
@@ -321,7 +321,7 @@ export default function ProcessCarousel() {
                           transition={{ delay: 0.6 }}
                         >
                           <motion.button
-                            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-medium transition-all duration-300"
+                            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white rounded-xl font-medium transition-all duration-300"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -341,7 +341,7 @@ export default function ProcessCarousel() {
           <div className="flex justify-center items-center space-x-6 mt-12">
             <motion.button
               onClick={prevSlide}
-              className="w-14 h-14 bg-background/80 dark:bg-slate-800/80 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-purple-500/20 hover:border-purple-500/40"
+              className="w-14 h-14 bg-background/80 dark:bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -355,14 +355,14 @@ export default function ProcessCarousel() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`relative w-4 h-4 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? "bg-purple-400" : "bg-muted dark:bg-slate-600"
+                    index === currentSlide ? "bg-pink-400" : "bg-muted dark:bg-slate-600"
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   {index === currentSlide && (
                     <motion.div
-                      className="absolute inset-0 bg-purple-400 rounded-full"
+                      className="absolute inset-0 bg-pink-400 rounded-full"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.3 }}
@@ -374,7 +374,7 @@ export default function ProcessCarousel() {
 
             <motion.button
               onClick={nextSlide}
-              className="w-14 h-14 bg-background/80 dark:bg-slate-800/80 hover:bg-purple-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-purple-500/20 hover:border-purple-500/40"
+              className="w-14 h-14 bg-background/80 dark:bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -417,8 +417,8 @@ export default function ProcessCarousel() {
                 onClick={() => goToSlide(index)}
                 className={`relative p-4 rounded-2xl border transition-all duration-300 ${
                   index === currentSlide
-                    ? "border-purple-500/50 bg-purple-500/10"
-                    : "border-muted/20 bg-background/30 dark:bg-slate-800/30 hover:border-purple-500/30"
+                    ? "border-pink-500/50 bg-pink-500/10"
+                    : "border-muted/20 bg-background/30 dark:bg-slate-800/30 hover:border-pink-500/30"
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -438,7 +438,7 @@ export default function ProcessCarousel() {
 
                 {index === currentSlide && (
                   <motion.div
-                    className="absolute inset-0 border-2 border-purple-400 rounded-2xl"
+                    className="absolute inset-0 border-2 border-pink-400 rounded-2xl"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}

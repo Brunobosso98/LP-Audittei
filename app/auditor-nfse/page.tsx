@@ -8,7 +8,7 @@ import { FileCheck, Database, Search, AlertTriangle, TrendingUp, Clock } from "l
 
 export default function AuditorNFSePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-pink-900 to-slate-900">
       <Header />
 
       <main className="pt-20">
@@ -22,7 +22,7 @@ export default function AuditorNFSePage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
                   AuditorNFSe
                 </span>
               </h1>
@@ -31,7 +31,7 @@ export default function AuditorNFSePage() {
               </p>
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg"
+                className="bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white px-8 py-4 text-lg"
               >
                 Conhecer Solução
               </Button>
@@ -81,13 +81,13 @@ export default function AuditorNFSePage() {
               ].map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20"
+                  className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-500/20"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <feature.icon className="w-12 h-12 text-purple-400 mb-4" />
+                  <feature.icon className="w-12 h-12 text-pink-400 mb-4" />
                   <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
                   <p className="text-gray-300">{feature.description}</p>
                 </motion.div>

@@ -11,7 +11,7 @@ const aiFeatures = [
     description: "Algoritmos que aprendem com cada auditoria, melhorando continuamente a precisão e eficiência.",
     details:
       "Redes neurais profundas que analisam padrões complexos em documentos fiscais, identificando anomalias sutis que passariam despercebidas por análises tradicionais.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-pink-500 to-pink-500",
     stats: { confiança: 99.9, velocidade: "10x", aprendizado: "24/7" },
   },
   {
@@ -20,7 +20,7 @@ const aiFeatures = [
     description: "IA capaz de processar milhares de documentos fiscais em segundos com alta precisão.",
     details:
       "Processamento paralelo distribuído que utiliza GPUs para análise em tempo real de grandes volumes de dados fiscais.",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-rose-500 to-cyan-500",
     stats: { transferência: "10k/min", latência: "<1s", disponibilidade: "99.99%" },
   },
   {
@@ -45,7 +45,7 @@ const aiFeatures = [
     title: "Análise Preditiva",
     description: "Previsão de tendências e identificação de riscos fiscais antes que se tornem problemas.",
     details: "Modelos preditivos que analisam histórico fiscal para antecipar possíveis problemas e oportunidades.",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-500 to-pink-500",
     stats: { predição: "95%", horizonte: "6 meses", alertas: "Real-time" },
   },
   {
@@ -54,7 +54,7 @@ const aiFeatures = [
     description: "Fluxos de trabalho totalmente automatizados que reduzem drasticamente a intervenção manual.",
     details:
       "Orquestração inteligente de processos com decisões autônomas baseadas em regras de negócio configuráveis.",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-500 to-rose-500",
     stats: { automação: "95%", eficiência: "+300%", erros: "-99%" },
   },
 ]
@@ -164,9 +164,9 @@ export default function AIShowcase() {
                 ease: "linear",
               }}
             >
-              <Sparkles className="w-16 h-16 text-purple-400" />
+              <Sparkles className="w-16 h-16 text-pink-400" />
               <motion.div
-                className="absolute inset-0 bg-purple-400 rounded-full blur-xl opacity-30"
+                className="absolute inset-0 bg-pink-400 rounded-full blur-xl opacity-30"
                 animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.3, 0.6, 0.3],
@@ -187,7 +187,7 @@ export default function AIShowcase() {
             transition={{ duration: 1, delay: 0.4 }}
           >
             Inteligência Artificial{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               no Centro da Inovação
             </span>
           </motion.h2>
@@ -220,7 +220,7 @@ export default function AIShowcase() {
               onMouseLeave={() => setActiveFeature(null)}
             >
               <motion.div
-                className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 overflow-hidden cursor-pointer h-full"
+                className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/50 transition-all duration-500 overflow-hidden cursor-pointer h-full"
                 whileHover={{
                   scale: 1.05,
                   rotateY: 5,
@@ -240,7 +240,7 @@ export default function AIShowcase() {
                   {[...Array(5)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute w-1 h-1 bg-purple-400 rounded-full"
+                      className="absolute w-1 h-1 bg-pink-400 rounded-full"
                       style={{
                         left: `${20 + i * 15}%`,
                         top: `${10 + i * 20}%`,
@@ -285,7 +285,7 @@ export default function AIShowcase() {
                 </motion.div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-pink-300 transition-colors">
                   {feature.title}
                 </h3>
 
@@ -298,7 +298,7 @@ export default function AIShowcase() {
                   {Object.entries(feature.stats).map(([key, value]) => (
                     <div key={key} className="flex justify-between items-center text-sm">
                       <span className="text-gray-400 capitalize">{key}:</span>
-                      <span className="text-purple-400 font-medium">{value}</span>
+                      <span className="text-pink-400 font-medium">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -313,13 +313,13 @@ export default function AIShowcase() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden mt-4"
                 >
-                  <div className="pt-4 border-t border-purple-500/20">
+                  <div className="pt-4 border-t border-pink-500/20">
                     <p className="text-gray-400 text-sm leading-relaxed">{feature.details}</p>
                   </div>
                 </motion.div>
 
                 {/* Hover Effect Lines */}
-                <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </motion.div>
             </motion.div>
           ))}
@@ -327,7 +327,7 @@ export default function AIShowcase() {
 
         {/* AI Stats Dashboard */}
         <motion.div
-          className="relative bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-purple-900/30 rounded-3xl p-12 border border-purple-500/30 backdrop-blur-sm overflow-hidden"
+          className="relative bg-gradient-to-r from-pink-900/30 via-rose-900/30 to-pink-900/30 rounded-3xl p-12 border border-pink-500/30 backdrop-blur-sm overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -381,14 +381,14 @@ export default function AIShowcase() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <motion.div className="relative mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-                    <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center">
                       <stat.icon className="w-8 h-8 text-white" />
                     </div>
-                    <motion.div className="absolute inset-0 bg-blue-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity" />
+                    <motion.div className="absolute inset-0 bg-rose-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity" />
                   </motion.div>
 
                   <motion.div
-                    className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2"
+                    className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-2"
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 2.2 + index * 0.1 }}
@@ -409,24 +409,24 @@ export default function AIShowcase() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 2.5 }}
             >
-              <div className="bg-slate-800/50 rounded-2xl p-8 border border-purple-500/30">
+              <div className="bg-slate-800/50 rounded-2xl p-8 border border-pink-500/30">
                 <h4 className="text-2xl font-bold text-white mb-6">Demonstração Interativa da IA</h4>
 
                 <div className="grid md:grid-cols-3 gap-6">
                   <motion.div
-                    className="bg-slate-700/50 rounded-xl p-6 border border-blue-500/30"
+                    className="bg-slate-700/50 rounded-xl p-6 border border-rose-500/30"
                     whileHover={{ scale: 1.02, borderColor: "rgba(59, 130, 246, 0.5)" }}
                   >
-                    <Eye className="w-8 h-8 text-blue-400 mx-auto mb-4" />
+                    <Eye className="w-8 h-8 text-rose-400 mx-auto mb-4" />
                     <h5 className="text-white font-semibold mb-2">Visão Computacional</h5>
                     <p className="text-gray-300 text-sm">Análise automática de documentos com OCR avançado</p>
                   </motion.div>
 
                   <motion.div
-                    className="bg-slate-700/50 rounded-xl p-6 border border-purple-500/30"
+                    className="bg-slate-700/50 rounded-xl p-6 border border-pink-500/30"
                     whileHover={{ scale: 1.02, borderColor: "rgba(139, 92, 246, 0.5)" }}
                   >
-                    <Lightbulb className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                    <Lightbulb className="w-8 h-8 text-pink-400 mx-auto mb-4" />
                     <h5 className="text-white font-semibold mb-2">Aprendizado Contínuo</h5>
                     <p className="text-gray-300 text-sm">Sistema que evolui com cada processamento</p>
                   </motion.div>
@@ -442,7 +442,7 @@ export default function AIShowcase() {
                 </div>
 
                 <motion.button
-                  className="mt-8 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-medium transition-all duration-300"
+                  className="mt-8 px-8 py-3 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white rounded-xl font-medium transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

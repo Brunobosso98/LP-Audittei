@@ -54,7 +54,7 @@ const results = [
     value: 85,
     displayValue: "85%",
     description: "Menos tempo gasto em processos manuais",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-rose-500 to-cyan-500",
   },
   {
     metric: "Aumento de Precisão",
@@ -68,7 +68,7 @@ const results = [
     value: 70,
     displayValue: "70%",
     description: "Redução nos custos operacionais",
-    color: "from-purple-500 to-pink-500",
+    color: "from-pink-500 to-pink-500",
   },
   {
     metric: "Produtividade",
@@ -129,7 +129,7 @@ export default function ComparisonVisualization() {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.4, 1],
             rotate: [0, -90, 0],
@@ -156,7 +156,7 @@ export default function ComparisonVisualization() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             Auditoria Manual vs{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Auditoria Digital
             </span>
           </motion.h2>
@@ -177,12 +177,12 @@ export default function ComparisonVisualization() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-2 border border-purple-500/20">
+          <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-2 border border-pink-500/20">
             <button
               onClick={() => setActiveTab("comparison")}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeTab === "comparison"
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                  ? "bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-lg"
                   : "text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-white"
               }`}
             >
@@ -193,7 +193,7 @@ export default function ComparisonVisualization() {
               onClick={() => setActiveTab("charts")}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeTab === "charts"
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                  ? "bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-lg"
                   : "text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-white"
               }`}
             >
@@ -220,13 +220,13 @@ export default function ComparisonVisualization() {
                     className="group cursor-pointer"
                     onClick={() => setActiveComparison(activeComparison === index ? null : index)}
                   >
-                    <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-500 overflow-hidden">
+                    <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-pink-500/20 hover:border-pink-500/40 transition-all duration-500 overflow-hidden">
                       <div className="grid md:grid-cols-4 gap-0">
                         {/* Category */}
-                        <div className="bg-gradient-to-r from-muted/80 to-muted/60 dark:from-slate-800/80 dark:to-slate-700/80 p-8 border-b md:border-b-0 md:border-r border-purple-500/20">
+                        <div className="bg-gradient-to-r from-muted/80 to-muted/60 dark:from-slate-800/80 dark:to-slate-700/80 p-8 border-b md:border-b-0 md:border-r border-pink-500/20">
                           <h3 className="text-xl font-bold text-foreground dark:text-white mb-2">{item.category}</h3>
                           <motion.div
-                            className="text-purple-400 text-sm"
+                            className="text-pink-400 text-sm"
                             animate={{ opacity: [0.5, 1, 0.5] }}
                             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                           >
@@ -235,7 +235,7 @@ export default function ComparisonVisualization() {
                         </div>
 
                         {/* Manual */}
-                        <div className="bg-gradient-to-r from-red-900/20 to-red-800/20 p-8 border-b md:border-b-0 md:border-r border-purple-500/20 relative">
+                        <div className="bg-gradient-to-r from-red-900/20 to-red-800/20 p-8 border-b md:border-b-0 md:border-r border-pink-500/20 relative">
                           <div className="flex items-center mb-4">
                             <item.manual.icon className="w-6 h-6 text-red-400 mr-3" />
                             <span className="text-red-300 font-medium">Auditoria Manual</span>
@@ -259,7 +259,7 @@ export default function ComparisonVisualization() {
                         </div>
 
                         {/* Audittei */}
-                        <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-8 border-b md:border-b-0 md:border-r border-purple-500/20 relative">
+                        <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-8 border-b md:border-b-0 md:border-r border-pink-500/20 relative">
                           <div className="flex items-center mb-4">
                             <item.audittei.icon className="w-6 h-6 text-green-400 mr-3" />
                             <span className="text-green-300 font-medium">inttax Digital</span>
@@ -285,13 +285,13 @@ export default function ComparisonVisualization() {
                         </div>
 
                         {/* Improvement */}
-                        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-8 relative">
+                        <div className="bg-gradient-to-r from-rose-900/20 to-pink-900/20 p-8 relative">
                           <div className="flex items-center mb-4">
-                            <TrendingUp className="w-6 h-6 text-blue-400 mr-3" />
-                            <span className="text-blue-300 font-medium">Melhoria</span>
+                            <TrendingUp className="w-6 h-6 text-rose-400 mr-3" />
+                            <span className="text-rose-300 font-medium">Melhoria</span>
                           </div>
                           <motion.div
-                            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+                            className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={isInView ? { opacity: 1, scale: 1 } : {}}
                             transition={{ delay: 1 + index * 0.1 }}
@@ -309,7 +309,7 @@ export default function ComparisonVisualization() {
                           opacity: activeComparison === index ? 1 : 0,
                         }}
                         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                        className="overflow-hidden border-t border-purple-500/20"
+                        className="overflow-hidden border-t border-pink-500/20"
                       >
                         <div className="p-8 bg-muted/50 dark:bg-slate-800/50">
                           <div className="grid md:grid-cols-2 gap-8">
@@ -366,9 +366,9 @@ export default function ComparisonVisualization() {
           >
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Evolution Chart - Fixed */}
-              <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20">
+              <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20">
                 <h3 className="text-2xl font-bold text-foreground dark:text-white mb-6 flex items-center">
-                  <Activity className="w-6 h-6 mr-3 text-blue-400" />
+                  <Activity className="w-6 h-6 mr-3 text-rose-400" />
                   Evolução da Eficiência
                 </h3>
                 <div className="h-80 relative">
@@ -482,9 +482,9 @@ export default function ComparisonVisualization() {
               </div>
 
               {/* Performance Comparison - Increased size to prevent text overlap */}
-              <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20">
+              <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20">
                 <h3 className="text-2xl font-bold text-foreground dark:text-white mb-6 flex items-center">
-                  <PieChart className="w-6 h-6 mr-3 text-purple-400" />
+                  <PieChart className="w-6 h-6 mr-3 text-pink-400" />
                   Comparação de Performance
                 </h3>
                 {/* Increased height from h-64 to h-80 and container size */}
@@ -584,13 +584,13 @@ export default function ComparisonVisualization() {
             {/* Animated Metrics */}
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { label: "Velocidade de Processamento", value: "10x", color: "text-blue-400", icon: Zap },
+                { label: "Velocidade de Processamento", value: "10x", color: "text-rose-400", icon: Zap },
                 { label: "Redução de Erros", value: "99%", color: "text-green-400", icon: CheckCircle },
-                { label: "ROI em 12 meses", value: "380%", color: "text-purple-400", icon: TrendingUp },
+                { label: "ROI em 12 meses", value: "380%", color: "text-pink-400", icon: TrendingUp },
               ].map((metric, index) => (
                 <motion.div
                   key={metric.label}
-                  className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/20 text-center group hover:border-purple-500/40 transition-all duration-300"
+                  className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-pink-500/20 text-center group hover:border-pink-500/40 transition-all duration-300"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.2 }}
@@ -635,7 +635,7 @@ export default function ComparisonVisualization() {
                 transition={{ duration: 0.8, delay: 1 + index * 0.1 }}
                 whileHover={{ scale: 1.05, rotateY: 5 }}
               >
-                <div className="relative bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-500 overflow-hidden">
+                <div className="relative bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/40 transition-all duration-500 overflow-hidden">
                   {/* Animated Background */}
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-r ${result.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -692,7 +692,7 @@ export default function ComparisonVisualization() {
 
                   </div>
 
-                  <h4 className="text-xl font-bold text-foreground dark:text-white mb-2 group-hover:text-purple-300 transition-colors">
+                  <h4 className="text-xl font-bold text-foreground dark:text-white mb-2 group-hover:text-pink-300 transition-colors">
                     {result.metric}
                   </h4>
                   <p className="text-muted-foreground dark:text-gray-300 text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
@@ -700,7 +700,7 @@ export default function ComparisonVisualization() {
                   </p>
 
                   {/* Hover Effect */}
-                  <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </motion.div>
             ))}

@@ -26,7 +26,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
       >
         {/* Background gradient circle */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-xl"
+          className="absolute inset-0 bg-gradient-to-br from-rose-500 via-pink-500 to-cyan-500 rounded-xl"
           animate={{
             rotate: [0, 360],
           }}
@@ -42,7 +42,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
 
         {/* Letter A */}
         <motion.div
-          className="relative z-10 font-bold text-transparent bg-gradient-to-br from-blue-400 via-purple-400 to-cyan-400 bg-clip-text"
+          className="relative z-10 font-bold text-transparent bg-gradient-to-br from-rose-400 via-pink-400 to-cyan-400 bg-clip-text"
           style={{ fontSize: size === "sm" ? "1.25rem" : size === "md" ? "1.5rem" : "1.75rem" }}
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -58,7 +58,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
 
         {/* Glow effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-cyan-400/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute inset-0 bg-gradient-to-br from-rose-400/20 via-pink-400/20 to-cyan-400/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -73,7 +73,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
 
       {/* Text with integrated A */}
       <motion.div
-        className={`font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent ${currentSize.text}`}
+        className={`font-bold bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent ${currentSize.text}`}
         animate={{
           backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
         }}

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X } from "lucide-react"
 import Link from "next/link"
+import NttaxLogo from "@/components/nttax-logo"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -31,7 +32,7 @@ export default function Header() {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-slate-900/95 backdrop-blur-md border-b border-purple-500/20" : "bg-transparent"
+        isScrolled ? "bg-slate-900/95 backdrop-blur-md border-b border-pink-500/20" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -39,42 +40,37 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-            whileHover={{ scale: 1.05 }}
-          >
-            inttax
-          </motion.div>
+          <NttaxLogo size="md" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-white hover:text-purple-400 transition-colors"
+              className="text-white hover:text-pink-400 transition-colors"
             >
               Início
             </button>
             <button
               onClick={() => scrollToSection("processo")}
-              className="text-white hover:text-purple-400 transition-colors"
+              className="text-white hover:text-pink-400 transition-colors"
             >
               Processo
             </button>
             <button
               onClick={() => scrollToSection("comparacao")}
-              className="text-white hover:text-purple-400 transition-colors"
+              className="text-white hover:text-pink-400 transition-colors"
             >
               Comparação
             </button>
             <button
               onClick={() => scrollToSection("ia")}
-              className="text-white hover:text-purple-400 transition-colors"
+              className="text-white hover:text-pink-400 transition-colors"
             >
               IA
             </button>
             <button
               onClick={() => scrollToSection("contato")}
-              className="text-white hover:text-purple-400 transition-colors"
+              className="text-white hover:text-pink-400 transition-colors"
             >
               Contato
             </button>
@@ -83,7 +79,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setIsSystemsOpen(!isSystemsOpen)}
-                className="flex items-center space-x-1 text-white hover:text-purple-400 transition-colors"
+                className="flex items-center space-x-1 text-white hover:text-pink-400 transition-colors"
               >
                 <span>Sistemas</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isSystemsOpen ? "rotate-180" : ""}`} />
@@ -95,17 +91,17 @@ export default function Header() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute top-full mt-2 w-48 bg-slate-800 rounded-lg shadow-xl border border-purple-500/20"
+                    className="absolute top-full mt-2 w-48 bg-slate-800 rounded-lg shadow-xl border border-pink-500/20"
                   >
                     <Link
                       href="/auditor-nfse"
-                      className="block px-4 py-3 text-white hover:bg-purple-600/20 transition-colors rounded-t-lg"
+                      className="block px-4 py-3 text-white hover:bg-pink-600/20 transition-colors rounded-t-lg"
                     >
                       AuditorNFSe
                     </Link>
                     <Link
                       href="/auditor-fiscal"
-                      className="block px-4 py-3 text-white hover:bg-purple-600/20 transition-colors rounded-b-lg"
+                      className="block px-4 py-3 text-white hover:bg-pink-600/20 transition-colors rounded-b-lg"
                     >
                       Auditor Fiscal
                     </Link>
@@ -118,7 +114,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <Button
               variant="outline"
-              className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white bg-transparent"
+              className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white bg-transparent"
               onClick={() => scrollToSection("contato")}
             >
               Demonstração
@@ -138,42 +134,42 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 py-4 border-t border-purple-500/20"
+              className="md:hidden mt-4 py-4 border-t border-pink-500/20"
             >
               <div className="flex flex-col space-y-4">
                 <button
                   onClick={() => scrollToSection("hero")}
-                  className="text-white hover:text-purple-400 transition-colors text-left"
+                  className="text-white hover:text-pink-400 transition-colors text-left"
                 >
                   Início
                 </button>
                 <button
                   onClick={() => scrollToSection("processo")}
-                  className="text-white hover:text-purple-400 transition-colors text-left"
+                  className="text-white hover:text-pink-400 transition-colors text-left"
                 >
                   Processo
                 </button>
                 <button
                   onClick={() => scrollToSection("comparacao")}
-                  className="text-white hover:text-purple-400 transition-colors text-left"
+                  className="text-white hover:text-pink-400 transition-colors text-left"
                 >
                   Comparação
                 </button>
                 <button
                   onClick={() => scrollToSection("ia")}
-                  className="text-white hover:text-purple-400 transition-colors text-left"
+                  className="text-white hover:text-pink-400 transition-colors text-left"
                 >
                   IA
                 </button>
                 <button
                   onClick={() => scrollToSection("contato")}
-                  className="text-white hover:text-purple-400 transition-colors text-left"
+                  className="text-white hover:text-pink-400 transition-colors text-left"
                 >
                   Contato
                 </button>
                 <Button
                   variant="outline"
-                  className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full bg-transparent"
+                  className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white w-full bg-transparent"
                   onClick={() => scrollToSection("contato")}
                 >
                   Demonstração

@@ -8,13 +8,13 @@ const steps = [
     icon: FileText,
     title: "Importação de NF-e e SPED",
     description: "Importe automaticamente suas notas fiscais eletrônicas e arquivos SPED para análise completa.",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-rose-500 to-cyan-500",
   },
   {
     icon: Users,
     title: "Criação Automática de Clientes",
     description: "O sistema identifica e cria automaticamente o cadastro de novos clientes baseado nos documentos.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-pink-500 to-pink-500",
   },
   {
     icon: Target,
@@ -33,13 +33,13 @@ const steps = [
     icon: Calculator,
     title: "Cálculo de Auditoria NF-e Entrada",
     description: "Auditoria automatizada das notas fiscais de entrada com validação de impostos e créditos.",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-500 to-pink-500",
   },
   {
     icon: BarChart,
     title: "Cálculo de Auditoria NF-e Saída",
     description: "Análise completa das notas fiscais de saída com verificação de conformidade tributária.",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-500 to-rose-500",
   },
 ]
 
@@ -56,7 +56,7 @@ export default function ProcessSteps() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Como Funciona o{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
               Processo inttax
             </span>
           </h2>
@@ -76,14 +76,14 @@ export default function ProcessSteps() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+              <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/20 hover:border-pink-500/40 transition-all duration-300">
                 <div className="flex items-center mb-6">
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center mr-4`}
                   >
                     <step.icon className="w-6 h-6 text-white" />
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white font-bold text-sm">
                     {index + 1}
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function ProcessSteps() {
 
                 <p className="text-gray-300 leading-relaxed">{step.description}</p>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-600/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
             </motion.div>
           ))}
@@ -105,7 +105,7 @@ export default function ProcessSteps() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl p-8 border border-purple-500/30">
+          <div className="bg-gradient-to-r from-pink-600/20 to-rose-600/20 rounded-2xl p-8 border border-pink-500/30">
             <h3 className="text-2xl font-bold text-white mb-4">Processo Completo e Automatizado</h3>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Todo o fluxo é executado de forma inteligente e automatizada, reduzindo drasticamente o tempo de

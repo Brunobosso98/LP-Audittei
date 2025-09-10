@@ -12,7 +12,7 @@ const processSteps = [
     description: "Importe automaticamente suas notas fiscais eletrônicas e arquivos SPED para análise completa.",
     details:
       "Sistema inteligente que processa milhares de documentos em segundos, validando estrutura e integridade dos dados.",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-rose-500 to-cyan-500",
     position: { x: 0, y: 0 },
   },
   {
@@ -21,7 +21,7 @@ const processSteps = [
     title: "Criação Automática de Clientes",
     description: "O sistema identifica e cria automaticamente o cadastro de novos clientes baseado nos documentos.",
     details: "IA avançada que reconhece padrões e cria perfis completos de clientes com dados fiscais atualizados.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-pink-500 to-pink-500",
     position: { x: 1, y: 0 },
   },
   {
@@ -49,7 +49,7 @@ const processSteps = [
     title: "Cálculo de Auditoria NF-e Entrada",
     description: "Auditoria automatizada das notas fiscais de entrada com validação de impostos e créditos.",
     details: "Validação completa de ICMS, IPI, PIS/COFINS com detecção automática de inconsistências.",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-indigo-500 to-pink-500",
     position: { x: 1, y: 1 },
   },
   {
@@ -58,7 +58,7 @@ const processSteps = [
     title: "Cálculo de Auditoria NF-e Saída",
     description: "Análise completa das notas fiscais de saída com verificação de conformidade tributária.",
     details: "Auditoria completa com geração de relatórios detalhados e sugestões de otimização fiscal.",
-    color: "from-teal-500 to-blue-500",
+    color: "from-teal-500 to-rose-500",
     position: { x: 2, y: 1 },
   },
 ]
@@ -74,7 +74,7 @@ export default function InteractiveProcessFlow() {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-rose-500/10 to-pink-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             rotate: [0, 90, 0],
@@ -101,7 +101,7 @@ export default function InteractiveProcessFlow() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             Como Funciona o{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
               Processo inttax
             </span>
           </motion.h2>
@@ -197,7 +197,7 @@ export default function InteractiveProcessFlow() {
                 <div className="group cursor-pointer">
                   {/* Step Card */}
                   <motion.div
-                    className="relative bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 overflow-hidden"
+                    className="relative bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/50 transition-all duration-500 overflow-hidden"
                     whileHover={{
                       scale: 1.05,
                       rotateX: 5,
@@ -215,7 +215,7 @@ export default function InteractiveProcessFlow() {
 
                     {/* Step Number - Fixed positioning and visibility */}
                     <motion.div
-                      className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-2xl z-10"
+                      className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-2xl z-10"
                       animate={{
                         scale: hoveredStep === step.id ? 1.2 : 1,
                         rotate: hoveredStep === step.id ? 360 : 0,
@@ -251,7 +251,7 @@ export default function InteractiveProcessFlow() {
                     </motion.div>
 
                     {/* Content */}
-                    <h3 className="text-xl font-bold text-foreground dark:text-white mb-4 group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-xl font-bold text-foreground dark:text-white mb-4 group-hover:text-pink-300 transition-colors">
                       {step.title}
                     </h3>
 
@@ -261,7 +261,7 @@ export default function InteractiveProcessFlow() {
 
                     {/* Expand Button */}
                     <motion.button
-                      className="flex items-center text-purple-400 hover:text-purple-300 transition-colors group/btn"
+                      className="flex items-center text-pink-400 hover:text-pink-300 transition-colors group/btn"
                       whileHover={{ x: 5 }}
                     >
                       <span className="text-sm font-medium">Ver detalhes</span>
@@ -269,7 +269,7 @@ export default function InteractiveProcessFlow() {
                     </motion.button>
 
                     {/* Hover Effect */}
-                    <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   </motion.div>
 
                   {/* Expanded Details */}
@@ -283,10 +283,10 @@ export default function InteractiveProcessFlow() {
                     transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                     className="mt-4 overflow-hidden"
                   >
-                    <div className="bg-muted/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">
+                    <div className="bg-muted/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-500/30">
                       <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">{step.details}</p>
                       <motion.button
-                        className="mt-4 flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+                        className="mt-4 flex items-center text-rose-400 hover:text-rose-300 transition-colors"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -308,9 +308,9 @@ export default function InteractiveProcessFlow() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 2 }}
         >
-          <div className="relative bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-purple-900/30 rounded-3xl p-12 border border-purple-500/30 backdrop-blur-sm overflow-hidden">
+          <div className="relative bg-gradient-to-r from-pink-900/30 via-rose-900/30 to-pink-900/30 rounded-3xl p-12 border border-pink-500/30 backdrop-blur-sm overflow-hidden">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"
+              className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-pink-500/5"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
@@ -346,7 +346,7 @@ export default function InteractiveProcessFlow() {
                     animate={isInView ? { scale: 1 } : {}}
                     transition={{ delay: 2.7 + index * 0.1, type: "spring" }}
                   >
-                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-2">
                       {stat.value}
                     </div>
                     <div className="text-muted-foreground dark:text-gray-400 text-sm">{stat.label}</div>

@@ -134,7 +134,7 @@ export default function AuditteiLogo({ className = "", size = "md" }: AuditteLog
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-30"
+              className="absolute w-1 h-1 bg-rose-400 rounded-full opacity-30"
               style={{
                 left: `${20 + i * 30}%`,
                 top: `${10 + i * 20}%`,
