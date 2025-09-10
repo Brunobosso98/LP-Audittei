@@ -16,7 +16,7 @@ export default function AdvancedHero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   const [typedText, setTypedText] = useState("")
-  const fullText = "Audittei: Inteligência Fiscal que "
+  const fullText = "inttax: Inteligência Fiscal que "
 
   useEffect(() => {
     let index = 0
@@ -44,7 +44,7 @@ export default function AdvancedHero() {
       icon: Clock,
       title: "Ganhe Tempo",
       description:
-        "Elimine horas de trabalho manual e repetitivo. A automação da Audittei libera sua equipe para atividades estratégicas.",
+        "Elimine horas de trabalho manual e repetitivo. A automação da inttax libera sua equipe para atividades estratégicas.",
       color: "from-blue-500 to-cyan-500",
       delay: 0.2,
     },
@@ -137,7 +137,7 @@ export default function AdvancedHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 2 }}
               >
-                Descubra como a Audittei simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.
+                Descubra como a inttax simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.
               </motion.p>
             </motion.div>
 

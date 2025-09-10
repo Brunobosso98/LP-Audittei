@@ -43,7 +43,7 @@ export default function Header() {
             className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            Audittei
+            inttax
           </motion.div>
 
           {/* Desktop Navigation */}

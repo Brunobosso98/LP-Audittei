@@ -7,8 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Audittei - Inteligência Fiscal que Revoluciona",
-  description: "Descubra como a Audittei simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.",
+  title: "inttax - Inteligência Fiscal que Revoluciona",
+  description: "Descubra como a inttax simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.",
     generator: 'v0.dev'
 }
 

@@ -11,7 +11,7 @@ const testimonials = [
     position: "Contador Sênior",
     company: "Contabilidade Silva & Associados",
     content:
-      "A Audittei revolucionou nosso escritório. Reduzimos 80% do tempo gasto em auditorias fiscais e aumentamos significativamente nossa precisão. É impressionante como a IA consegue detectar inconsistências que passariam despercebidas.",
+      "A inttax revolucionou nosso escritório. Reduzimos 80% do tempo gasto em auditorias fiscais e aumentamos significativamente nossa precisão. É impressionante como a IA consegue detectar inconsistências que passariam despercebidas.",
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
@@ -27,7 +27,7 @@ const testimonials = [
     position: "Diretora Fiscal",
     company: "Grupo Empresarial Santos",
     content:
-      "Implementamos a Audittei há 6 meses e os resultados são impressionantes. A IA detecta inconsistências que passariam despercebidas manualmente. Nossa equipe agora foca em atividades estratégicas.",
+      "Implementamos a inttax há 6 meses e os resultados são impressionantes. A IA detecta inconsistências que passariam despercebidas manualmente. Nossa equipe agora foca em atividades estratégicas.",
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
@@ -43,7 +43,7 @@ const testimonials = [
     position: "Sócio-Diretor",
     company: "Oliveira Contabilidade",
     content:
-      "Excelente investimento! Nossa equipe agora foca em atividades estratégicas enquanto a Audittei cuida da parte operacional com perfeição. O ROI foi alcançado em apenas 3 meses.",
+      "Excelente investimento! Nossa equipe agora foca em atividades estratégicas enquanto a inttax cuida da parte operacional com perfeição. O ROI foi alcançado em apenas 3 meses.",
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
@@ -59,7 +59,7 @@ const testimonials = [
     position: "Gerente Contábil",
     company: "Costa & Partners",
     content:
-      "A automação da Audittei nos permitiu expandir nossa carteira de clientes sem aumentar proporcionalmente nossa equipe. Fantástico! A qualidade do trabalho melhorou drasticamente.",
+      "A automação da inttax nos permitiu expandir nossa carteira de clientes sem aumentar proporcionalmente nossa equipe. Fantástico! A qualidade do trabalho melhorou drasticamente.",
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
@@ -75,7 +75,7 @@ const testimonials = [
     position: "CEO",
     company: "Lima Consultoria Fiscal",
     content:
-      "A Audittei transformou completamente nossos processos. Conseguimos atender 3x mais clientes com a mesma equipe. A precisão da IA é surpreendente e nossos clientes estão muito satisfeitos.",
+      "A inttax transformou completamente nossos processos. Conseguimos atender 3x mais clientes com a mesma equipe. A precisão da IA é surpreendente e nossos clientes estão muito satisfeitos.",
     rating: 5,
     avatar: "/placeholder.svg?height=80&width=80",
     metrics: {
@@ -160,7 +160,7 @@ export default function TestimonialsCarousel() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Depoimentos reais de profissionais que transformaram seus escritórios com a Audittei
+            Depoimentos reais de profissionais que transformaram seus escritórios com a inttax
           </motion.p>
         </motion.div>
 

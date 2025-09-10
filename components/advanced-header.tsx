@@ -160,7 +160,7 @@ export default function AdvancedHeader() {
               <Button
                 variant="outline"
                 className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white bg-transparent"
-                onClick={() => window.open("https://www.audittei.com.br/portal")}
+                onClick={() => window.open("https://www.inttax.com.br/portal")}
               >
                 <LogIn className="w-4 h-4 mr-2" />
                 Login
@@ -258,7 +258,7 @@ export default function AdvancedHeader() {
                   <Button
                     variant="outline"
                     className="w-full border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white mb-2 bg-transparent"
-                    onClick={() => window.open("https://www.audittei.com.br/portal", "_blank")}
+                    onClick={() => window.open("https://www.inttax.com.br/portal")}
                   >
                     <LogIn className="w-4 h-4 mr-2" />
                     Login

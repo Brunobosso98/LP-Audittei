@@ -262,7 +262,7 @@ export default function ComparisonVisualization() {
                         <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-8 border-b md:border-b-0 md:border-r border-purple-500/20 relative">
                           <div className="flex items-center mb-4">
                             <item.audittei.icon className="w-6 h-6 text-green-400 mr-3" />
-                            <span className="text-green-300 font-medium">Audittei Digital</span>
+                            <span className="text-green-300 font-medium">inttax Digital</span>
                           </div>
                           <div className="text-2xl font-bold text-foreground dark:text-white mb-2">
                             {item.audittei.value}
@@ -331,7 +331,7 @@ export default function ComparisonVisualization() {
                               </ul>
                             </div>
                             <div>
-                              <h4 className="text-lg font-semibold text-green-300 mb-3">Vantagens da Audittei</h4>
+                              <h4 className="text-lg font-semibold text-green-300 mb-3">Vantagens da inttax</h4>
                               <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
                                 <li className="flex items-center">
                                   <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
@@ -474,7 +474,7 @@ export default function ComparisonVisualization() {
                       </text>
                       <circle cx="70" cy="0" r="4" fill="#10B981" />
                       <text x="80" y="4" className="text-sm fill-current text-muted-foreground">
-                        Audittei
+                        inttax
                       </text>
                     </g>
                   </svg>
@@ -556,13 +556,13 @@ export default function ComparisonVisualization() {
                       >
                         95%
                       </motion.div>
-                      <div className="text-base text-muted-foreground mb-1">Audittei</div>
+                      <div className="text-base text-muted-foreground mb-1">inttax</div>
                     </div>
                   </div>
 
                   {/* Separate comparison text and labels */}
                   <div className="text-center mb-4">
-                    <div className="text-lg font-semibold text-foreground dark:text-white mb-2">Audittei vs Manual</div>
+                    <div className="text-lg font-semibold text-foreground dark:text-white mb-2">inttax vs Manual</div>
                     <div className="text-red-400 text-base">95% vs 25%</div>
                   </div>
 
@@ -574,7 +574,7 @@ export default function ComparisonVisualization() {
                     </span>
                     <span className="flex items-center">
                       <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
-                      Audittei Digital (95%)
+                      inttax Digital (95%)
                     </span>
                   </div>
                 </div>

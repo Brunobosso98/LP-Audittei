@@ -10,7 +10,7 @@ const testimonials = [
     position: "Contador Sênior",
     company: "Contabilidade Silva & Associados",
     content:
-      "A Audittei revolucionou nosso escritório. Reduzimos 80% do tempo gasto em auditorias fiscais e aumentamos significativamente nossa precisão.",
+      "A inttax revolucionou nosso escritório. Reduzimos 80% do tempo gasto em auditorias fiscais e aumentamos significativamente nossa precisão.",
     rating: 5,
     avatar: "/placeholder.svg?height=60&width=60",
   },
@@ -19,7 +19,7 @@ const testimonials = [
     position: "Diretora Fiscal",
     company: "Grupo Empresarial Santos",
     content:
-      "Implementamos a Audittei há 6 meses e os resultados são impressionantes. A IA detecta inconsistências que passariam despercebidas manualmente.",
+      "Implementamos a inttax há 6 meses e os resultados são impressionantes. A IA detecta inconsistências que passariam despercebidas manualmente.",
     rating: 5,
     avatar: "/placeholder.svg?height=60&width=60",
   },
@@ -28,7 +28,7 @@ const testimonials = [
     position: "Sócio-Diretor",
     company: "Oliveira Contabilidade",
     content:
-      "Excelente investimento! Nossa equipe agora foca em atividades estratégicas enquanto a Audittei cuida da parte operacional com perfeição.",
+      "Excelente investimento! Nossa equipe agora foca em atividades estratégicas enquanto a inttax cuida da parte operacional com perfeição.",
     rating: 5,
     avatar: "/placeholder.svg?height=60&width=60",
   },
@@ -37,7 +37,7 @@ const testimonials = [
     position: "Gerente Contábil",
     company: "Costa & Partners",
     content:
-      "A automação da Audittei nos permitiu expandir nossa carteira de clientes sem aumentar proporcionalmente nossa equipe. Fantástico!",
+      "A automação da inttax nos permitiu expandir nossa carteira de clientes sem aumentar proporcionalmente nossa equipe. Fantástico!",
     rating: 5,
     avatar: "/placeholder.svg?height=60&width=60",
   },
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Depoimentos reais de profissionais que transformaram seus escritórios com a Audittei
+            Depoimentos reais de profissionais que transformaram seus escritórios com a inttax
           </p>
         </motion.div>
 

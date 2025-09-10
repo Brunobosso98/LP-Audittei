@@ -17,7 +17,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Audittei
+              inttax
             </div>
             <p className="text-gray-300 mb-4">
               Revolucionando a auditoria fiscal com inteligência artificial e automação avançada.
@@ -116,7 +116,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-purple-500/20 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} Audittei. Todos os direitos reservados.</p>
+          <p className="text-gray-400">© {new Date().getFullYear()} inttax. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

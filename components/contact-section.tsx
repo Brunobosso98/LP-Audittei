@@ -22,7 +22,7 @@ export default function ContactSection() {
     e.preventDefault()
 
     // Create WhatsApp message
-    const whatsappMessage = `Olá! Gostaria de saber mais sobre a Audittei.
+    const whatsappMessage = `Olá! Gostaria de saber mais sobre a inttax.
     
 Nome: ${formData.name}
 Email: ${formData.email}
@@ -56,7 +56,7 @@ Mensagem: ${formData.message}`
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Conosco</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Entre em contato e descubra como a Audittei pode transformar seu escritório contábil
+            Entre em contato e descubra como a inttax pode transformar seu escritório contábil
           </p>
         </motion.div>
 
@@ -179,7 +179,7 @@ Mensagem: ${formData.message}`
                   </div>
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <p className="text-gray-300">contato@audittei.com.br</p>
+                    <p className="text-gray-300">contato@inttax.com.br</p>
                   </div>
                 </div>
 
@@ -196,7 +196,7 @@ Mensagem: ${formData.message}`
             </div>
 
             <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl p-8 border border-purple-500/30">
-              <h4 className="text-xl font-bold text-white mb-4">Por que escolher a Audittei?</h4>
+              <h4 className="text-xl font-bold text-white mb-4">Por que escolher a inttax?</h4>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-purple-400 rounded-full"></div>

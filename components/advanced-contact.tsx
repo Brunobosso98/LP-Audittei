@@ -34,7 +34,7 @@ export default function AdvancedContact() {
     await new Promise((r) => setTimeout(r, 1200))
 
     const whatsappMessage = `
-🚀 *Nova Solicitação de Demonstração - Audittei*
+🚀 *Nova Solicitação de Demonstração - inttax*
 
 👤 *Dados do Interessado:*
 • Nome: ${formData.name}
@@ -46,7 +46,7 @@ export default function AdvancedContact() {
 💬 *Mensagem:*
 ${formData.message}
 
-Enviado automaticamente pelo site da Audittei
+Enviado automaticamente pelo site da inttax
 `.trim()
 
     const whatsappURL = `https://wa.me/5519981483536?text=${encodeURIComponent(whatsappMessage)}`
@@ -67,7 +67,7 @@ Enviado automaticamente pelo site da Audittei
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@audittei.com.br",
+      value: "contato@inttax.com.br",
       color: "from-purple-500 to-pink-500",
       note: "Resposta em até 2h",
     },
@@ -112,7 +112,7 @@ Enviado automaticamente pelo site da Audittei
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Conosco</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Entre em contato e descubra como a Audittei pode transformar seu escritório contábil
+            Entre em contato e descubra como a inttax pode transformar seu escritório contábil
           </p>
         </motion.div>
 
@@ -306,7 +306,7 @@ Enviado automaticamente pelo site da Audittei
                 transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
               <div className="relative z-10">
-                <h4 className="text-xl font-bold text-white mb-6">Por que escolher a Audittei?</h4>
+                <h4 className="text-xl font-bold text-white mb-6">Por que escolher a inttax?</h4>
                 <ul className="space-y-3 text-gray-300">
                   {benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start space-x-2">

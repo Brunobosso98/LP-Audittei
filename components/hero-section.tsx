@@ -31,7 +31,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Audittei: Inteligência Fiscal que{" "}
+                inttax: Inteligência Fiscal que{" "}
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Revoluciona
                 </span>{" "}
@@ -44,7 +44,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Descubra como a Audittei simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.
+                Descubra como a inttax simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.
               </motion.p>
             </div>
 
@@ -81,7 +81,7 @@ export default function HeroSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HfAwF1Njsniud6ZefgLkT2COTj8l2g.png"
-                alt="Dashboard Audittei"
+                alt="Dashboard inttax"
                 width={600}
                 height={400}
                 className="w-full h-auto"
@@ -114,7 +114,7 @@ export default function HeroSection() {
               </div>
               <h3 className="text-xl font-semibold text-white">Ganhe Tempo</h3>
               <p className="text-gray-300">
-                Elimine horas de trabalho manual e repetitivo. A automação da Audittei libera sua equipe para atividades
+                Elimine horas de trabalho manual e repetitivo. A automação da inttax libera sua equipe para atividades
                 estratégicas.
               </p>
             </motion.div>

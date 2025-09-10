@@ -148,7 +148,7 @@ export default function ProcessCarousel() {
           >
             Como Funciona o{" "}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Processo Audittei
+              Processo inttax
             </span>
           </motion.h2>
           <motion.p
