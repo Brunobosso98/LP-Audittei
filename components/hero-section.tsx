@@ -31,7 +31,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                inttax: Inteligência Fiscal que{" "}
+                Inttax: Inteligência Fiscal que{" "}
                 <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
                   Revoluciona
                 </span>{" "}

@@ -160,7 +160,7 @@ export default function AdvancedHeader() {
               <Button
                 variant="outline"
                 className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white bg-transparent"
-                onClick={() => window.open("https://www.inttax.com.br/portal")}
+                onClick={() => window.location.href = "https://www.inttax.com.br/portal"}
               >
                 <LogIn className="w-4 h-4 mr-2" />
                 Login

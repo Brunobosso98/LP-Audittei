@@ -60,7 +60,7 @@ Enviado automaticamente pelo site da inttax
     {
       icon: Phone,
       title: "Telefone",
-      value: "(19) 98148-3536",
+      value: "(19) 97818-0175",
       color: "from-rose-500 to-cyan-500",
       note: "Seg-Sex, 08h-18h",
     },
@@ -183,7 +183,7 @@ Enviado automaticamente pelo site da inttax
                         type="tel"
                         name="phone"
                         required
-                        placeholder="(19) 98148-3536"
+                        placeholder="(19) 97818-0175"
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"

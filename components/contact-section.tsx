@@ -122,7 +122,7 @@ Mensagem: ${formData.message}`
                       onChange={handleChange}
                       required
                       className="bg-slate-800 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-400"
-                      placeholder="(19) 98148-3536"
+                      placeholder="(19) 97818-0175"
                     />
                   </div>
                 </div>
@@ -169,7 +169,7 @@ Mensagem: ${formData.message}`
                   </div>
                   <div>
                     <p className="text-white font-medium">Telefone</p>
-                    <p className="text-gray-300">(19) 98148-3536</p>
+                    <p className="text-gray-300">(19) 97818-0175</p>
                   </div>
                 </div>
 

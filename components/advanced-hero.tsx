@@ -16,7 +16,7 @@ export default function AdvancedHero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   const [typedText, setTypedText] = useState("")
-  const fullText = "inttax: Inteligência Fiscal que "
+  const fullText = "Inttax: Inteligência Fiscal que "
 
   useEffect(() => {
     let index = 0

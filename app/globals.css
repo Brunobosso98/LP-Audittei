@@ -27,25 +27,25 @@
   }
 
   .dark {
-    --background: 347 83% 49%; /* rose-500 */
-    --foreground: 0 0% 100%; /* Branco */
-    --card: 347 83% 49%; /* rose-500 */
-    --card-foreground: 0 0% 100%; /* Branco */
-    --popover: 347 83% 49%; /* rose-500 */
-    --popover-foreground: 0 0% 100%; /* Branco */
-    --primary: 0 0% 100%; /* Branco */
-    --primary-foreground: 347 83% 49%; /* rose-500 */
-    --secondary: 347 77% 30%; /* rose-800 */
-    --secondary-foreground: 0 0% 100%; /* Branco */
-    --muted: 347 77% 20%; /* rose-900 */
-    --muted-foreground: 347 20% 70%; /* rose-300 */
-    --accent: 347 77% 25%; /* rose-850 */
-    --accent-foreground: 0 0% 100%; /* Branco */
+    --background: 0 0% 0%; /* pure black */
+    --foreground: 0 0% 95%; /* off-white */
+    --card: 0 0% 5%; /* near black card */
+    --card-foreground: 0 0% 95%; /* off-white */
+    --popover: 0 0% 4%; /* near black popover */
+    --popover-foreground: 0 0% 95%; /* off-white */
+    --primary: 347 83% 49%; /* rose-500 */
+    --primary-foreground: 0 0% 100%; /* Branco */
+    --secondary: 347 77% 20%; /* rose-950 */
+    --secondary-foreground: 0 0% 95%; /* off-white */
+    --muted: 0 0% 8%; /* near black muted */
+    --muted-foreground: 347 20% 65%; /* rose-400 */
+    --accent: 0 0% 10%; /* near black accent */
+    --accent-foreground: 0 0% 95%; /* off-white */
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%; /* Branco */
-    --border: 347 77% 20%; /* rose-900 */
-    --input: 347 77% 20%; /* rose-900 */
-    --ring: 347 20% 70%; /* rose-300 */
+    --destructive-foreground: 0 0% 95%; /* off-white */
+    --border: 0 0% 10%; /* near black border */
+    --input: 0 0% 10%; /* near black input */
+    --ring: 347 20% 65%; /* rose-400 */
   }
 }
 
@@ -59,13 +59,7 @@
   }
 
   .dark body {
-    /* Changed from pink to darker rose gradient */
-    background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 30%, #1e40af 50%, #1e3a8a 70%, #0a1628 100%);
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    /* Pure black gradient */
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 30%, #111111 50%, #0a0a0a 70%, #000000 100%);
   }
 }
