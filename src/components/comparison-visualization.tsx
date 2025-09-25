@@ -19,31 +19,31 @@ const comparisonData = [
   {
     category: "Tempo de Processamento",
     manual: { value: "8-12 horas", score: 2, icon: Clock },
-    audittei: { value: "5-10 minutos", score: 10, icon: Zap },
+    inttax: { value: "5-10 minutos", score: 10, icon: Zap },
     improvement: "95% mais rápido",
   },
   {
     category: "Precisão dos Resultados",
     manual: { value: "70-85%", score: 3, icon: AlertTriangle },
-    audittei: { value: "99.9%", score: 10, icon: CheckCircle },
+    inttax: { value: "99.9%", score: 10, icon: CheckCircle },
     improvement: "25% mais preciso",
   },
   {
     category: "Custo Operacional",
     manual: { value: "R$ 5.000/mês", score: 2, icon: DollarSign },
-    audittei: { value: "R$ 1.200/mês", score: 9, icon: DollarSign },
+    inttax: { value: "R$ 1.200/mês", score: 9, icon: DollarSign },
     improvement: "76% economia",
   },
   {
     category: "Escalabilidade",
     manual: { value: "Limitada", score: 2, icon: X },
-    audittei: { value: "Ilimitada", score: 10, icon: TrendingUp },
+    inttax: { value: "Ilimitada", score: 10, icon: TrendingUp },
     improvement: "Crescimento sem limites",
   },
   {
     category: "Detecção de Inconsistências",
     manual: { value: "Parcial", score: 3, icon: AlertTriangle },
-    audittei: { value: "Completa", score: 10, icon: CheckCircle },
+    inttax: { value: "Completa", score: 10, icon: CheckCircle },
     improvement: "100% cobertura",
   },
 ]
@@ -81,12 +81,12 @@ const results = [
 
 // Fixed chart data for evolution visualization
 const evolutionData = [
-  { month: "Jan", manual: 25, audittei: 85 },
-  { month: "Fev", manual: 22, audittei: 88 },
-  { month: "Mar", manual: 28, audittei: 92 },
-  { month: "Abr", manual: 20, audittei: 94 },
-  { month: "Mai", manual: 23, audittei: 96 },
-  { month: "Jun", manual: 21, audittei: 98 },
+  { month: "Jan", manual: 25, inttax: 85 },
+  { month: "Fev", manual: 22, inttax: 88 },
+  { month: "Mar", manual: 28, inttax: 92 },
+  { month: "Abr", manual: 20, inttax: 94 },
+  { month: "Mai", manual: 23, inttax: 96 },
+  { month: "Jun", manual: 21, inttax: 98 },
 ]
 
 export default function ComparisonVisualization() {
@@ -258,14 +258,14 @@ export default function ComparisonVisualization() {
                           </div>
                         </div>
 
-                        {/* Audittei */}
+                        {/* inttax */}
                         <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-8 border-b md:border-b-0 md:border-r border-pink-500/20 relative">
                           <div className="flex items-center mb-4">
-                            <item.audittei.icon className="w-6 h-6 text-green-400 mr-3" />
+                            <item.inttax.icon className="w-6 h-6 text-green-400 mr-3" />
                             <span className="text-green-300 font-medium">inttax Digital</span>
                           </div>
                           <div className="text-2xl font-bold text-foreground dark:text-white mb-2">
-                            {item.audittei.value}
+                            {item.inttax.value}
                           </div>
 
                           {/* Score Visualization */}
@@ -274,7 +274,7 @@ export default function ComparisonVisualization() {
                               <motion.div
                                 key={i}
                                 className={`w-3 h-3 rounded-full ${
-                                  i < item.audittei.score ? "bg-green-500" : "bg-gray-600"
+                                  i < item.inttax.score ? "bg-green-500" : "bg-gray-600"
                                 }`}
                                 initial={{ scale: 0 }}
                                 animate={isInView ? { scale: 1 } : {}}
@@ -413,10 +413,10 @@ export default function ComparisonVisualization() {
                       transition={{ duration: 2, delay: 0.5 }}
                     />
 
-                    {/* Audittei line - adjust for new height */}
+                    {/* inttax line - adjust for new height */}
                     <motion.path
-                      d={`M 50 ${220 - evolutionData[0].audittei * 1.8} ${evolutionData
-                        .map((data, index) => `L ${50 + index * 50} ${220 - data.audittei * 1.8}`)
+                      d={`M 50 ${220 - evolutionData[0].inttax * 1.8} ${evolutionData
+                        .map((data, index) => `L ${50 + index * 50} ${220 - data.inttax * 1.8}`)
                         .join(" ")}`}
                       fill="none"
                       stroke="#10B981"
@@ -441,10 +441,10 @@ export default function ComparisonVisualization() {
                           animate={{ scale: 1 }}
                           transition={{ delay: 0.5 + index * 0.1 }}
                         />
-                        {/* Audittei points */}
+                        {/* inttax points */}
                         <motion.circle
                           cx={50 + index * 50}
-                          cy={220 - data.audittei * 1.8}
+                          cy={220 - data.inttax * 1.8}
                           r="4"
                           fill="#10B981"
                           stroke="#fff"
@@ -529,7 +529,7 @@ export default function ComparisonVisualization() {
                       />
                     </svg>
 
-                    {/* Audittei performance (inner circle) */}
+                    {/* inttax performance (inner circle) */}
                     <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                       <motion.circle
                         cx="50"

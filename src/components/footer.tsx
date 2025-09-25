@@ -1,7 +1,5 @@
-"use client"
-
-import { motion } from "framer-motion"
-import Link from "next/link"
+﻿import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 
 export default function Footer() {
@@ -9,7 +7,6 @@ export default function Footer() {
     <footer className="bg-slate-900 border-t border-pink-500/20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +35,6 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Products */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,19 +44,18 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Produtos</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/auditor-fiscal" className="text-gray-300 hover:text-pink-400 transition-colors">
+                <Link to="/auditor-fiscal" className="text-gray-300 hover:text-pink-400 transition-colors">
                   Auditor Fiscal
                 </Link>
               </li>
               <li>
-                <Link href="/auditor-nfse" className="text-gray-300 hover:text-pink-400 transition-colors">
+                <Link to="/auditor-nfse" className="text-gray-300 hover:text-pink-400 transition-colors">
                   AuditorNFSe
                 </Link>
               </li>
             </ul>
           </motion.div>
 
-          {/* Company */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +82,6 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Support */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

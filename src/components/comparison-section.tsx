@@ -7,37 +7,37 @@ const comparisonData = [
   {
     feature: "Tempo de Processamento",
     manual: "Horas ou dias",
-    audittei: "Minutos",
+    inttax: "Minutos",
     manualIcon: Clock,
-    auditteIcon: Clock,
+    inttaxcon: Clock,
   },
   {
     feature: "Precisão dos Resultados",
     manual: "Sujeito a erros humanos",
-    audittei: "99.9% de precisão",
+    inttax: "99.9% de precisão",
     manualIcon: X,
-    auditteIcon: Check,
+    inttaxcon: Check,
   },
   {
     feature: "Custo Operacional",
     manual: "Alto (mão de obra)",
-    audittei: "Redução de até 80%",
+    inttax: "Redução de até 80%",
     manualIcon: DollarSign,
-    auditteIcon: DollarSign,
+    inttaxcon: DollarSign,
   },
   {
     feature: "Escalabilidade",
     manual: "Limitada",
-    audittei: "Ilimitada",
+    inttax: "Ilimitada",
     manualIcon: X,
-    auditteIcon: TrendingUp,
+    inttaxcon: TrendingUp,
   },
   {
     feature: "Detecção de Inconsistências",
     manual: "Parcial",
-    audittei: "Completa e automática",
+    inttax: "Completa e automática",
     manualIcon: X,
-    auditteIcon: Check,
+    inttaxcon: Check,
   },
 ]
 
@@ -102,7 +102,7 @@ export default function ComparisonSection() {
               <h3 className="text-xl font-semibold text-white text-center">Auditoria Manual</h3>
             </div>
             <div className="bg-gradient-to-r from-green-900/30 to-green-800/30 p-6">
-              <h3 className="text-xl font-semibold text-white text-center">Audittei Digital</h3>
+              <h3 className="text-xl font-semibold text-white text-center">inttax Digital</h3>
             </div>
           </div>
 
@@ -122,7 +122,7 @@ export default function ComparisonSection() {
                 <p className="text-red-300">{item.manual}</p>
               </div>
               <div className="p-6 bg-green-900/10">
-                <p className="text-green-300">{item.audittei}</p>
+                <p className="text-green-300">{item.inttax}</p>
               </div>
             </motion.div>
           ))}

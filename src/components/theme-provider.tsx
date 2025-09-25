@@ -1,6 +1,4 @@
-"use client"
-
-import type React from "react"
+﻿import type React from "react"
 
 import { createContext, useContext, useEffect, useState } from "react"
 
@@ -27,23 +25,38 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 export function ThemeProvider({
   children,
   defaultTheme = "dark",
-  storageKey = "audittei-ui-theme",
+  storageKey = "inttax-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme)
+  const [theme, setThemeState] = useState<Theme>(defaultTheme)
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return
+    }
+
+    const storedTheme = window.localStorage.getItem(storageKey) as Theme | null
+    if (storedTheme) {
+      setThemeState(storedTheme)
+    } else {
+      setThemeState(defaultTheme)
+    }
+  }, [defaultTheme, storageKey])
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return
+    }
+
     const root = window.document.documentElement
     root.classList.remove("light", "dark")
     root.classList.add(theme)
-  }, [theme])
+    window.localStorage.setItem(storageKey, theme)
+  }, [storageKey, theme])
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
-    },
+    setTheme: (newTheme: Theme) => setThemeState(newTheme),
   }
 
   return (

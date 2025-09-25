@@ -1,8 +1,8 @@
-version: '3.8'
+version: "3.8"
 
 services:
   landing:
     build: .
     ports:
-      - "3000:3000"
+      - "4173:4173"
     container_name: audittei_landing

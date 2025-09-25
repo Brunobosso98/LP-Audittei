@@ -1,10 +1,8 @@
-"use client"
-
-import { useEffect, useRef } from "react"
+﻿import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { TextPlugin } from "gsap/TextPlugin"
-import Header from "@/components/advanced-header"
+import AdvancedHeader from "@/components/advanced-header"
 import HeroSection from "@/components/advanced-hero"
 import ProcessCarousel from "@/components/process-carousel"
 import ComparisonVisualization from "@/components/comparison-visualization"
@@ -14,19 +12,17 @@ import ContactSection from "@/components/advanced-contact"
 import Footer from "@/components/footer"
 import ParticleBackground from "@/components/particle-background"
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, TextPlugin)
-}
+gsap.registerPlugin(ScrollTrigger, TextPlugin)
 
 export default function HomePage() {
   const mainRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Advanced GSAP animations
-      const tl = gsap.timeline()
+    if (!mainRef.current) {
+      return
+    }
 
-      // Staggered fade-in animations
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         ".animate-on-scroll",
         {
@@ -51,8 +47,7 @@ export default function HomePage() {
         },
       )
 
-      // Parallax effects
-      gsap.utils.toArray(".parallax").forEach((element: any) => {
+      gsap.utils.toArray<HTMLElement>(".parallax").forEach((element) => {
         gsap.to(element, {
           yPercent: -50,
           ease: "none",
@@ -64,14 +59,16 @@ export default function HomePage() {
           },
         })
       })
-    }
+    }, mainRef)
+
+    return () => ctx.revert()
   }, [])
 
   return (
     <div ref={mainRef} className="relative min-h-screen overflow-hidden">
       <ParticleBackground />
       <div className="relative z-10">
-        <Header />
+        <AdvancedHeader />
         <main>
           <HeroSection />
           <ProcessCarousel />

@@ -1,11 +1,22 @@
-"use client"
-
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Menu, X } from "lucide-react"
-import Link from "next/link"
+import { ChevronDown, Menu, X, LogIn } from "lucide-react"
 import NttaxLogo from "@/components/nttax-logo"
+
+const navigationSections = [
+  { label: "Início", id: "hero" },
+  { label: "Processo", id: "processo" },
+  { label: "Comparação", id: "comparacao" },
+  { label: "IA", id: "ia" },
+  { label: "Contato", id: "contato" },
+]
+
+const systemLinks = [
+  { name: "AuditorNFSe", to: "/auditor-nfse" },
+  { name: "Auditor Fiscal", to: "/auditor-fiscal" },
+]
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -13,9 +24,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -26,6 +35,11 @@ export default function Header() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
+    setIsMobileMenuOpen(false)
+  }
+
+  const closeDropdowns = () => {
+    setIsSystemsOpen(false)
     setIsMobileMenuOpen(false)
   }
 
@@ -40,45 +54,22 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <NttaxLogo size="md" />
+          <NttaxLogo size="sm" />
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="text-white hover:text-pink-400 transition-colors"
-            >
-              Início
-            </button>
-            <button
-              onClick={() => scrollToSection("processo")}
-              className="text-white hover:text-pink-400 transition-colors"
-            >
-              Processo
-            </button>
-            <button
-              onClick={() => scrollToSection("comparacao")}
-              className="text-white hover:text-pink-400 transition-colors"
-            >
-              Comparação
-            </button>
-            <button
-              onClick={() => scrollToSection("ia")}
-              className="text-white hover:text-pink-400 transition-colors"
-            >
-              IA
-            </button>
-            <button
-              onClick={() => scrollToSection("contato")}
-              className="text-white hover:text-pink-400 transition-colors"
-            >
-              Contato
-            </button>
+            {navigationSections.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-white hover:text-pink-400 transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
 
-            {/* Systems Dropdown */}
             <div className="relative">
               <button
-                onClick={() => setIsSystemsOpen(!isSystemsOpen)}
+                onClick={() => setIsSystemsOpen((previous) => !previous)}
                 className="flex items-center space-x-1 text-white hover:text-pink-400 transition-colors"
               >
                 <span>Sistemas</span>
@@ -93,18 +84,18 @@ export default function Header() {
                     exit={{ opacity: 0, y: -10 }}
                     className="absolute top-full mt-2 w-48 bg-slate-800 rounded-lg shadow-xl border border-pink-500/20"
                   >
-                    <Link
-                      href="/auditor-nfse"
-                      className="block px-4 py-3 text-white hover:bg-pink-600/20 transition-colors rounded-t-lg"
-                    >
-                      AuditorNFSe
-                    </Link>
-                    <Link
-                      href="/auditor-fiscal"
-                      className="block px-4 py-3 text-white hover:bg-pink-600/20 transition-colors rounded-b-lg"
-                    >
-                      Auditor Fiscal
-                    </Link>
+                    {systemLinks.map((system, index) => (
+                      <Link
+                        key={system.name}
+                        to={system.to}
+                        className={`block px-4 py-3 text-white hover:bg-pink-600/20 transition-colors ${
+                          index === 0 ? "rounded-t-lg" : ""
+                        } ${index === systemLinks.length - 1 ? "rounded-b-lg" : ""}`}
+                        onClick={closeDropdowns}
+                      >
+                        {system.name}
+                      </Link>
+                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -115,19 +106,26 @@ export default function Header() {
             <Button
               variant="outline"
               className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white bg-transparent"
+              onClick={() => (window.location.href = "https://www.inttax.com.br/portal")}
+            >
+              <LogIn className="w-4 h-4 mr-2" />
+              Login
+            </Button>
+
+            <Button
+              variant="outline"
+              className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white bg-transparent"
               onClick={() => scrollToSection("contato")}
             >
               Demonstração
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white">
+          <button onClick={() => setIsMobileMenuOpen((previous) => !previous)} className="md:hidden text-white">
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -137,42 +135,38 @@ export default function Header() {
               className="md:hidden mt-4 py-4 border-t border-pink-500/20"
             >
               <div className="flex flex-col space-y-4">
-                <button
-                  onClick={() => scrollToSection("hero")}
-                  className="text-white hover:text-pink-400 transition-colors text-left"
+                {navigationSections.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-white hover:text-pink-400 transition-colors text-left"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+
+                <div className="flex flex-col space-y-2 text-left text-white">
+                  {systemLinks.map((system) => (
+                    <Link key={system.name} to={system.to} onClick={closeDropdowns} className="hover:text-pink-400">
+                      {system.name}
+                    </Link>
+                  ))}
+                </div>
+                <Button
+                  variant="outline"
+                  className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white w-full bg-transparent"
+                  onClick={() => (window.location.href = "https://www.inttax.com.br/portal")}
                 >
-                  Início
-                </button>
-                <button
-                  onClick={() => scrollToSection("processo")}
-                  className="text-white hover:text-pink-400 transition-colors text-left"
-                >
-                  Processo
-                </button>
-                <button
-                  onClick={() => scrollToSection("comparacao")}
-                  className="text-white hover:text-pink-400 transition-colors text-left"
-                >
-                  Comparação
-                </button>
-                <button
-                  onClick={() => scrollToSection("ia")}
-                  className="text-white hover:text-pink-400 transition-colors text-left"
-                >
-                  IA
-                </button>
-                <button
-                  onClick={() => scrollToSection("contato")}
-                  className="text-white hover:text-pink-400 transition-colors text-left"
-                >
-                  Contato
-                </button>
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Login
+                </Button>
+
                 <Button
                   variant="outline"
                   className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white w-full bg-transparent"
                   onClick={() => scrollToSection("contato")}
                 >
-                  Demonstração
+                  Demonstra��o
                 </Button>
               </div>
             </motion.div>

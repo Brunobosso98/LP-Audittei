@@ -7,7 +7,7 @@ interface AuditteLogoProps {
   size?: "sm" | "md" | "lg"
 }
 
-export default function AuditteiLogo({ className = "", size = "md" }: AuditteLogoProps) {
+export default function InttaxLogo({ className = "", size = "md" }: AuditteLogoProps) {
   const sizes = {
     sm: { width: 120, height: 32, fontSize: "text-lg" },
     md: { width: 160, height: 40, fontSize: "text-2xl" },

@@ -1,9 +1,6 @@
-"use client"
-
-import { motion } from "framer-motion"
+﻿import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Clock, Shield, Settings } from "lucide-react"
-import Image from "next/image"
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -17,7 +14,6 @@ export default function HeroSection() {
     <section id="hero" className="min-h-screen flex items-center pt-20">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -31,11 +27,11 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Inttax: Inteligência Fiscal que{" "}
+                Inttax: Inteligência Fiscal que
                 <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
-                  Revoluciona
-                </span>{" "}
-                seu Escritório Contábil
+                  {" "}Revoluciona
+                </span>
+                {" "}seu Escritório Contábil
               </motion.h1>
 
               <motion.p
@@ -71,7 +67,6 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Dashboard Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -79,19 +74,17 @@ export default function HeroSection() {
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
+              <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HfAwF1Njsniud6ZefgLkT2COTj8l2g.png"
                 alt="Dashboard inttax"
-                width={600}
-                height={400}
                 className="w-full h-auto"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/20 to-transparent" />
             </div>
           </motion.div>
         </div>
 
-        {/* Benefits Section */}
         <motion.div
           className="mt-40"
           initial={{ opacity: 0, y: 50 }}
@@ -100,9 +93,9 @@ export default function HeroSection() {
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Transforme seu Processo Fiscal: Ganhe{" "}
+              Transforme seu Processo Fiscal: Ganhe
               <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
-                Tempo, Segurança e Padronização
+                {" "}Tempo, Segurança e Padronização
               </span>
             </h2>
           </div>

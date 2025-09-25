@@ -1,12 +1,23 @@
-"use client"
-
-import { useState, useEffect } from "react"
+﻿import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X, Sun, Moon, LogIn } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import NttaxLogo from "@/components/nttax-logo"
-import Link from "next/link"
+
+const navigationSections = [
+  { label: "Início", id: "hero" },
+  { label: "Processo", id: "processo" },
+  { label: "Comparação", id: "comparacao" },
+  { label: "IA", id: "ia" },
+  { label: "Contato", id: "contato" },
+]
+
+const systemLinks = [
+  { name: "AuditorNFSe", to: "/auditor-nfse", description: "Auditoria de NFSe" },
+  { name: "Auditor Fiscal", to: "/auditor-fiscal", description: "Auditoria Fiscal Completa" },
+]
 
 export default function AdvancedHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -15,9 +26,7 @@ export default function AdvancedHeader() {
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -28,6 +37,11 @@ export default function AdvancedHeader() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
+    setIsMobileMenuOpen(false)
+  }
+
+  const closeSystemDropdown = () => {
+    setIsSystemsOpen(false)
     setIsMobileMenuOpen(false)
   }
 
@@ -44,18 +58,10 @@ export default function AdvancedHeader() {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <NttaxLogo size="md" />
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {[
-              { label: "Início", id: "hero" },
-              { label: "Processo", id: "processo" },
-              { label: "Comparação", id: "comparacao" },
-              { label: "IA", id: "ia" },
-              { label: "Contato", id: "contato" },
-            ].map((item, index) => (
+            {navigationSections.map((item, index) => (
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -70,10 +76,9 @@ export default function AdvancedHeader() {
               </motion.button>
             ))}
 
-            {/* Systems Dropdown */}
             <div className="relative">
               <motion.button
-                onClick={() => setIsSystemsOpen(!isSystemsOpen)}
+                onClick={() => setIsSystemsOpen((previous) => !previous)}
                 className="flex items-center space-x-1 text-foreground dark:text-white hover:text-pink-400 transition-colors group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -94,10 +99,7 @@ export default function AdvancedHeader() {
                     className="absolute top-full mt-4 w-64 bg-background dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-pink-500/30 overflow-hidden"
                   >
                     <div className="p-2">
-                      {[
-                        { name: "AuditorNFSe", href: "/auditor-nfse", desc: "Auditoria de NFSe" },
-                        { name: "Auditor Fiscal", href: "/auditor-fiscal", desc: "Auditoria Fiscal Completa" },
-                      ].map((system, index) => (
+                      {systemLinks.map((system, index) => (
                         <motion.div
                           key={system.name}
                           initial={{ opacity: 0, x: -20 }}
@@ -105,13 +107,16 @@ export default function AdvancedHeader() {
                           transition={{ delay: index * 0.1 }}
                         >
                           <Link
-                            href={system.href}
+                            to={system.to}
                             className="block p-4 rounded-xl hover:bg-pink-600/20 transition-all duration-300 group"
+                            onClick={closeSystemDropdown}
                           >
                             <div className="font-medium text-foreground dark:text-white group-hover:text-pink-400 transition-colors">
                               {system.name}
                             </div>
-                            <div className="text-sm text-muted-foreground dark:text-gray-400 mt-1">{system.desc}</div>
+                            <div className="text-sm text-muted-foreground dark:text-gray-400 mt-1">
+                              {system.description}
+                            </div>
                           </Link>
                         </motion.div>
                       ))}
@@ -123,51 +128,29 @@ export default function AdvancedHeader() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            {/* Theme Toggle */}
             <motion.button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg bg-background dark:bg-slate-800 border border-pink-500/20 hover:border-pink-500/40 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-2 rounded-lg bg-background dark:bg-slate-800 border border-pink-500/20"
+              whileTap={{ scale: 0.9 }}
             >
-              <AnimatePresence mode="wait">
-                {theme === "dark" ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Sun className="w-5 h-5 text-yellow-500" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Moon className="w-5 h-5 text-rose-500" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5 text-yellow-500" />
+              ) : (
+                <Moon className="w-5 h-5 text-rose-500" />
+              )}
             </motion.button>
 
-            {/* Login Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
                 className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white bg-transparent"
-                onClick={() => window.location.href = "https://www.inttax.com.br/portal"}
+                onClick={() => (window.location.href = "https://www.inttax.com.br/portal")}
               >
                 <LogIn className="w-4 h-4 mr-2" />
                 Login
               </Button>
             </motion.div>
 
-            {/* Demo Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 className="relative overflow-hidden bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white border-0"
@@ -178,7 +161,6 @@ export default function AdvancedHeader() {
             </motion.div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex items-center space-x-2 md:hidden">
             <motion.button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -193,7 +175,7 @@ export default function AdvancedHeader() {
             </motion.button>
 
             <motion.button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setIsMobileMenuOpen((previous) => !previous)}
               className="text-foreground dark:text-white p-2"
               whileTap={{ scale: 0.9 }}
             >
@@ -224,7 +206,6 @@ export default function AdvancedHeader() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -235,13 +216,7 @@ export default function AdvancedHeader() {
               className="md:hidden mt-4 py-4 border-t border-pink-500/20 bg-background/50 dark:bg-slate-900/50 backdrop-blur-xl rounded-2xl"
             >
               <div className="flex flex-col space-y-4 px-4">
-                {[
-                  { label: "Início", id: "hero" },
-                  { label: "Processo", id: "processo" },
-                  { label: "Comparação", id: "comparacao" },
-                  { label: "IA", id: "ia" },
-                  { label: "Contato", id: "contato" },
-                ].map((item, index) => (
+                {navigationSections.map((item, index) => (
                   <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
@@ -253,6 +228,21 @@ export default function AdvancedHeader() {
                     {item.label}
                   </motion.button>
                 ))}
+
+                <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>
+                  <div className="flex flex-col space-y-2">
+                    {systemLinks.map((system) => (
+                      <Link
+                        key={system.name}
+                        to={system.to}
+                        className="text-left text-foreground dark:text-white hover:text-pink-400 transition-colors"
+                        onClick={closeSystemDropdown}
+                      >
+                        {system.name}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
                   <Button
