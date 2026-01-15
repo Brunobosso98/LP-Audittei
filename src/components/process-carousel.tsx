@@ -183,12 +183,9 @@ export default function ProcessCarousel() {
                         transition={{ delay: 0.1 }}
                       >
                         <div
-                          className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${processSteps[currentSlide].color} flex items-center justify-center mr-6`}
+                          className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${processSteps[currentSlide].color} flex items-center justify-center`}
                         >
                           {CurrentIcon && <CurrentIcon className="w-10 h-10 text-white" />}
-                        </div>
-                        <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-2xl">
-                          {processSteps[currentSlide].id}
                         </div>
                       </motion.div>
 
