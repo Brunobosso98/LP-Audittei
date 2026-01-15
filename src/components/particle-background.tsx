@@ -25,17 +25,17 @@ export default function ParticleBackground() {
       color: string
     }> = []
 
-    const colors = ["#3B82F6", "#8B5CF6", "#06B6D4", "#A855F7"]
+    const colors = ["#94A3B8", "#CBD5F5"]
 
     // Create particles
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 3 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.25 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)],
       })
     }
@@ -61,22 +61,6 @@ export default function ParticleBackground() {
         ctx.globalAlpha = particle.opacity
         ctx.fill()
 
-        // Draw connections
-        particles.slice(index + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 100) {
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = particle.color
-            ctx.globalAlpha = ((100 - distance) / 100) * 0.2
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
-        })
       })
 
       requestAnimationFrame(animate)
@@ -96,8 +80,7 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-30"
-      style={{ background: "linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%)" }}
+      className="fixed inset-0 pointer-events-none opacity-15"
     />
   )
 }

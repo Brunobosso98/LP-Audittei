@@ -23,7 +23,7 @@ const processSteps = [
     description: "Importe automaticamente suas notas fiscais eletrônicas e arquivos SPED para análise completa.",
     details:
       "Sistema inteligente que processa milhares de documentos em segundos, validando estrutura e integridade dos dados.",
-    color: "from-rose-500 to-cyan-500",
+    color: "from-primary to-primary",
     stats: { documentos: "10k+", tempo: "< 30s", precisão: "99.9%" },
     features: ["Validação automática", "Processamento em lote", "Detecção de erros", "Backup seguro"],
   },
@@ -33,7 +33,7 @@ const processSteps = [
     title: "Criação Automática de Clientes",
     description: "O sistema identifica e cria automaticamente o cadastro de novos clientes baseado nos documentos.",
     details: "IA avançada que reconhece padrões e cria perfis completos de clientes com dados fiscais atualizados.",
-    color: "from-pink-500 to-pink-500",
+    color: "from-primary to-primary",
     stats: { clientes: "500+", automação: "95%", precisão: "98%" },
     features: ["Reconhecimento de padrões", "Perfis automáticos", "Dados atualizados", "Integração CRM"],
   },
@@ -44,7 +44,7 @@ const processSteps = [
     description:
       "Geração inteligente de cenários tributários e cadastro automático de produtos com classificação fiscal.",
     details: "Algoritmos que analisam histórico fiscal e sugerem os melhores cenários tributários para cada situação.",
-    color: "from-green-500 to-emerald-500",
+    color: "from-primary to-primary",
     stats: { cenários: "1000+", otimização: "40%", conformidade: "100%" },
     features: ["Análise preditiva", "Otimização fiscal", "Classificação NCM", "Simulações"],
   },
@@ -54,7 +54,7 @@ const processSteps = [
     title: "Aprovação de Cenários",
     description: "Revise e aprove os cenários criados automaticamente antes da implementação em produção.",
     details: "Interface intuitiva para revisão e aprovação com simulações em tempo real dos impactos fiscais.",
-    color: "from-orange-500 to-red-500",
+    color: "from-primary to-primary",
     stats: { aprovação: "< 5min", simulações: "Real-time", precisão: "99%" },
     features: ["Interface intuitiva", "Simulações em tempo real", "Aprovação em lote", "Histórico completo"],
   },
@@ -64,7 +64,7 @@ const processSteps = [
     title: "Cálculo de Auditoria NF-e Entrada",
     description: "Auditoria automatizada das notas fiscais de entrada com validação de impostos e créditos.",
     details: "Validação completa de ICMS, IPI, PIS/COFINS com detecção automática de inconsistências.",
-    color: "from-indigo-500 to-pink-500",
+    color: "from-primary to-primary",
     stats: { validação: "100%", erros: "< 0.1%", velocidade: "10x" },
     features: ["Validação ICMS/IPI", "Créditos automáticos", "Detecção de erros", "Relatórios detalhados"],
   },
@@ -74,7 +74,7 @@ const processSteps = [
     title: "Cálculo de Auditoria NF-e Saída",
     description: "Análise completa das notas fiscais de saída com verificação de conformidade tributária.",
     details: "Auditoria completa com geração de relatórios detalhados e sugestões de otimização fiscal.",
-    color: "from-teal-500 to-rose-500",
+    color: "from-primary to-primary",
     stats: { conformidade: "100%", relatórios: "Auto", otimização: "30%" },
     features: ["Conformidade total", "Relatórios automáticos", "Otimização fiscal", "Alertas inteligentes"],
   },
@@ -116,22 +116,7 @@ export default function ProcessCarousel() {
   }
 
   return (
-    <section id="processo" className="py-32 bg-muted/30 dark:bg-slate-800/30 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-rose-500/10 to-pink-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        />
-      </div>
+    <section id="processo" className="py-32 bg-muted/30 relative overflow-hidden">
 
       <div ref={containerRef} className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -141,18 +126,16 @@ export default function ProcessCarousel() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-foreground dark:text-white mb-6"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
           >
             Como Funciona o{" "}
-            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-              Processo inttax
-            </span>
+            <span className="text-primary">Processo inttax</span>
           </motion.h2>
           <motion.p
-            className="text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto"
+            className="text-lg text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -172,7 +155,7 @@ export default function ProcessCarousel() {
                 exit={{ opacity: 0, x: -300, rotateY: -45 }}
                 // Reduced transition duration from 0.6s to 0.4s for faster animations
                 transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                className="bg-background/90 dark:bg-slate-900/90 backdrop-blur-xl border border-pink-500/20 rounded-3xl overflow-hidden"
+                className="bg-card/90 backdrop-blur-xl border border-border rounded-2xl overflow-hidden"
               >
                 {/* Animated Background */}
                 <motion.div
@@ -204,7 +187,7 @@ export default function ProcessCarousel() {
                         >
                           {CurrentIcon && <CurrentIcon className="w-10 h-10 text-white" />}
                         </div>
-                        <div className="w-16 h-16 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                        <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-2xl">
                           {processSteps[currentSlide].id}
                         </div>
                       </motion.div>
@@ -216,13 +199,13 @@ export default function ProcessCarousel() {
                         // Reduced delay for faster content appearance
                         transition={{ delay: 0.2 }}
                       >
-                        <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">
+                        <h3 className="text-3xl font-bold text-foreground mb-4">
                           {processSteps[currentSlide].title}
                         </h3>
-                        <p className="text-lg text-muted-foreground dark:text-gray-300 mb-6 leading-relaxed">
+                        <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                           {processSteps[currentSlide].description}
                         </p>
-                        <p className="text-muted-foreground dark:text-gray-400 leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed">
                           {processSteps[currentSlide].details}
                         </p>
                       </motion.div>
@@ -235,7 +218,7 @@ export default function ProcessCarousel() {
                         // Reduced delay for faster content appearance
                         transition={{ delay: 0.3 }}
                       >
-                        <h4 className="text-lg font-semibold text-foreground dark:text-white mb-4">
+                        <h4 className="text-lg font-semibold text-foreground mb-4">
                           Principais Recursos:
                         </h4>
                         <div className="grid grid-cols-2 gap-3">
@@ -248,8 +231,8 @@ export default function ProcessCarousel() {
                               // Reduced delay for faster feature appearance
                               transition={{ delay: 0.4 + index * 0.05 }}
                             >
-                              <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                              <span className="text-sm text-muted-foreground dark:text-gray-300">{feature}</span>
+                              <div className="w-2 h-2 bg-primary rounded-full"></div>
+                              <span className="text-sm text-muted-foreground">{feature}</span>
                             </motion.div>
                           ))}
                         </div>
@@ -269,17 +252,17 @@ export default function ProcessCarousel() {
                         {Object.entries(processSteps[currentSlide].stats).map(([key, value], index) => (
                           <motion.div
                             key={key}
-                            className="bg-muted/50 dark:bg-slate-800/50 rounded-xl p-4 text-center border border-pink-500/20"
+                            className="bg-muted/60 rounded-xl p-4 text-center border border-border"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             // Reduced delay for faster stats appearance
                             transition={{ delay: 0.3 + index * 0.05 }}
                             whileHover={{ scale: 1.05 }}
                           >
-                            <div className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent mb-1">
+                            <div className="text-2xl font-bold text-primary mb-1">
                               {value}
                             </div>
-                            <div className="text-xs text-muted-foreground dark:text-gray-400 capitalize">
+                            <div className="text-xs text-muted-foreground capitalize">
                               {key.replace(/([A-Z])/g, " $1").trim()}
                             </div>
                           </motion.div>
@@ -288,17 +271,17 @@ export default function ProcessCarousel() {
 
                       {/* Visual Representation */}
                       <motion.div
-                        className="bg-muted/30 dark:bg-slate-800/30 rounded-2xl p-8 border border-pink-500/20"
+                        className="bg-muted/30 rounded-2xl p-8 border border-border"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         // Reduced delay for faster visualization appearance
                         transition={{ delay: 0.4 }}
                       >
                         <div className="text-center mb-6">
-                          <h4 className="text-lg font-semibold text-foreground dark:text-white mb-2">
+                          <h4 className="text-lg font-semibold text-foreground mb-2">
                             Fluxo do Processo
                           </h4>
-                          <div className="w-full bg-muted dark:bg-slate-700 rounded-full h-2">
+                          <div className="w-full bg-muted rounded-full h-2">
                             <motion.div
                               className={`h-2 rounded-full bg-gradient-to-r ${processSteps[currentSlide].color}`}
                               initial={{ width: 0 }}
@@ -307,7 +290,7 @@ export default function ProcessCarousel() {
                               transition={{ duration: 0.6, delay: 0.5 }}
                             />
                           </div>
-                          <div className="text-sm text-muted-foreground dark:text-gray-400 mt-2">
+                          <div className="text-sm text-muted-foreground mt-2">
                             Etapa {currentSlide + 1} de {processSteps.length}
                           </div>
                         </div>
@@ -321,7 +304,7 @@ export default function ProcessCarousel() {
                           transition={{ delay: 0.6 }}
                         >
                           <motion.button
-                            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white rounded-xl font-medium transition-all duration-300"
+                            className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-xl font-medium transition-all duration-300 hover:bg-primary/90"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -341,11 +324,11 @@ export default function ProcessCarousel() {
           <div className="flex justify-center items-center space-x-6 mt-12">
             <motion.button
               onClick={prevSlide}
-              className="w-14 h-14 bg-background/80 dark:bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
+              className="w-12 h-12 bg-card/80 hover:bg-muted/80 rounded-full flex items-center justify-center transition-all duration-300 border border-border"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ChevronLeft className="w-6 h-6 text-foreground dark:text-white" />
+              <ChevronLeft className="w-5 h-5 text-foreground" />
             </motion.button>
 
             {/* Dots Indicator */}
@@ -354,15 +337,14 @@ export default function ProcessCarousel() {
                 <motion.button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`relative w-4 h-4 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? "bg-pink-400" : "bg-muted dark:bg-slate-600"
-                  }`}
+                  className={`relative w-4 h-4 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-primary" : "bg-muted"
+                    }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   {index === currentSlide && (
                     <motion.div
-                      className="absolute inset-0 bg-pink-400 rounded-full"
+                      className="absolute inset-0 bg-primary rounded-full"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.3 }}
@@ -374,11 +356,11 @@ export default function ProcessCarousel() {
 
             <motion.button
               onClick={nextSlide}
-              className="w-14 h-14 bg-background/80 dark:bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
+              className="w-12 h-12 bg-card/80 hover:bg-muted/80 rounded-full flex items-center justify-center transition-all duration-300 border border-border"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ChevronRight className="w-6 h-6 text-foreground dark:text-white" />
+              <ChevronRight className="w-5 h-5 text-foreground" />
             </motion.button>
           </div>
 
@@ -391,11 +373,10 @@ export default function ProcessCarousel() {
           >
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className={`flex items-center space-x-2 text-sm px-4 py-2 rounded-full transition-colors ${
-                isAutoPlaying
-                  ? "text-green-400 bg-green-400/10 border border-green-400/20"
-                  : "text-muted-foreground bg-muted/50 border border-muted/20"
-              }`}
+              className={`flex items-center space-x-2 text-sm px-4 py-2 rounded-full transition-colors ${isAutoPlaying
+                  ? "text-primary bg-primary/10 border border-primary/20"
+                  : "text-muted-foreground bg-muted/50 border border-border"
+                }`}
             >
               {isAutoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               <span>{isAutoPlaying ? "Pausar" : "Reproduzir"} apresentação</span>
@@ -415,11 +396,10 @@ export default function ProcessCarousel() {
               <motion.button
                 key={step.id}
                 onClick={() => goToSlide(index)}
-                className={`relative p-4 rounded-2xl border transition-all duration-300 ${
-                  index === currentSlide
-                    ? "border-pink-500/50 bg-pink-500/10"
-                    : "border-muted/20 bg-background/30 dark:bg-slate-800/30 hover:border-pink-500/30"
-                }`}
+                className={`relative p-4 rounded-2xl border transition-all duration-300 ${index === currentSlide
+                    ? "border-primary/50 bg-primary/10"
+                    : "border-border bg-card/50 hover:border-primary/30"
+                  }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 30 }}
@@ -432,13 +412,13 @@ export default function ProcessCarousel() {
                   >
                     {step.icon && <step.icon className="w-6 h-6 text-white" />}
                   </div>
-                  <div className="text-foreground dark:text-white font-medium text-sm mb-1">{step.id}</div>
-                  <div className="text-muted-foreground dark:text-gray-400 text-xs leading-tight">{step.title}</div>
+                  <div className="text-foreground font-medium text-sm mb-1">{step.id}</div>
+                  <div className="text-muted-foreground text-xs leading-tight">{step.title}</div>
                 </div>
 
                 {index === currentSlide && (
                   <motion.div
-                    className="absolute inset-0 border-2 border-pink-400 rounded-2xl"
+                    className="absolute inset-0 border-2 border-primary/60 rounded-2xl"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}

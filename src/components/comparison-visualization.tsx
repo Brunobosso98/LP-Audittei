@@ -54,28 +54,24 @@ const results = [
     value: 85,
     displayValue: "85%",
     description: "Menos tempo gasto em processos manuais",
-    color: "from-rose-500 to-cyan-500",
   },
   {
     metric: "Aumento de Precisão",
     value: 99.9,
     displayValue: "99.9%",
     description: "Precisão na identificação de inconsistências",
-    color: "from-green-500 to-emerald-500",
   },
   {
     metric: "Economia de Custos",
     value: 70,
     displayValue: "70%",
     description: "Redução nos custos operacionais",
-    color: "from-pink-500 to-pink-500",
   },
   {
     metric: "Produtividade",
     value: 300,
     displayValue: "300%",
     description: "Aumento na capacidade de processamento",
-    color: "from-orange-500 to-red-500",
   },
 ]
 
@@ -126,21 +122,6 @@ export default function ComparisonVisualization() {
 
   return (
     <section id="comparacao" className="py-32 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.4, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        />
-      </div>
 
       <div ref={containerRef} className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -150,18 +131,16 @@ export default function ComparisonVisualization() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-foreground dark:text-white mb-6"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
           >
             Auditoria Manual vs{" "}
-            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-              Auditoria Digital
-            </span>
+            <span className="text-primary">Auditoria Digital</span>
           </motion.h2>
           <motion.p
-            className="text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto"
+            className="text-lg text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -177,13 +156,13 @@ export default function ComparisonVisualization() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-2 border border-pink-500/20">
+          <div className="bg-card/80 backdrop-blur-xl rounded-2xl p-2 border border-border">
             <button
               onClick={() => setActiveTab("comparison")}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeTab === "comparison"
-                  ? "bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-lg"
-                  : "text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-white"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <BarChart3 className="w-5 h-5 inline-block mr-2" />
@@ -193,8 +172,8 @@ export default function ComparisonVisualization() {
               onClick={() => setActiveTab("charts")}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeTab === "charts"
-                  ? "bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-lg"
-                  : "text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-white"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               <Activity className="w-5 h-5 inline-block mr-2" />
@@ -220,13 +199,13 @@ export default function ComparisonVisualization() {
                     className="group cursor-pointer"
                     onClick={() => setActiveComparison(activeComparison === index ? null : index)}
                   >
-                    <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-pink-500/20 hover:border-pink-500/40 transition-all duration-500 overflow-hidden">
+                    <div className="bg-card/80 backdrop-blur-xl rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden">
                       <div className="grid md:grid-cols-4 gap-0">
                         {/* Category */}
-                        <div className="bg-gradient-to-r from-muted/80 to-muted/60 dark:from-slate-800/80 dark:to-slate-700/80 p-8 border-b md:border-b-0 md:border-r border-pink-500/20">
-                          <h3 className="text-xl font-bold text-foreground dark:text-white mb-2">{item.category}</h3>
+                        <div className="bg-muted/60 p-8 border-b md:border-b-0 md:border-r border-border">
+                          <h3 className="text-xl font-bold text-foreground mb-2">{item.category}</h3>
                           <motion.div
-                            className="text-pink-400 text-sm"
+                            className="text-primary text-sm"
                             animate={{ opacity: [0.5, 1, 0.5] }}
                             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                           >
@@ -235,12 +214,12 @@ export default function ComparisonVisualization() {
                         </div>
 
                         {/* Manual */}
-                        <div className="bg-gradient-to-r from-red-900/20 to-red-800/20 p-8 border-b md:border-b-0 md:border-r border-pink-500/20 relative">
+                        <div className="bg-muted/40 p-8 border-b md:border-b-0 md:border-r border-border relative">
                           <div className="flex items-center mb-4">
                             <item.manual.icon className="w-6 h-6 text-red-400 mr-3" />
-                            <span className="text-red-300 font-medium">Auditoria Manual</span>
+                            <span className="text-muted-foreground font-medium">Auditoria Manual</span>
                           </div>
-                          <div className="text-2xl font-bold text-foreground dark:text-white mb-2">
+                          <div className="text-2xl font-bold text-foreground mb-2">
                             {item.manual.value}
                           </div>
 
@@ -259,12 +238,12 @@ export default function ComparisonVisualization() {
                         </div>
 
                         {/* inttax */}
-                        <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-8 border-b md:border-b-0 md:border-r border-pink-500/20 relative">
+                        <div className="bg-muted/40 p-8 border-b md:border-b-0 md:border-r border-border relative">
                           <div className="flex items-center mb-4">
                             <item.inttax.icon className="w-6 h-6 text-green-400 mr-3" />
-                            <span className="text-green-300 font-medium">inttax Digital</span>
+                            <span className="text-foreground font-medium">inttax Digital</span>
                           </div>
-                          <div className="text-2xl font-bold text-foreground dark:text-white mb-2">
+                          <div className="text-2xl font-bold text-foreground mb-2">
                             {item.inttax.value}
                           </div>
 
@@ -285,13 +264,13 @@ export default function ComparisonVisualization() {
                         </div>
 
                         {/* Improvement */}
-                        <div className="bg-gradient-to-r from-rose-900/20 to-pink-900/20 p-8 relative">
+                        <div className="bg-muted/40 p-8 relative">
                           <div className="flex items-center mb-4">
-                            <TrendingUp className="w-6 h-6 text-rose-400 mr-3" />
-                            <span className="text-rose-300 font-medium">Melhoria</span>
+                            <TrendingUp className="w-6 h-6 text-primary mr-3" />
+                            <span className="text-foreground font-medium">Melhoria</span>
                           </div>
                           <motion.div
-                            className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent"
+                            className="text-2xl font-bold text-primary"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={isInView ? { opacity: 1, scale: 1 } : {}}
                             transition={{ delay: 1 + index * 0.1 }}
@@ -309,13 +288,13 @@ export default function ComparisonVisualization() {
                           opacity: activeComparison === index ? 1 : 0,
                         }}
                         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                        className="overflow-hidden border-t border-pink-500/20"
+                        className="overflow-hidden border-t border-border"
                       >
-                        <div className="p-8 bg-muted/50 dark:bg-slate-800/50">
+                        <div className="p-8 bg-muted/50">
                           <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                              <h4 className="text-lg font-semibold text-red-300 mb-3">Limitações do Método Manual</h4>
-                              <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
+                              <h4 className="text-lg font-semibold text-foreground mb-3">Limitações do Método Manual</h4>
+                              <ul className="space-y-2 text-muted-foreground">
                                 <li className="flex items-center">
                                   <X className="w-4 h-4 text-red-400 mr-2" />
                                   Alto tempo de processamento
@@ -331,8 +310,8 @@ export default function ComparisonVisualization() {
                               </ul>
                             </div>
                             <div>
-                              <h4 className="text-lg font-semibold text-green-300 mb-3">Vantagens da inttax</h4>
-                              <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
+                              <h4 className="text-lg font-semibold text-foreground mb-3">Vantagens da inttax</h4>
+                              <ul className="space-y-2 text-muted-foreground">
                                 <li className="flex items-center">
                                   <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
                                   Processamento em tempo real
@@ -366,9 +345,9 @@ export default function ComparisonVisualization() {
           >
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Evolution Chart - Fixed */}
-              <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20">
-                <h3 className="text-2xl font-bold text-foreground dark:text-white mb-6 flex items-center">
-                  <Activity className="w-6 h-6 mr-3 text-rose-400" />
+              <div className="bg-card/80 backdrop-blur-xl rounded-2xl p-8 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+                  <Activity className="w-6 h-6 mr-3 text-primary" />
                   Evolução da Eficiência
                 </h3>
                 <div className="h-80 relative">
@@ -482,9 +461,9 @@ export default function ComparisonVisualization() {
               </div>
 
               {/* Performance Comparison - Increased size to prevent text overlap */}
-              <div className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20">
-                <h3 className="text-2xl font-bold text-foreground dark:text-white mb-6 flex items-center">
-                  <PieChart className="w-6 h-6 mr-3 text-pink-400" />
+              <div className="bg-card/80 backdrop-blur-xl rounded-2xl p-8 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+                  <PieChart className="w-6 h-6 mr-3 text-primary" />
                   Comparação de Performance
                 </h3>
                 {/* Increased height from h-64 to h-80 and container size */}
@@ -562,7 +541,7 @@ export default function ComparisonVisualization() {
 
                   {/* Separate comparison text and labels */}
                   <div className="text-center mb-4">
-                    <div className="text-lg font-semibold text-foreground dark:text-white mb-2">inttax vs Manual</div>
+                    <div className="text-lg font-semibold text-foreground mb-2">inttax vs Manual</div>
                     <div className="text-red-400 text-base">95% vs 25%</div>
                   </div>
 
@@ -584,13 +563,13 @@ export default function ComparisonVisualization() {
             {/* Animated Metrics */}
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { label: "Velocidade de Processamento", value: "10x", color: "text-rose-400", icon: Zap },
-                { label: "Redução de Erros", value: "99%", color: "text-green-400", icon: CheckCircle },
-                { label: "ROI em 12 meses", value: "380%", color: "text-pink-400", icon: TrendingUp },
+                { label: "Velocidade de Processamento", value: "10x", color: "text-primary", icon: Zap },
+                { label: "Redução de Erros", value: "99%", color: "text-primary", icon: CheckCircle },
+                { label: "ROI em 12 meses", value: "380%", color: "text-primary", icon: TrendingUp },
               ].map((metric, index) => (
                 <motion.div
                   key={metric.label}
-                  className="bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-pink-500/20 text-center group hover:border-pink-500/40 transition-all duration-300"
+                  className="bg-card/80 backdrop-blur-xl rounded-2xl p-6 border border-border text-center group hover:border-primary/30 transition-all duration-300"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.2 }}
@@ -607,7 +586,7 @@ export default function ComparisonVisualization() {
                   >
                     {metric.value}
                   </motion.div>
-                  <div className="text-muted-foreground dark:text-gray-400">{metric.label}</div>
+                  <div className="text-muted-foreground">{metric.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -621,8 +600,10 @@ export default function ComparisonVisualization() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-foreground dark:text-white mb-6">Comparação de Resultados</h3>
-            <p className="text-xl text-muted-foreground dark:text-gray-300">Impacto real da transformação digital</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Comparação de Resultados
+            </h3>
+            <p className="text-lg text-muted-foreground">Impacto real da transformação digital</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -630,16 +611,12 @@ export default function ComparisonVisualization() {
               <motion.div
                 key={result.metric}
                 className="group relative"
-                initial={{ opacity: 0, scale: 0.8, rotateY: 45 }}
-                animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.8, delay: 1 + index * 0.1 }}
-                whileHover={{ scale: 1.05, rotateY: 5 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <div className="relative bg-background/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/40 transition-all duration-500 overflow-hidden">
-                  {/* Animated Background */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-r ${result.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  />
+                <div className="relative bg-card/80 backdrop-blur-xl rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden">
 
                   {/* Circular Progress */}
                   <div className="relative w-32 h-32 mx-auto mb-6">
@@ -651,13 +628,13 @@ export default function ComparisonVisualization() {
                         stroke="currentColor"
                         strokeWidth="8"
                         fill="none"
-                        className="text-muted/20 dark:text-slate-700"
+                        className="text-muted/20"
                       />
                       <motion.circle
                         cx="50"
                         cy="50"
                         r="40"
-                        stroke="url(#gradient-${index})"
+                        stroke="hsl(var(--primary))"
                         strokeWidth="8"
                         fill="none"
                         strokeLinecap="round"
@@ -668,19 +645,12 @@ export default function ComparisonVisualization() {
                         }}
                         transition={{ duration: 2, delay: 1.2 + index * 0.2 }}
                       />
-                    <defs>
-                      <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3B82F6" />
-                        <stop offset="50%" stopColor="#8B5CF6" />
-                        <stop offset="100%" stopColor="#06B6D4" />
-                      </linearGradient>
-                    </defs>
                   </svg>
 
                     {/* Value Display */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <motion.span
-                        className={`text-2xl font-bold bg-gradient-to-r ${result.color} bg-clip-text text-transparent`}
+                        className="text-2xl font-bold text-primary"
                         animate={{ opacity: isInView ? 1 : 0 }}
                         transition={{ delay: 1.5 + index * 0.2 }}
                       >
@@ -692,15 +662,12 @@ export default function ComparisonVisualization() {
 
                   </div>
 
-                  <h4 className="text-xl font-bold text-foreground dark:text-white mb-2 group-hover:text-pink-300 transition-colors">
+                  <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {result.metric}
                   </h4>
-                  <p className="text-muted-foreground dark:text-gray-300 text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {result.description}
                   </p>
-
-                  {/* Hover Effect */}
-                  <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </motion.div>
             ))}

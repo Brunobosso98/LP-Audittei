@@ -120,21 +120,6 @@ export default function TestimonialsCarousel() {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/2 left-1/3 w-96 h-96 bg-gradient-to-r from-green-500/10 to-rose-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, 120, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        />
-      </div>
 
       <div ref={containerRef} className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -144,18 +129,16 @@ export default function TestimonialsCarousel() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
           >
             O que Nossos{" "}
-            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-              Clientes Dizem
-            </span>
+            <span className="text-primary">Clientes Dizem</span>
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -174,21 +157,8 @@ export default function TestimonialsCarousel() {
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 exit={{ opacity: 0, x: -300, rotateY: -45 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="bg-slate-900/90 backdrop-blur-xl border border-pink-500/20 rounded-3xl p-12 relative overflow-hidden"
+                className="bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-12 relative overflow-hidden"
               >
-                {/* Animated Background */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-pink-500/5"
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "linear",
-                  }}
-                />
-
                 <div className="relative z-10">
                   <div className="grid lg:grid-cols-3 gap-12 items-center">
                     {/* Quote and Content */}
@@ -199,10 +169,10 @@ export default function TestimonialsCarousel() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                       >
-                        <Quote className="w-16 h-16 text-pink-400 flex-shrink-0 mt-2" />
+                        <Quote className="w-16 h-16 text-primary flex-shrink-0 mt-2" />
                         <div className="flex-1">
                           <motion.p
-                            className="text-gray-300 text-lg leading-relaxed mb-6"
+                            className="text-muted-foreground text-lg leading-relaxed mb-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 }}
@@ -236,30 +206,30 @@ export default function TestimonialsCarousel() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.8 }}
                           >
-                            <div className="w-16 h-16 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center">
-                              <span className="text-white font-bold text-xl">
+                            <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                              <span className="text-primary font-bold text-xl">
                                 {testimonials[currentIndex].name.charAt(0)}
                               </span>
                             </div>
                             <div>
-                              <h4 className="text-white font-bold text-lg">{testimonials[currentIndex].name}</h4>
-                              <p className="text-gray-400">{testimonials[currentIndex].position}</p>
-                              <p className="text-pink-400 font-medium">{testimonials[currentIndex].company}</p>
+                              <h4 className="text-foreground font-bold text-lg">{testimonials[currentIndex].name}</h4>
+                              <p className="text-muted-foreground">{testimonials[currentIndex].position}</p>
+                              <p className="text-primary font-medium">{testimonials[currentIndex].company}</p>
                             </div>
                           </motion.div>
                         </div>
                       </motion.div>
 
                       {/* Video Testimonial Button */}
-                      <motion.button
-                        className="flex items-center space-x-3 text-rose-400 hover:text-rose-300 transition-colors group"
+                    <motion.button
+                        className="flex items-center space-x-3 text-primary hover:text-primary/80 transition-colors group"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1 }}
                       >
-                        <div className="w-12 h-12 bg-rose-500/20 rounded-full flex items-center justify-center group-hover:bg-rose-500/30 transition-colors">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                           <Play className="w-6 h-6 ml-1" />
                         </div>
                         <span className="font-medium">Assistir depoimento em vídeo</span>
@@ -269,7 +239,7 @@ export default function TestimonialsCarousel() {
                     {/* Metrics */}
                     <div className="space-y-6">
                       <motion.h4
-                        className="text-xl font-bold text-white mb-6"
+                        className="text-xl font-bold text-foreground mb-6"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
@@ -280,25 +250,25 @@ export default function TestimonialsCarousel() {
                       {Object.entries(testimonials[currentIndex].metrics).map(([key, value], index) => (
                         <motion.div
                           key={key}
-                          className="bg-slate-800/50 rounded-2xl p-6 border border-pink-500/20"
+                          className="bg-muted/50 rounded-2xl p-6 border border-border"
                           initial={{ opacity: 0, x: 50 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.8 + index * 0.1 }}
-                          whileHover={{ scale: 1.02, borderColor: "rgba(168, 85, 247, 0.4)" }}
+                          whileHover={{ scale: 1.02, borderColor: "hsl(var(--primary) / 0.4)" }}
                         >
                           <div className="flex items-center justify-between">
                             <div>
-                              <div className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
+                              <div className="text-2xl font-bold text-primary">
                                 {value}
                               </div>
-                              <div className="text-gray-400 text-sm capitalize">
+                              <div className="text-muted-foreground text-sm capitalize">
                                 {key.replace(/([A-Z])/g, " $1").trim()}
                               </div>
                             </div>
-                            <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                              {key === "reduçãoTempo" && <TrendingUp className="w-6 h-6 text-white" />}
-                              {key === "aumentoPrecisão" && <Building className="w-6 h-6 text-white" />}
-                              {key === "satisfaçãoCliente" && <Users className="w-6 h-6 text-white" />}
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                              {key === "reduçãoTempo" && <TrendingUp className="w-6 h-6 text-primary" />}
+                              {key === "aumentoPrecisão" && <Building className="w-6 h-6 text-primary" />}
+                              {key === "satisfaçãoCliente" && <Users className="w-6 h-6 text-primary" />}
                             </div>
                           </div>
                         </motion.div>
@@ -314,11 +284,11 @@ export default function TestimonialsCarousel() {
           <div className="flex justify-center items-center space-x-6 mt-12">
             <motion.button
               onClick={prevTestimonial}
-              className="w-14 h-14 bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
+              className="w-12 h-12 bg-card/80 hover:bg-muted/80 rounded-full flex items-center justify-center transition-all duration-300 border border-border"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ChevronLeft className="w-5 h-5 text-foreground" />
             </motion.button>
 
             {/* Dots Indicator */}
@@ -328,14 +298,14 @@ export default function TestimonialsCarousel() {
                   key={index}
                   onClick={() => goToTestimonial(index)}
                   className={`relative w-4 h-4 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-pink-400" : "bg-slate-600"
+                    index === currentIndex ? "bg-primary" : "bg-muted"
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   {index === currentIndex && (
                     <motion.div
-                      className="absolute inset-0 bg-pink-400 rounded-full"
+                      className="absolute inset-0 bg-primary rounded-full"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.3 }}
@@ -347,11 +317,11 @@ export default function TestimonialsCarousel() {
 
             <motion.button
               onClick={nextTestimonial}
-              className="w-14 h-14 bg-slate-800/80 hover:bg-pink-600/80 rounded-full flex items-center justify-center transition-all duration-300 border border-pink-500/20 hover:border-pink-500/40"
+              className="w-12 h-12 bg-card/80 hover:bg-muted/80 rounded-full flex items-center justify-center transition-all duration-300 border border-border"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ChevronRight className="w-5 h-5 text-foreground" />
             </motion.button>
           </div>
 
@@ -366,8 +336,8 @@ export default function TestimonialsCarousel() {
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               className={`text-sm px-4 py-2 rounded-full transition-colors ${
                 isAutoPlaying
-                  ? "text-green-400 bg-green-400/10 border border-green-400/20"
-                  : "text-gray-400 bg-slate-800/50 border border-slate-600/20"
+                  ? "text-primary bg-primary/10 border border-primary/20"
+                  : "text-muted-foreground bg-muted/50 border border-border"
               }`}
             >
               {isAutoPlaying ? "Auto-play ativo" : "Auto-play pausado"}
@@ -389,8 +359,8 @@ export default function TestimonialsCarousel() {
                 onClick={() => goToTestimonial(index)}
                 className={`relative p-4 rounded-2xl border transition-all duration-300 ${
                   index === currentIndex
-                    ? "border-pink-500/50 bg-pink-500/10"
-                    : "border-slate-600/20 bg-slate-800/30 hover:border-pink-500/30"
+                    ? "border-primary/50 bg-primary/10"
+                    : "border-border bg-card/50 hover:border-primary/30"
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -399,16 +369,16 @@ export default function TestimonialsCarousel() {
                 transition={{ delay: 1.4 + index * 0.1 }}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold">{testimonial.name.charAt(0)}</span>
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-primary font-bold">{testimonial.name.charAt(0)}</span>
                   </div>
-                  <div className="text-white font-medium text-sm mb-1">{testimonial.name}</div>
-                  <div className="text-gray-400 text-xs">{testimonial.company}</div>
+                  <div className="text-foreground font-medium text-sm mb-1">{testimonial.name}</div>
+                  <div className="text-muted-foreground text-xs">{testimonial.company}</div>
                 </div>
 
                 {index === currentIndex && (
                   <motion.div
-                    className="absolute inset-0 border-2 border-pink-400 rounded-2xl"
+                    className="absolute inset-0 border-2 border-primary/60 rounded-2xl"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}

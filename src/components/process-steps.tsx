@@ -17,7 +17,6 @@ const steps = [
     color: "from-pink-500 to-pink-500",
   },
   {
-    icon: Target,
     title: "Cenários Tributários e Produtos",
     description:
       "Geração inteligente de cenários tributários e cadastro automático de produtos com classificação fiscal.",

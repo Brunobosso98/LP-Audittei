@@ -4,6 +4,13 @@ import type React from "react"
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function AdvancedContact() {
   /* ----------------------------- Hooks / State ---------------------------- */
@@ -61,21 +68,18 @@ Enviado automaticamente pelo site da inttax
       icon: Phone,
       title: "Telefone",
       value: "(19) 97818-0175",
-      color: "from-rose-500 to-cyan-500",
       note: "Seg-Sex, 08h-18h",
     },
     {
       icon: Mail,
       title: "E-mail",
       value: "contato@inttax.com.br",
-      color: "from-pink-500 to-pink-500",
       note: "Resposta em até 2h",
     },
     {
       icon: MapPin,
       title: "Endereço",
       value: "São Paulo – SP",
-      color: "from-green-500 to-emerald-500",
       note: "Atendimento nacional",
     },
   ]
@@ -91,13 +95,7 @@ Enviado automaticamente pelo site da inttax
 
   /* -------------------------------- Render -------------------------------- */
   return (
-    <section id="contato" className="py-32 bg-slate-800/30 relative overflow-hidden">
-      {/* Decorative blob */}
-      <motion.div
-        className="absolute -top-20 -left-32 w-[28rem] h-[28rem] bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.3, 1], rotate: [0, 120, 0] }}
-        transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-      />
+    <section id="contato" className="py-32 bg-muted/30 relative overflow-hidden">
 
       <div ref={containerRef} className="container mx-auto px-4 relative z-10 max-w-7xl">
         {/* Heading */}
@@ -107,11 +105,10 @@ Enviado automaticamente pelo site da inttax
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Fale&nbsp;
-            <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">Conosco</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Fale&nbsp;<span className="text-primary">Conosco</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Entre em contato e descubra como a inttax pode transformar seu escritório contábil
           </p>
         </motion.div>
@@ -124,22 +121,16 @@ Enviado automaticamente pelo site da inttax
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9 }}
           >
-            <div className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-10 border border-pink-500/20 overflow-hidden">
-              {/* Subtle background glow */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-pink-500/5"
-                animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              />
+            <div className="relative bg-card/80 backdrop-blur-xl rounded-2xl p-10 border border-border overflow-hidden">
 
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-8">Solicite uma Demonstração</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-8">Solicite uma Demonstração</h3>
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   {/* --- Row 1 --- */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-white mb-1 block">Nome *</label>
+                      <label className="text-sm font-medium text-foreground mb-1 block">Nome *</label>
                       <input
                         type="text"
                         name="name"
@@ -147,11 +138,11 @@ Enviado automaticamente pelo site da inttax
                         placeholder="Seu nome completo"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
+                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-white mb-1 block">E-mail *</label>
+                      <label className="text-sm font-medium text-foreground mb-1 block">E-mail *</label>
                       <input
                         type="email"
                         name="email"
@@ -159,7 +150,7 @@ Enviado automaticamente pelo site da inttax
                         placeholder="voce@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
+                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none"
                       />
                     </div>
                   </div>
@@ -167,18 +158,18 @@ Enviado automaticamente pelo site da inttax
                   {/* --- Row 2 --- */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-white mb-1 block">Empresa</label>
+                      <label className="text-sm font-medium text-foreground mb-1 block">Empresa</label>
                       <input
                         type="text"
                         name="company"
                         placeholder="Nome da empresa"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
+                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-white mb-1 block">WhatsApp *</label>
+                      <label className="text-sm font-medium text-foreground mb-1 block">WhatsApp *</label>
                       <input
                         type="tel"
                         name="phone"
@@ -186,45 +177,47 @@ Enviado automaticamente pelo site da inttax
                         placeholder="(19) 97818-0175"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none"
+                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none"
                       />
                     </div>
                   </div>
 
                   {/* --- Row 3 --- */}
                   <div>
-                    <label className="text-sm font-medium text-white mb-1 block">Número de funcionários</label>
-                    <select
-                      name="employees"
+                    <label className="text-sm font-medium text-foreground mb-1 block">Número de funcionários</label>
+                    <Select
                       value={formData.employees}
-                      onChange={handleChange}
-                      className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white focus:border-pink-400 outline-none"
+                      onValueChange={(value) => setFormData({ ...formData, employees: value })}
                     >
-                      <option value="">Selecione…</option>
-                      <option value="1-10">1-10</option>
-                      <option value="11-50">11-50</option>
-                      <option value="51-200">51-200</option>
-                      <option value="200+">200+</option>
-                    </select>
+                      <SelectTrigger className="w-full bg-background border border-border text-foreground focus:ring-primary">
+                        <SelectValue placeholder="Selecione..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1-10">1-10</SelectItem>
+                        <SelectItem value="11-50">11-50</SelectItem>
+                        <SelectItem value="51-200">51-200</SelectItem>
+                        <SelectItem value="200+">200+</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   {/* --- Message --- */}
                   <div>
-                    <label className="text-sm font-medium text-white mb-1 block">Mensagem</label>
+                    <label className="text-sm font-medium text-foreground mb-1 block">Mensagem</label>
                     <textarea
                       name="message"
                       rows={4}
                       placeholder="Conte-nos mais sobre suas necessidades…"
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full bg-slate-800/80 border border-pink-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-pink-400 outline-none resize-none"
+                      className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none resize-none"
                     />
                   </div>
 
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-4 w-full py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 transition-all disabled:opacity-50 flex items-center justify-center"
+                    className="mt-4 w-full py-3 rounded-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-all disabled:opacity-50 flex items-center justify-center"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -269,25 +262,20 @@ Enviado automaticamente pelo site da inttax
             {contactInfo.map(({ icon: Icon, ...item }, idx) => (
               <motion.div
                 key={item.title}
-                className="relative bg-slate-900/90 backdrop-blur-xl rounded-3xl p-8 border border-pink-500/20 overflow-hidden"
+                className="relative bg-card/80 backdrop-blur-xl rounded-2xl p-8 border border-border overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
-                whileHover={{ scale: 1.03, borderColor: "rgba(168,85,247,0.4)" }}
+                whileHover={{ scale: 1.03, borderColor: "hsl(var(--primary) / 0.4)" }}
               >
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-r ${item.color} opacity-0 hover:opacity-10 transition-opacity`}
-                />
                 <div className="relative z-10 flex items-center space-x-4">
-                  <div
-                    className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center`}
-                  >
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-white">{item.title}</p>
-                    <p className="text-pink-400 font-medium">{item.value}</p>
-                    <p className="text-gray-400 text-sm">{item.note}</p>
+                    <p className="text-lg font-semibold text-foreground">{item.title}</p>
+                    <p className="text-primary font-medium">{item.value}</p>
+                    <p className="text-muted-foreground text-sm">{item.note}</p>
                   </div>
                 </div>
               </motion.div>
@@ -295,22 +283,17 @@ Enviado automaticamente pelo site da inttax
 
             {/* Benefits List */}
             <motion.div
-              className="relative bg-gradient-to-r from-pink-900/30 via-rose-900/30 to-pink-900/30 rounded-3xl p-8 border border-pink-500/30 backdrop-blur-sm overflow-hidden"
+              className="relative bg-card/80 rounded-2xl p-8 border border-border backdrop-blur-sm overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.6 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-pink-500/5"
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              />
               <div className="relative z-10">
-                <h4 className="text-xl font-bold text-white mb-6">Por que escolher a inttax?</h4>
-                <ul className="space-y-3 text-gray-300">
+                <h4 className="text-xl font-bold text-foreground mb-6">Por que escolher a inttax?</h4>
+                <ul className="space-y-3 text-muted-foreground">
                   {benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start space-x-2">
-                      <span className="mt-1 w-2 h-2 bg-pink-400 rounded-full shrink-0"></span>
+                      <span className="mt-1 w-2 h-2 bg-primary rounded-full shrink-0"></span>
                       <span>{benefit}</span>
                     </li>
                   ))}

@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Clock, Shield, Settings, ArrowRight, Play } from "lucide-react"
-import { useRef, useEffect, useState } from "react"
+import { useRef } from "react"
 
 export default function AdvancedHero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -14,23 +14,6 @@ export default function AdvancedHero() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-
-  const [typedText, setTypedText] = useState("")
-  const fullText = "Inttax: Inteligência Fiscal que "
-
-  useEffect(() => {
-    let index = 0
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setTypedText(fullText.slice(0, index + 1))
-        index++
-      } else {
-        clearInterval(timer)
-      }
-    }, 50)
-
-    return () => clearInterval(timer)
-  }, [])
 
   const scrollToContact = () => {
     const element = document.getElementById("contato")
@@ -45,7 +28,6 @@ export default function AdvancedHero() {
       title: "Ganhe Tempo",
       description:
         "Elimine horas de trabalho manual e repetitivo. A automação da inttax libera sua equipe para atividades estratégicas.",
-      color: "from-rose-500 to-cyan-500",
       delay: 0.2,
     },
     {
@@ -53,47 +35,19 @@ export default function AdvancedHero() {
       title: "Segurança Fiscal",
       description:
         "Reduza riscos de autuações e multas. Nossa plataforma identifica inconsistências e garante conformidade fiscal.",
-      color: "from-pink-500 to-pink-500",
       delay: 0.4,
     },
     {
       icon: Settings,
       title: "Padronize Processos",
       description: "Garanta consistência e organização. Padronize suas auditorias fiscais com metodologia comprovada.",
-      color: "from-green-500 to-emerald-500",
       delay: 0.6,
     },
   ]
 
   return (
     <section id="hero" ref={containerRef} className="min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-rose-500/20 to-pink-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-transparent" />
 
       <motion.div style={{ y, opacity }} className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -105,37 +59,16 @@ export default function AdvancedHero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             >
-              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-white leading-tight">
-                {typedText}
-                <motion.span
-                  className="bg-gradient-to-r from-rose-400 via-pink-400 to-pink-400 bg-clip-text text-transparent"
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "linear",
-                  }}
-                  style={{
-                    backgroundSize: "200% 200%",
-                  }}
-                >
-                  Revoluciona
-                </motion.span>
-                {" seu Escritório Contábil"}
-                <motion.span
-                  className="inline-block w-1 h-12 bg-pink-400 ml-2"
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-                />
+              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                Inttax: Inteligência Fiscal que <span className="text-primary">revoluciona</span> seu Escritório
+                Contábil
               </motion.h1>
 
               <motion.p
-                className="text-xl text-muted-foreground dark:text-gray-300 leading-relaxed"
+                className="text-xl text-muted-foreground leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
                 Descubra como a inttax simplifica a complexidade fiscal e impulsiona a eficiência do seu negócio.
               </motion.p>
@@ -145,12 +78,12 @@ export default function AdvancedHero() {
               className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.5 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   size="lg"
-                  className="group relative overflow-hidden bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white px-8 py-4 text-lg border-0"
+                  className="group relative overflow-hidden bg-primary text-primary-foreground px-8 py-4 text-lg border-0 hover:bg-primary/90"
                   onClick={scrollToContact}
                 >
                   <span className="relative flex items-center">
@@ -164,7 +97,7 @@ export default function AdvancedHero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="group border-2 border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white px-8 py-4 text-lg bg-transparent backdrop-blur-sm"
+                  className="group border-2 border-border text-foreground hover:bg-muted px-8 py-4 text-lg bg-transparent"
                 >
                   <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
                   Ver Demo
@@ -176,46 +109,13 @@ export default function AdvancedHero() {
           {/* Right Content - Interactive Dashboard */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: 100, rotateY: 45 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
-            transition={{ duration: 1.2, delay: 1, ease: [0.4, 0, 0.2, 1] }}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="relative">
-              {/* Floating Elements */}
-              <motion.div
-                className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-2xl"
-                animate={{
-                  y: [-10, 10, -10],
-                  rotate: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                <Shield className="w-10 h-10 text-white" />
-              </motion.div>
-
-              <motion.div
-                className="absolute -top-5 -right-5 w-16 h-16 bg-gradient-to-r from-green-500 to-cyan-500 rounded-full flex items-center justify-center shadow-2xl"
-                animate={{
-                  y: [10, -10, 10],
-                  rotate: [0, -5, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              >
-                <Clock className="w-8 h-8 text-white" />
-              </motion.div>
-
               {/* Main Dashboard */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-pink-500/30 backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-br from-background/90 to-muted/90 dark:from-slate-800/90 dark:to-slate-900/90" />
+              <div className="relative rounded-2xl overflow-hidden border border-border bg-card/80 backdrop-blur-sm">
                 <div className="relative p-8">
                   <div className="grid grid-cols-2 gap-6 mb-6">
                     {[
@@ -226,35 +126,35 @@ export default function AdvancedHero() {
                     ].map((stat, index) => (
                       <motion.div
                         key={stat.label}
-                        className="bg-muted/50 dark:bg-slate-700/50 rounded-xl p-4 border border-pink-500/20"
+                        className="bg-muted/60 rounded-xl p-4 border border-border"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 2 + index * 0.1 }}
+                        transition={{ delay: 0.8 + index * 0.1 }}
                       >
-                        <div className="text-2xl font-bold text-foreground dark:text-white mb-1">{stat.value}</div>
-                        <div className="text-sm text-muted-foreground dark:text-gray-400 mb-2">{stat.label}</div>
-                        <div className="text-green-400 text-xs">{stat.change}</div>
+                        <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
+                        <div className="text-sm text-muted-foreground mb-2">{stat.label}</div>
+                        <div className="text-primary text-xs">{stat.change}</div>
                       </motion.div>
                     ))}
                   </div>
 
                   {/* Animated Chart */}
-                  <div className="bg-muted/50 dark:bg-slate-700/50 rounded-xl p-4 border border-pink-500/20">
+                  <div className="bg-muted/60 rounded-xl p-4 border border-border">
                     <div className="flex justify-between items-center mb-4">
-                      <span className="text-foreground dark:text-white font-medium">Auditoria em Tempo Real</span>
+                      <span className="text-foreground font-medium">Auditoria em Tempo Real</span>
                       <div className="flex space-x-2">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                        <span className="text-green-400 text-sm">Online</span>
+                        <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                        <span className="text-primary text-sm">Online</span>
                       </div>
                     </div>
                     <div className="h-24 flex items-end space-x-2">
                       {[40, 65, 45, 80, 55, 90, 70, 85].map((height, index) => (
                         <motion.div
                           key={index}
-                          className="flex-1 bg-gradient-to-t from-rose-500 to-pink-500 rounded-t"
+                          className="flex-1 bg-primary/80 rounded-t"
                           initial={{ height: 0 }}
                           animate={{ height: `${height}%` }}
-                          transition={{ delay: 3 + index * 0.1, duration: 0.5 }}
+                          transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                         />
                       ))}
                     </div>
@@ -266,18 +166,15 @@ export default function AdvancedHero() {
         </div>
 
         {/* Benefits Section with Advanced Animations */}
-        <motion.div className="mt-32" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.5 }}>
+        <motion.div className="mt-24" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2 }}
+            transition={{ delay: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-4">
-              Transforme seu Processo Fiscal: Ganhe{" "}
-              <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
-                Tempo, Segurança e Padronização
-              </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Transforme seu Processo Fiscal: Ganhe <span className="text-primary">Tempo e Segurança</span>
             </h2>
           </motion.div>
 
@@ -286,55 +183,27 @@ export default function AdvancedHero() {
               <motion.div
                 key={benefit.title}
                 className="group relative"
-                initial={{ opacity: 0, y: 100, rotateX: 45 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ delay: 4 + benefit.delay, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 + benefit.delay, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  z: 50,
+                  scale: 1.02,
                 }}
               >
-                <div className="relative bg-background/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-pink-500/20 hover:border-pink-500/40 transition-all duration-500 overflow-hidden">
-                  {/* Animated Background */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-r ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  />
+                <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden">
 
                   {/* Floating Icon */}
-                  <motion.div
-                    className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${benefit.color} flex items-center justify-center mb-6 relative`}
-                    whileHover={{
-                      rotate: 360,
-                      scale: 1.1,
-                    }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <benefit.icon className="w-10 h-10 text-white" />
-                    <motion.div
-                      className="absolute inset-0 rounded-2xl bg-white/20"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0, 0.3, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  </motion.div>
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                    <benefit.icon className="w-7 h-7 text-primary" />
+                  </div>
 
-                  <h3 className="text-2xl font-semibold text-foreground dark:text-white mb-4 group-hover:text-pink-300 transition-colors">
+                  <h3 className="text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
                     {benefit.title}
                   </h3>
 
-                  <p className="text-muted-foreground dark:text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors">
+                  <p className="text-muted-foreground leading-relaxed">
                     {benefit.description}
                   </p>
-
-                  {/* Hover Effect Lines */}
-                  <motion.div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-rose-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </motion.div>
             ))}
