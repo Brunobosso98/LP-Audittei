@@ -80,7 +80,6 @@ export default function ProcessSteps() {
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center mr-4`}
                   >
-                    <step.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white font-bold text-sm">
                     {index + 1}
