@@ -3,6 +3,7 @@ import AdvancedHeader from "@/components/advanced-header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { useTheme } from "@/components/theme-provider"
 import {
   BarChart3,
   CheckCircle2,
@@ -92,12 +93,17 @@ const modules = [
 export default function AuditorFiscalPage() {
   const [activeModuleId, setActiveModuleId] = useState<string | null>(null)
   const [hoveredModuleId, setHoveredModuleId] = useState<string | null>(null)
+  const { theme } = useTheme()
   const activeModule = modules.find((module) => module.id === activeModuleId) ?? modules[0]
   const displayedModule =
     modules.find((module) => module.id === hoveredModuleId) ??
     modules.find((module) => module.id === activeModuleId) ??
     modules[0]
   const isBlurred = activeModuleId === null && hoveredModuleId === null
+  const displayedImageSrc =
+    displayedModule.imageSrc && theme === "dark"
+      ? displayedModule.imageSrc.replace(/\.png$/, "-dark.png")
+      : displayedModule.imageSrc
 
   return (
     <div className="min-h-screen bg-background">
@@ -177,12 +183,12 @@ export default function AuditorFiscalPage() {
               >
                 <div className="relative aspect-[1646/949] rounded-xl border border-border bg-muted/40 overflow-hidden shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
                   <AnimatePresence mode="wait">
-                    {displayedModule.imageSrc ? (
+                    {displayedImageSrc ? (
                       <motion.img
                         key={displayedModule.id}
-                        src={displayedModule.imageSrc}
+                        src={displayedImageSrc}
                         alt={displayedModule.imageAlt ?? `Print do módulo ${displayedModule.title}`}
-                        className={`absolute inset-0 h-full w-full object-cover transition-all duration-300 ${isBlurred ? "blur-sm" : "blur-0"
+                        className={`absolute inset-0 h-full w-full object-cover transition-all duration-300 ${isBlurred ? "blur-[3px]" : "blur-0"
                           }`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
