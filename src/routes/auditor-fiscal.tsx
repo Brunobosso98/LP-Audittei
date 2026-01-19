@@ -1,5 +1,5 @@
-﻿import { motion } from "framer-motion"
-import Header from "@/components/header"
+﻿import { AnimatePresence, motion } from "framer-motion"
+import AdvancedHeader from "@/components/advanced-header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -90,12 +90,18 @@ const modules = [
 ]
 
 export default function AuditorFiscalPage() {
-  const [activeModuleId, setActiveModuleId] = useState(modules[0].id)
+  const [activeModuleId, setActiveModuleId] = useState<string | null>(null)
+  const [hoveredModuleId, setHoveredModuleId] = useState<string | null>(null)
   const activeModule = modules.find((module) => module.id === activeModuleId) ?? modules[0]
+  const displayedModule =
+    modules.find((module) => module.id === hoveredModuleId) ??
+    modules.find((module) => module.id === activeModuleId) ??
+    modules[0]
+  const isBlurred = activeModuleId === null && hoveredModuleId === null
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <AdvancedHeader />
 
       <main className="pt-20">
         <section className="py-20">
@@ -130,9 +136,11 @@ export default function AuditorFiscalPage() {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-[360px_1fr] lg:items-center">
-              <div className="rounded-2xl border border-border bg-background p-4 shadow-sm lg:self-center">
-                <div className="text-sm font-semibold text-foreground">Selecione um módulo</div>
-                <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="rounded-2xl border border-border bg-muted/10 p-4 lg:self-center">
+                <div className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+                  Selecione um módulo
+                </div>
+                <div className="mt-4 grid grid-cols-3 gap-2">
                   {modules.map((module) => {
                     const isActive = module.id === activeModuleId
                     const Icon = module.icon
@@ -141,18 +149,20 @@ export default function AuditorFiscalPage() {
                         key={module.id}
                         type="button"
                         onClick={() => setActiveModuleId(module.id)}
-                        className={`flex aspect-square flex-col items-center justify-center rounded-xl border px-3 py-3 text-center transition-all ${isActive
-                          ? "border-primary/50 bg-card shadow-sm"
-                          : "border-border bg-muted/20 hover:border-primary/30 hover:bg-card/60"
+                        onMouseEnter={() => setHoveredModuleId(module.id)}
+                        onMouseLeave={() => setHoveredModuleId(null)}
+                        className={`flex aspect-square flex-col items-center justify-center rounded-xl border px-4 py-4 text-center transition-colors ${isActive
+                          ? "border-primary/50 bg-primary/5"
+                          : "border-border bg-background hover:border-primary/30 hover:bg-card/60"
                           }`}
                       >
                         <span
-                          className={`mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border ${isActive ? "border-primary/30 bg-primary/10" : "border-border bg-background"
+                          className={`mb-2 inline-flex h-6 w-6 items-center justify-center rounded-md border ${isActive ? "border-primary/30 bg-primary/10" : "border-border bg-background"
                             }`}
                         >
-                          <Icon className="h-4 w-4 text-foreground" aria-hidden="true" />
+                          <Icon className="h-3.5 w-3.5 text-foreground" aria-hidden="true" />
                         </span>
-                        <div className="text-xs font-semibold text-foreground leading-snug">{module.title}</div>
+                        <div className="text-[13px] font-semibold text-foreground leading-snug">{module.title}</div>
                       </button>
                     )
                   })}
@@ -160,35 +170,53 @@ export default function AuditorFiscalPage() {
               </div>
 
               <motion.div
-                key={activeModule.id}
                 className="relative z-10 w-full rounded-2xl border border-border bg-card/80 p-6 shadow-sm lg:justify-self-start lg:max-w-[980px]"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, ease: [0.25, 1, 0.5, 1] }}
               >
                 <div className="relative aspect-[1646/949] rounded-xl border border-border bg-muted/40 overflow-hidden shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
-                  {activeModule.imageSrc ? (
-                    <img
-                      src={activeModule.imageSrc}
-                      alt={activeModule.imageAlt ?? `Print do módulo ${activeModule.title}`}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
-                      Print do módulo: {activeModule.title}
-                    </div>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {displayedModule.imageSrc ? (
+                      <motion.img
+                        key={displayedModule.id}
+                        src={displayedModule.imageSrc}
+                        alt={displayedModule.imageAlt ?? `Print do módulo ${displayedModule.title}`}
+                        className={`absolute inset-0 h-full w-full object-cover transition-all duration-300 ${isBlurred ? "blur-sm" : "blur-0"
+                          }`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.15 }}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <motion.div
+                        key={`${displayedModule.id}-fallback`}
+                        className={`flex h-full w-full items-center justify-center text-sm text-muted-foreground transition-all duration-300 ${isBlurred ? "blur-sm" : "blur-0"
+                          }`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        Print do módulo: {displayedModule.title}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-                  <div className="absolute bottom-4 right-4 max-w-[70%] rounded-lg border border-border bg-muted px-4 py-3 shadow-sm">
+                  <div
+                    className={`absolute bottom-4 right-4 max-w-[70%] rounded-lg border border-border bg-muted px-4 py-3 shadow-sm transition-all duration-300 ${isBlurred ? "blur-sm" : "blur-0"
+                      }`}
+                  >
                     <div className="text-xs uppercase tracking-wide text-muted-foreground">Módulo</div>
-                    <div className="text-base font-semibold text-foreground">{activeModule.title}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{activeModule.summary}</div>
+                    <div className="text-base font-semibold text-foreground">{displayedModule.title}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{displayedModule.summary}</div>
                   </div>
                 </div>
 
-                <div className="mt-6 grid gap-3 md:grid-cols-3">
-                  {activeModule.highlights.map((highlight) => (
+                <div className={`mt-6 grid gap-3 md:grid-cols-3 transition-all duration-300 ${isBlurred ? "blur-sm" : "blur-0"}`}>
+                  {displayedModule.highlights.map((highlight) => (
                     <div key={highlight} className="rounded-lg border border-border bg-background px-3 py-3 text-sm">
                       <p className="text-foreground font-medium">{highlight}</p>
                       <p className="text-muted-foreground text-xs mt-1">Detalhe do recurso</p>

@@ -1,5 +1,5 @@
 ﻿import { motion } from "framer-motion"
-import Header from "@/components/header"
+import AdvancedHeader from "@/components/advanced-header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { FileCheck, Database, Search, AlertTriangle, TrendingUp, Clock } from "lucide-react"
@@ -7,7 +7,7 @@ import { FileCheck, Database, Search, AlertTriangle, TrendingUp, Clock } from "l
 export default function AuditorNFSePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-pink-900 to-slate-900">
-      <Header />
+      <AdvancedHeader />
 
       <main className="pt-20">
         <section className="py-20">
