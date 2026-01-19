@@ -3,6 +3,16 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import {
+  BarChart3,
+  CheckCircle2,
+  ClipboardCheck,
+  FileSearch,
+  Layers3,
+  PackageSearch,
+  PieChart,
+  Users,
+} from "lucide-react"
 
 const modules = [
   {
@@ -12,6 +22,7 @@ const modules = [
     highlights: ["Movimentação fiscal", "Total de impostos", "Notas e operações"],
     imageSrc: "/auditor-fiscal/dashboard.png",
     imageAlt: "Dashboard com indicadores fiscais",
+    icon: BarChart3,
   },
   {
     id: "gestao-xml",
@@ -20,6 +31,7 @@ const modules = [
     highlights: ["Verificar notas", "Canceladas e complementares", "Busca inteligente"],
     imageSrc: "/auditor-fiscal/gestao-xml.png",
     imageAlt: "Tela de gestão de XMLs",
+    icon: FileSearch,
   },
   {
     id: "compliance",
@@ -28,6 +40,7 @@ const modules = [
     highlights: ["Imposto a pagar", "Conciliação fiscal", "Conformidade contínua"],
     imageSrc: "/auditor-fiscal/compliance.png",
     imageAlt: "Tela de compliance fiscal",
+    icon: CheckCircle2,
   },
   {
     id: "auditoria",
@@ -36,6 +49,7 @@ const modules = [
     highlights: ["Valor auditado", "Inconsistências", "Operações por tributo"],
     imageSrc: "/auditor-fiscal/auditoria.png",
     imageAlt: "Tela de auditoria fiscal",
+    icon: ClipboardCheck,
   },
   {
     id: "apuracao",
@@ -44,6 +58,7 @@ const modules = [
     highlights: ["Apuração por CFOP", "Memória de cálculo", "Análises por período"],
     imageSrc: "/auditor-fiscal/apuracao.png",
     imageAlt: "Tela de apuração de tributos",
+    icon: PieChart,
   },
   {
     id: "analistas",
@@ -52,6 +67,7 @@ const modules = [
     highlights: ["Movimento por analista", "Empresas sem auditoria", "Acompanhamento de metas"],
     imageSrc: "/auditor-fiscal/analistas.png",
     imageAlt: "Tela de controle por analista",
+    icon: Users,
   },
   {
     id: "faltantes",
@@ -60,6 +76,7 @@ const modules = [
     highlights: ["Notas de saída", "Pulo de numeração", "Conferência XML/SPED"],
     imageSrc: "/auditor-fiscal/faltantes.png",
     imageAlt: "Tela de notas faltantes",
+    icon: PackageSearch,
   },
   {
     id: "enquadramento",
@@ -68,6 +85,7 @@ const modules = [
     highlights: ["Enquadramento padrão", "Benefícios fiscais", "Regras por produto"],
     imageSrc: "/auditor-fiscal/enquadramento.png",
     imageAlt: "Tela de enquadramento de produtos",
+    icon: Layers3,
   },
 ]
 
@@ -111,31 +129,39 @@ export default function AuditorFiscalPage() {
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
-              <div className="space-y-3">
-                {modules.map((module) => {
-                  const isActive = module.id === activeModuleId
-                  return (
-                    <button
-                      key={module.id}
-                      type="button"
-                      onClick={() => setActiveModuleId(module.id)}
-                      className={`w-full text-left rounded-xl border px-4 py-4 transition-colors ${isActive
-                          ? "border-primary/40 bg-card shadow-sm"
-                          : "border-border bg-background hover:border-primary/30 hover:bg-card/60"
-                        }`}
-                    >
-                      <div className="text-sm text-muted-foreground">Módulo</div>
-                      <div className="text-base font-semibold text-foreground">{module.title}</div>
-                      <div className="text-sm text-muted-foreground mt-1">{module.summary}</div>
-                    </button>
-                  )
-                })}
+            <div className="grid gap-8 lg:grid-cols-[360px_1fr] lg:items-center">
+              <div className="rounded-2xl border border-border bg-background p-4 shadow-sm lg:self-center">
+                <div className="text-sm font-semibold text-foreground">Selecione um módulo</div>
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  {modules.map((module) => {
+                    const isActive = module.id === activeModuleId
+                    const Icon = module.icon
+                    return (
+                      <button
+                        key={module.id}
+                        type="button"
+                        onClick={() => setActiveModuleId(module.id)}
+                        className={`flex aspect-square flex-col items-center justify-center rounded-xl border px-3 py-3 text-center transition-all ${isActive
+                          ? "border-primary/50 bg-card shadow-sm"
+                          : "border-border bg-muted/20 hover:border-primary/30 hover:bg-card/60"
+                          }`}
+                      >
+                        <span
+                          className={`mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border ${isActive ? "border-primary/30 bg-primary/10" : "border-border bg-background"
+                            }`}
+                        >
+                          <Icon className="h-4 w-4 text-foreground" aria-hidden="true" />
+                        </span>
+                        <div className="text-xs font-semibold text-foreground leading-snug">{module.title}</div>
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
 
               <motion.div
                 key={activeModule.id}
-                className="rounded-2xl border border-border bg-card/80 p-6 shadow-sm"
+                className="relative z-10 w-full rounded-2xl border border-border bg-card/80 p-6 shadow-sm lg:justify-self-start lg:max-w-[980px]"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, ease: [0.25, 1, 0.5, 1] }}
