@@ -2,11 +2,81 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, BarChart3, Shield, Zap, FileText, Users } from "lucide-react"
+import { useState } from "react"
+
+const modules = [
+  {
+    id: "dashboard",
+    title: "Dashboard",
+    summary: "Painel de controle com movimentação fiscal, impostos e operações por empresa.",
+    highlights: ["Movimentação fiscal", "Total de impostos", "Notas e operações"],
+    imageSrc: "/auditor-fiscal/dashboard.png",
+    imageAlt: "Dashboard com indicadores fiscais",
+  },
+  {
+    id: "gestao-xml",
+    title: "Gestão de XMLs",
+    summary: "Gestão de documentos fiscais com verificação de notas e controle de canceladas.",
+    highlights: ["Verificar notas", "Canceladas e complementares", "Busca inteligente"],
+    imageSrc: "/auditor-fiscal/gestao-xml.png",
+    imageAlt: "Tela de gestão de XMLs",
+  },
+  {
+    id: "compliance",
+    title: "Compliance",
+    summary: "Entrada e saída de impostos por empresa com foco em conformidade.",
+    highlights: ["Imposto a pagar", "Conciliação fiscal", "Conformidade contínua"],
+    imageSrc: "/auditor-fiscal/compliance.png",
+    imageAlt: "Tela de compliance fiscal",
+  },
+  {
+    id: "auditoria",
+    title: "Auditoria",
+    summary: "Visão consolidada do valor auditado e inconsistências por tributo.",
+    highlights: ["Valor auditado", "Inconsistências", "Operações por tributo"],
+    imageSrc: "/auditor-fiscal/auditoria.png",
+    imageAlt: "Tela de auditoria fiscal",
+  },
+  {
+    id: "apuracao",
+    title: "Apuração",
+    summary: "Apuração de tributos por CFOP com detalhamento por empresa.",
+    highlights: ["Apuração por CFOP", "Memória de cálculo", "Análises por período"],
+    imageSrc: "/auditor-fiscal/apuracao.png",
+    imageAlt: "Tela de apuração de tributos",
+  },
+  {
+    id: "analistas",
+    title: "Analistas",
+    summary: "Controle de auditorias por analista com visão de progresso e pendências.",
+    highlights: ["Movimento por analista", "Empresas sem auditoria", "Acompanhamento de metas"],
+    imageSrc: "/auditor-fiscal/analistas.png",
+    imageAlt: "Tela de controle por analista",
+  },
+  {
+    id: "faltantes",
+    title: "Notas Faltantes",
+    summary: "Detecção de notas ausentes no XML ou SPED, inclusive pulo de numeração.",
+    highlights: ["Notas de saída", "Pulo de numeração", "Conferência XML/SPED"],
+    imageSrc: "/auditor-fiscal/faltantes.png",
+    imageAlt: "Tela de notas faltantes",
+  },
+  {
+    id: "enquadramento",
+    title: "Enquadramento",
+    summary: "Enquadramento de produtos às novas normas da reforma tributária.",
+    highlights: ["Enquadramento padrão", "Benefícios fiscais", "Regras por produto"],
+    imageSrc: "/auditor-fiscal/enquadramento.png",
+    imageAlt: "Tela de enquadramento de produtos",
+  },
+]
 
 export default function AuditorFiscalPage() {
+  const [activeModuleId, setActiveModuleId] = useState(modules[0].id)
+  const activeModule = modules.find((module) => module.id === activeModuleId) ?? modules[0]
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-pink-900 to-slate-900">
+    <div className="min-h-screen bg-background">
       <Header />
 
       <main className="pt-20">
@@ -18,77 +88,88 @@ export default function AuditorFiscalPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
-                  Auditor Fiscal
-                </span>
-              </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">Auditor Fiscal</h1>
+              <p className="text-lg text-muted-foreground mb-8">
                 Sistema completo de auditoria fiscal automatizada com inteligência artificial para escritórios contábeis
                 modernos.
               </p>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white px-8 py-4 text-lg"
-              >
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
                 Solicitar Demonstração
               </Button>
             </motion.div>
           </div>
         </section>
 
-        <section className="py-20 bg-slate-800/50">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Recursos Principais</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Como os módulos trabalham juntos
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Clique em um módulo para visualizar a funcionalidade e o fluxo que ele habilita dentro do Auditor Fiscal.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: FileText,
-                  title: "Processamento Automático",
-                  description: "Importação e processamento automático de NF-e e SPED com alta precisão.",
-                },
-                {
-                  icon: Shield,
-                  title: "Validação Inteligente",
-                  description: "Validação automática de conformidade fiscal e detecção de inconsistências.",
-                },
-                {
-                  icon: BarChart3,
-                  title: "Relatórios Avançados",
-                  description: "Relatórios detalhados com análises e insights para tomada de decisão.",
-                },
-                {
-                  icon: Zap,
-                  title: "Processamento Rápido",
-                  description: "Processamento em tempo real com resultados em minutos, não horas.",
-                },
-                {
-                  icon: Users,
-                  title: "Gestão de Clientes",
-                  description: "Criação automática de cadastros e gestão centralizada de clientes.",
-                },
-                {
-                  icon: CheckCircle,
-                  title: "Aprovação de Cenários",
-                  description: "Sistema de aprovação para cenários tributários antes da produção.",
-                },
-              ].map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  className="bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-pink-500/20"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <feature.icon className="w-12 h-12 text-pink-400 mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-                  <p className="text-gray-300">{feature.description}</p>
-                </motion.div>
-              ))}
+            <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
+              <div className="space-y-3">
+                {modules.map((module) => {
+                  const isActive = module.id === activeModuleId
+                  return (
+                    <button
+                      key={module.id}
+                      type="button"
+                      onClick={() => setActiveModuleId(module.id)}
+                      className={`w-full text-left rounded-xl border px-4 py-4 transition-colors ${isActive
+                          ? "border-primary/40 bg-card shadow-sm"
+                          : "border-border bg-background hover:border-primary/30 hover:bg-card/60"
+                        }`}
+                    >
+                      <div className="text-sm text-muted-foreground">Módulo</div>
+                      <div className="text-base font-semibold text-foreground">{module.title}</div>
+                      <div className="text-sm text-muted-foreground mt-1">{module.summary}</div>
+                    </button>
+                  )
+                })}
+              </div>
+
+              <motion.div
+                key={activeModule.id}
+                className="rounded-2xl border border-border bg-card/80 p-6 shadow-sm"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, ease: [0.25, 1, 0.5, 1] }}
+              >
+                <div className="relative aspect-[1646/949] rounded-xl border border-border bg-muted/40 overflow-hidden shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
+                  {activeModule.imageSrc ? (
+                    <img
+                      src={activeModule.imageSrc}
+                      alt={activeModule.imageAlt ?? `Print do módulo ${activeModule.title}`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
+                      Print do módulo: {activeModule.title}
+                    </div>
+                  )}
+
+                  <div className="absolute bottom-4 right-4 max-w-[70%] rounded-lg border border-border bg-muted px-4 py-3 shadow-sm">
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">Módulo</div>
+                    <div className="text-base font-semibold text-foreground">{activeModule.title}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{activeModule.summary}</div>
+                  </div>
+                </div>
+
+                <div className="mt-6 grid gap-3 md:grid-cols-3">
+                  {activeModule.highlights.map((highlight) => (
+                    <div key={highlight} className="rounded-lg border border-border bg-background px-3 py-3 text-sm">
+                      <p className="text-foreground font-medium">{highlight}</p>
+                      <p className="text-muted-foreground text-xs mt-1">Detalhe do recurso</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
