@@ -4,7 +4,7 @@ import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { FileCheck, Database, Search, AlertTriangle, TrendingUp, Clock } from "lucide-react"
 
-export default function AuditorNFSePage() {
+export default function GestaoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-pink-900 to-slate-900">
       <AdvancedHeader />
@@ -20,11 +20,11 @@ export default function AuditorNFSePage() {
             >
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 <span className="bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent">
-                  AuditorNFSe
+                  Gestão
                 </span>
               </h1>
               <p className="text-xl text-gray-300 mb-8">
-                Solução especializada em auditoria de Notas Fiscais de Serviços Eletrônicas com tecnologia de ponta.
+                Solução especializada em gestão de Notas Fiscais de Serviços Eletrônicas com tecnologia de ponta.
               </p>
               <Button
                 size="lg"

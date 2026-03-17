@@ -15,7 +15,7 @@ const navigationSections = [
 ]
 
 const systemLinks = [
-  { name: "AuditorNFSe", to: "/auditor-nfse", description: "Auditoria de NFSe" },
+  { name: "Gestão", to: "/gestao", description: "Gestão de NFSe" },
   { name: "Auditor Fiscal", to: "/auditor-fiscal", description: "Auditoria Fiscal Completa" },
 ]
 
@@ -47,11 +47,10 @@ export default function AdvancedHeader() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled
           ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
-      }`}
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
@@ -80,7 +79,7 @@ export default function AdvancedHeader() {
                 className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors"
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Sistemas</span>
+                <span>Módulos</span>
                 <motion.div animate={{ rotate: isSystemsOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                   <ChevronDown className="w-4 h-4" />
                 </motion.div>
@@ -228,15 +227,15 @@ export default function AdvancedHeader() {
 
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>
                   <div className="flex flex-col space-y-2">
-                      {systemLinks.map((system) => (
-                        <Link
-                          key={system.name}
-                          to={system.to}
-                          className="text-left text-foreground hover:text-primary transition-colors"
-                          onClick={closeSystemDropdown}
-                        >
-                          {system.name}
-                        </Link>
+                    {systemLinks.map((system) => (
+                      <Link
+                        key={system.name}
+                        to={system.to}
+                        className="text-left text-foreground hover:text-primary transition-colors"
+                        onClick={closeSystemDropdown}
+                      >
+                        {system.name}
+                      </Link>
                     ))}
                   </div>
                 </motion.div>

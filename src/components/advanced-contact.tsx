@@ -3,7 +3,8 @@
 import type React from "react"
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react"
+import { Phone, Mail, MapPin, ArrowRight, MessageCircle } from "lucide-react"
+import { toast } from "sonner"
 import {
   Select,
   SelectContent,
@@ -12,20 +13,32 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+type DemoRequestPayload = {
+  name: string
+  email: string
+  company: string
+  phone: string
+  employees: string
+  message: string
+}
+
+const initialFormData: DemoRequestPayload = {
+  name: "",
+  email: "",
+  company: "",
+  phone: "",
+  employees: "",
+  message: "",
+}
+
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? ""
+
 export default function AdvancedContact() {
   /* ----------------------------- Hooks / State ---------------------------- */
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    employees: "",
-    message: "",
-  })
-
+  const [formData, setFormData] = useState(initialFormData)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   /* -------------------------------- Events ------------------------------- */
@@ -33,53 +46,64 @@ export default function AdvancedContact() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const saveLead = async (payload: DemoRequestPayload) => {
+    const response = await fetch(`${apiBaseUrl}/api/demo-requests`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: payload.name,
+        email: payload.email,
+        company: payload.company || null,
+        phone: payload.phone,
+        employees: payload.employees || null,
+        message: payload.message || null,
+        source: "landing-page",
+      }),
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      throw new Error(errorText || "Falha ao salvar lead.")
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Fake latency for UX purposes
-    await new Promise((r) => setTimeout(r, 1200))
-
-    const whatsappMessage = `
-🚀 *Nova Solicitação de Demonstração - inttax*
-
-👤 *Dados do Interessado:*
-• Nome: ${formData.name}
-• Email: ${formData.email}
-• Empresa: ${formData.company}
-• Telefone: ${formData.phone}
-• Funcionários: ${formData.employees}
-
-💬 *Mensagem:*
-${formData.message}
-
-Enviado automaticamente pelo site da inttax
-`.trim()
-
-    const whatsappURL = `https://wa.me/5519981483536?text=${encodeURIComponent(whatsappMessage)}`
-    window.open(whatsappURL, "_blank")
-
-    setIsSubmitting(false)
+    try {
+      await saveLead(formData)
+      setFormData(initialFormData)
+      toast.success("Solicitação enviada com sucesso.")
+    } catch (error) {
+      console.error(error)
+      toast.error("Não foi possível enviar agora. Tente novamente em instantes.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   /* ------------------------------ Constants ------------------------------ */
   const contactInfo = [
     {
-      icon: Phone,
-      title: "Telefone",
+      icon: MessageCircle,
+      title: "WhatsApp",
       value: "(19) 97818-0175",
-      note: "Seg-Sex, 08h-18h",
+      note: "Seg-Sex, 08h-17h",
+      href: "https://wa.me/5519978180175?text=Olá!%20Gostaria%20de%20conhecer%20o%20sistema%20da%20inttax.",
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@inttax.com.br",
+      value: "comercial@inttax.com.br",
       note: "Resposta em até 2h",
+      href: "mailto:comercial@inttax.com.br",
     },
     {
       icon: MapPin,
       title: "Endereço",
-      value: "São Paulo – SP",
+      value: "Itapira – SP",
       note: "Atendimento nacional",
     },
   ]
@@ -147,7 +171,7 @@ Enviado automaticamente pelo site da inttax
                         type="email"
                         name="email"
                         required
-                        placeholder="voce@email.com"
+                        placeholder="seuemail@email.com"
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none"
@@ -243,7 +267,7 @@ Enviado automaticamente pelo site da inttax
                         ></path>
                       </svg>
                     ) : null}
-                    {isSubmitting ? "Enviando…" : "Enviar via WhatsApp"}
+                    {isSubmitting ? "Enviando…" : "Solicitar demonstração"}
                     {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
                   </motion.button>
                 </form>
@@ -274,7 +298,18 @@ Enviado automaticamente pelo site da inttax
                   </div>
                   <div>
                     <p className="text-lg font-semibold text-foreground">{item.title}</p>
-                    <p className="text-primary font-medium">{item.value}</p>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="text-primary font-medium hover:underline transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-primary font-medium">{item.value}</p>
+                    )}
                     <p className="text-muted-foreground text-sm">{item.note}</p>
                   </div>
                 </div>

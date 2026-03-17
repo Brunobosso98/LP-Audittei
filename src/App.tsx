@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import HomePage from "@/routes/home"
 import AuditorFiscalPage from "@/routes/auditor-fiscal"
-import AuditorNFSePage from "@/routes/auditor-nfse"
+import GestaoPage from "@/routes/gestao"
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/auditor-fiscal" element={<AuditorFiscalPage />} />
-          <Route path="/auditor-nfse" element={<AuditorNFSePage />} />
+          <Route path="/gestao" element={<GestaoPage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors />
