@@ -7,11 +7,11 @@ import { useTheme } from "@/components/theme-provider"
 import NttaxLogo from "@/components/nttax-logo"
 
 const navigationSections = [
-  { label: "Início", id: "hero" },
-  { label: "Processo", id: "processo" },
-  { label: "Comparação", id: "comparacao" },
-  { label: "IA", id: "ia" },
-  { label: "Contato", id: "contato" },
+  { label: "Início", id: "topo" },
+  { label: "Simulador", id: "simulador" },
+  { label: "Plataforma", id: "plataforma" },
+  { label: "Como funciona", id: "como-funciona" },
+  { label: "Dúvidas", id: "faq" },
 ]
 
 const systemLinks = [
@@ -155,14 +155,14 @@ export default function AdvancedHeader() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 className="relative overflow-hidden bg-primary text-primary-foreground border-0 hover:bg-primary/90"
-                onClick={() => scrollToSection("contato")}
-              >
-                Demonstração
-              </Button>
-            </motion.div>
-          </div>
+onClick={() => scrollToSection("demo")}
+                >
+                  Demonstração
+                </Button>
+              </motion.div>
+            </div>
 
-          <div className="flex items-center space-x-2 md:hidden">
+            <div className="flex items-center space-x-2 md:hidden">
             <motion.button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-lg bg-muted/40 border border-border"
@@ -267,7 +267,7 @@ export default function AdvancedHeader() {
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
                   <Button
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    onClick={() => scrollToSection("contato")}
+                    onClick={() => scrollToSection("demo")}
                   >
                     Demonstração
                   </Button>
