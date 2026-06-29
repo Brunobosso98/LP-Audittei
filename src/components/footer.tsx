@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import NttaxLogo from "@/components/nttax-logo"
 
 export default function Footer() {
   const socialLinks = [
@@ -14,7 +15,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="text-2xl font-bold text-foreground mb-4">inttax</div>
+            <NttaxLogo size="md" className="mb-4" />
             <p className="text-muted-foreground mb-4">
               Revolucionando a auditoria fiscal com inteligência artificial e automação avançada.
             </p>

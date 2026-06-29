@@ -12,25 +12,25 @@ export function Hero() {
   return (
     <section id="topo" className="relative overflow-hidden border-b border-border">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
-      <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-14 lg:px-8 lg:pb-24 lg:pt-20">
-        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+      <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-14 lg:px-8 lg:pb-24 lg:pt-20">
+        <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground">
               <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-              Plataforma para escritórios contábeis consultivos
+              Consultoria estratégica para a Reforma Tributária
             </div>
 
-            <h1 className="mt-6 text-pretty text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl">
+            <h1 className="mt-5 text-pretty text-4xl font-medium leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]">
               Transforme seu escritório em um parceiro estratégico do cliente
             </h1>
 
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
               A Inttax tira o seu time do trabalho operacional e o coloca na mesa de decisão do
               cliente. Comece pela Reforma Tributária: mostre, em números, o impacto que vem aí —
               e cobre por essa consultoria.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#demo"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
@@ -46,7 +46,7 @@ export function Hero() {
               </a>
             </div>
 
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground">
               Conversa de 30 minutos com o Simulador da Reforma aplicado a um caso real do seu cliente.
             </p>
           </div>

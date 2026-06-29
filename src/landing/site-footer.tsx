@@ -1,4 +1,4 @@
-import { Logo } from "@/landing/logo"
+import NttaxLogo from "@/components/nttax-logo"
 
 const COLS = [
   {
@@ -33,7 +33,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-12 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Logo className="h-6 w-auto" />
+            <NttaxLogo size="md" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Auditoria fiscal automatizada para escritórios contábeis. Lê NF-e, valida contra a
               legislação e devolve as exceções para você revisar.
