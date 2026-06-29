@@ -44,7 +44,7 @@ export function SiteFooter() {
             >
               <span
                 aria-hidden="true"
-                className="relative inline-flex size-1.5 rounded-full bg-emerald-500 livePulse"
+                className="relative inline-flex size-1.5 rounded-full bg-success livePulse-success"
               />
               Sistemas operacionais
             </span>

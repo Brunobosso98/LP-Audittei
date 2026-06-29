@@ -51,7 +51,7 @@ export function PorQue() {
                     {p.role}
                     <span
                       aria-hidden="true"
-                      className="size-1.5 rounded-full bg-emerald-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      className="size-1.5 rounded-full bg-success opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     />
                   </h3>
                   <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">

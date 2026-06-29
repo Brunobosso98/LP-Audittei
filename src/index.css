@@ -31,6 +31,11 @@
     --chart-3: 0.45 0.02 25;
     --chart-4: 0.62 0.012 25;
     --chart-5: 0.78 0.01 25;
+    --success: 0.55 0.16 152;
+    --warning: 0.55 0.15 75;
+    --danger: 0.55 0.2 25;
+    --info: 0.5 0.16 250;
+    --neutral-risco: 0.5 0.014 22;
     --radius: 0.5rem;
     --sidebar-background: 0.985 0.004 20;
     --sidebar-foreground: 0.205 0.012 25;
@@ -70,6 +75,11 @@
     --chart-3: 0.439 0 0;
     --chart-4: 0.371 0 0;
     --chart-5: 0.269 0 0;
+    --success: 0.78 0.17 152;
+    --warning: 0.82 0.16 75;
+    --danger: 0.74 0.19 25;
+    --info: 0.78 0.13 250;
+    --neutral-risco: 0.708 0 0;
     --sidebar-background: 0.205 0 0;
     --sidebar-foreground: 0.985 0 0;
     --sidebar-primary: 0.488 0.243 264.376;
@@ -102,6 +112,19 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-success-tint {
+    background-color: oklch(var(--success) / 0.10);
+  }
+  .bg-warning-tint {
+    background-color: oklch(var(--warning) / 0.12);
+  }
+  .bg-danger-tint {
+    background-color: oklch(var(--danger) / 0.10);
+  }
+  .bg-info-tint {
+    background-color: oklch(var(--info) / 0.10);
   }
 
   .bg-grid {
@@ -182,6 +205,21 @@
 
 .livePulse {
   animation: livePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes livePulseSuccess {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(var(--success) / 0.55);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 4px oklch(var(--success) / 0);
+    transform: scale(1.05);
+  }
+}
+
+.livePulse-success {
+  animation: livePulseSuccess 2.4s ease-in-out infinite;
 }
 
 @keyframes kpiFadeIn {

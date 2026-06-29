@@ -132,9 +132,9 @@ export function ReformaPanel() {
       <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
         <div className="flex items-center gap-3">
           <div className="flex gap-1.5">
-            <span className="size-2.5 rounded-full bg-red-500" />
-            <span className="size-2.5 rounded-full bg-amber-400" />
-            <span className="size-2.5 rounded-full bg-emerald-500" />
+            <span className="size-2.5 rounded-full bg-danger/70" />
+            <span className="size-2.5 rounded-full bg-warning/70" />
+            <span className="size-2.5 rounded-full bg-success/70" />
           </div>
           <span className="text-sm font-semibold text-foreground">Simulador da Reforma</span>
           <span className="hidden items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-medium text-primary sm:inline-flex">
@@ -215,7 +215,7 @@ export function ReformaPanel() {
               <span
                 className={cn(
                   "inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[10px] font-semibold tabular-nums transition-transform group-hover:scale-105",
-                  k.up ? "bg-emerald-500/10 text-emerald-600" : "bg-red-500/10 text-red-600",
+                  k.up ? "bg-success-tint text-success" : "bg-danger-tint text-danger",
                 )}
               >
                 {k.up ? <TrendingUp className="size-2.5" /> : <TrendingDown className="size-2.5" />}
@@ -240,8 +240,8 @@ export function ReformaPanel() {
                   value={value}
                   color={
                     label === "Pós-reforma"
-                      ? "hsl(var(--primary))"
-                      : "hsl(var(--muted-foreground))"
+                      ? "oklch(var(--primary))"
+                      : "oklch(var(--muted-foreground))"
                   }
                   animate={animateIn && idx === 0}
                 />
@@ -290,12 +290,12 @@ export function ReformaPanel() {
                       className={cn(
                         "inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold",
                         r.risco === "Crítico"
-                          ? "bg-red-500/10 text-red-600"
+                          ? "bg-danger-tint text-danger"
                           : r.risco === "Alto"
-                            ? "bg-amber-500/10 text-amber-600"
+                            ? "bg-warning-tint text-warning"
                             : r.risco === "Médio"
-                              ? "bg-blue-500/10 text-blue-600"
-                              : "bg-muted text-muted-foreground",
+                              ? "bg-info-tint text-info"
+                              : "bg-muted text-risco-neutral",
                       )}
                     >
                       {r.risco}
@@ -309,8 +309,8 @@ export function ReformaPanel() {
       </div>
 
       {/* Alert / recommendation */}
-      <div className="flex items-start gap-2.5 bg-amber-500/5 px-4 py-3">
-        <AlertTriangle className="mt-0.5 size-4 shrink-0 text-amber-600" />
+      <div className="flex items-start gap-2.5 bg-warning-tint px-4 py-3">
+        <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warning" />
         <div>
           <p className="text-xs font-semibold text-foreground">Recomendação para o cliente</p>
           <p className="mt-0.5 text-[11px] leading-relaxed text-muted-foreground">

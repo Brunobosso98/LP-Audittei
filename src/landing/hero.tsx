@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 right-[-10%] size-[40rem] rounded-full bg-primary/8 blur-3xl"
+        className="pointer-events-none absolute -top-40 right-[-10%] size-[40rem] rounded-full bg-primary/10 blur-3xl"
       />
 
       <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
@@ -73,7 +73,7 @@ export function Hero() {
             </div>
 
             <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-              <span className="size-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+              <span className="size-1.5 rounded-full bg-success livePulse-success" aria-hidden="true" />
               Conversa de 30 minutos com o Simulador aplicado a um caso real.
             </p>
           </div>

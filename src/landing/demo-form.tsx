@@ -191,7 +191,7 @@ export function DemoForm() {
                 <span
                   className={cn(
                     "font-mono tabular-nums",
-                    msgLen > MAX_MSG - 50 && "text-amber-600",
+                    msgLen > MAX_MSG - 50 && "text-warning",
                   )}
                 >
                   {msgLen}/{MAX_MSG}

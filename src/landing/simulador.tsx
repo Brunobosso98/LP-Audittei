@@ -12,10 +12,10 @@ const TABS: { key: TabKey; n: string; label: string }[] = [
 ]
 
 const IMPACT_TONE: Record<string, string> = {
-  Baixo: "bg-muted text-muted-foreground",
-  Médio: "bg-muted text-foreground",
-  Alto: "bg-accent text-accent-foreground",
-  Variável: "bg-muted text-foreground",
+  Baixo: "bg-success-tint text-success",
+  Médio: "bg-info-tint text-info",
+  Alto: "bg-warning-tint text-warning",
+  Variável: "bg-muted text-muted-foreground",
 }
 
 export function Simulador() {
@@ -212,8 +212,11 @@ function Panel({
             {title}
           </h3>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">{desc}</p>
-          <p className="mt-5 border-l-2 border-primary/40 pl-3 text-sm text-muted-foreground">
-            {note}
+          <p className="mt-5 flex gap-2 text-sm text-muted-foreground">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
+              Nota
+            </span>
+            <span className="leading-relaxed">{note}</span>
           </p>
         </div>
         <div>{children}</div>
