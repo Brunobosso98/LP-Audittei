@@ -152,3 +152,78 @@
     opacity: 1;
   }
 }
+
+@keyframes barGrowX {
+  from {
+    transform: scaleX(0);
+    opacity: 0.4;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-barGrowX {
+  animation: barGrowX 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.586 0.253 17.585 / 0.55);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 4px oklch(0.586 0.253 17.585 / 0);
+    transform: scale(1.05);
+  }
+}
+
+.livePulse {
+  animation: livePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes kpiFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kpi-in {
+  animation: kpiFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hairlineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hairline-in {
+  animation: hairlineGrow 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: left center;
+}
+
+@keyframes drawCheck {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-check {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawCheck 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}

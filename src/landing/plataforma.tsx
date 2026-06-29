@@ -1,5 +1,7 @@
-import { Check } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import type { ReactNode } from "react"
+
+const FOOTER_TS = "Atualizado em jun/2026"
 
 export function Plataforma() {
   return (
@@ -42,7 +44,7 @@ export function Plataforma() {
             n="03"
             name="Analytics"
             title="Leve conhecimento de gestão para o cliente decidir melhor"
-            summary="O cliente do escritório acompanha faturamento, vendas e margem por cliente, produto, estado e município, com variações mensais — sem precisar pedir um relatório."
+            summary="O cliente do escritório acompanha faturamento, vendas e margem por cliente, produto, estado e município, com variações mensais, sem precisar pedir um relatório."
             points={[
               "Painéis prontos para o cliente final",
               "Recortes por produto, cliente e região",
@@ -91,12 +93,12 @@ function Module({
   children: ReactNode
 }) {
   return (
-    <article className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <article className="group relative grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div className={reverse ? "lg:order-2" : "lg:order-1"}>
         <div className="flex items-center gap-4">
           <span
             aria-hidden="true"
-            className="font-mono text-[4rem] font-semibold leading-[0.85] tracking-[-0.06em] text-primary sm:text-[5rem] lg:text-[3rem]"
+            className="font-mono text-[4rem] font-semibold leading-[0.85] tracking-[-0.06em] text-primary transition-colors duration-300 group-hover:text-primary/30 sm:text-[5rem] lg:text-[3rem]"
           >
             {n}.
           </span>
@@ -104,14 +106,24 @@ function Module({
             {name}
           </span>
         </div>
-        <h3 className="mt-6 text-balance text-2xl font-medium leading-[1.15] tracking-[-0.025em] text-foreground sm:text-3xl lg:text-[2.5rem]">
-          {title}
+        <h3 className="mt-6 inline-flex items-baseline gap-2 text-balance text-2xl font-medium leading-[1.15] tracking-[-0.025em] text-foreground transition-colors duration-300 group-hover:text-primary sm:text-3xl lg:text-[2.5rem]">
+          <span>{title}</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="size-4 shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:size-5"
+          />
         </h3>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">{summary}</p>
         <ul className="mt-6 grid gap-3">
           {points.map((p) => (
-            <li key={p} className="flex items-start gap-3 text-sm text-foreground">
-              <span className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+            <li
+              key={p}
+              className="flex items-start gap-3 text-sm text-foreground transition-colors duration-200 hover:text-primary"
+            >
+              <span
+                className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-primary"
+                aria-hidden="true"
+              />
               {p}
             </li>
           ))}
@@ -125,13 +137,16 @@ function Module({
 
 function VisualCard({ title, footer, children }: { title: string; footer: string; children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-border bg-card shadow-sm">
+    <div className="rounded-xl border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-md">
       <div className="flex items-center gap-2 border-b border-border px-4 py-3">
         <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
         <span className="text-sm font-medium text-foreground">{title}</span>
       </div>
       <div className="p-4">{children}</div>
-      <p className="border-t border-border px-4 py-2.5 text-xs text-muted-foreground">{footer}</p>
+      <p className="flex items-center justify-between border-t border-border px-4 py-2.5 text-xs text-muted-foreground">
+        <span>{footer}</span>
+        <span className="font-mono text-[10px] tabular-nums text-foreground/60">{FOOTER_TS}</span>
+      </p>
     </div>
   )
 }
@@ -146,7 +161,7 @@ function VisualFiscal() {
           ["Para revisar", "214"],
         ] as const).map(([label, value]) => (
           <div key={label} className="bg-card px-4 py-3">
-            <div className="font-mono text-lg font-semibold text-foreground">{value}</div>
+            <div className="font-mono text-lg font-semibold tabular-nums text-foreground">{value}</div>
             <div className="mt-0.5 text-xs text-muted-foreground">{label}</div>
           </div>
         ))}
@@ -157,7 +172,10 @@ function VisualFiscal() {
           ["NF-e 48.217", "CST x alíquota ICMS"],
           ["NF-e 48.231", "CFOP incompatível com a operação"],
         ] as const).map(([nf, motivo]) => (
-          <li key={nf} className="flex items-center justify-between gap-3 bg-card px-4 py-2.5">
+          <li
+            key={nf}
+            className="flex items-center justify-between gap-3 bg-card px-4 py-2.5 transition-colors hover:bg-muted/40"
+          >
             <span className="font-mono text-[0.8rem] text-foreground">{nf}</span>
             <span className="truncate text-xs text-muted-foreground">{motivo}</span>
             <span className="shrink-0 rounded-full bg-accent px-2 py-0.5 text-xs font-medium text-accent-foreground">
@@ -172,7 +190,10 @@ function VisualFiscal() {
 
 function VisualAnalytics() {
   return (
-    <VisualCard title="Visão do cliente final" footer="Cada instalação entrega números reais do cliente.">
+    <VisualCard
+      title="Visão do cliente final"
+      footer="Cada instalação entrega números reais do cliente."
+    >
       <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border">
         {([
           ["Faturamento", "R$ 87,6 mi", "+8%"],
@@ -183,8 +204,10 @@ function VisualAnalytics() {
           <div key={label} className="bg-card px-4 py-3">
             <div className="text-xs text-muted-foreground">{label}</div>
             <div className="mt-1 flex items-baseline gap-2">
-              <span className="font-mono text-lg font-semibold text-foreground">{value}</span>
-              <span className="text-xs font-medium text-primary">{delta}</span>
+              <span className="font-mono text-lg font-semibold tabular-nums text-foreground">
+                {value}
+              </span>
+              <span className="text-xs font-medium tabular-nums text-primary">{delta}</span>
             </div>
           </div>
         ))}
@@ -193,7 +216,10 @@ function VisualAnalytics() {
         <p className="text-xs text-muted-foreground">Recortes disponíveis</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {["Por cliente", "Por produto", "Por estado", "Por município", "Mês a mês"].map((v) => (
-            <span key={v} className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground">
+            <span
+              key={v}
+              className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground transition-colors hover:border-primary/40 hover:bg-primary/5"
+            >
               {v}
             </span>
           ))}
@@ -205,7 +231,10 @@ function VisualAnalytics() {
 
 function VisualSmart() {
   return (
-    <VisualCard title="Gestão do escritório" footer="Indicadores ilustrativos de um escritório típico.">
+    <VisualCard
+      title="Gestão do escritório"
+      footer="Indicadores ilustrativos de um escritório típico."
+    >
       <div className="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-border bg-border">
         {([
           ["Receita/mês", "R$ 312 mil"],
@@ -213,7 +242,7 @@ function VisualSmart() {
           ["Tarefas no prazo", "94%"],
         ] as const).map(([label, value]) => (
           <div key={label} className="bg-card px-4 py-3">
-            <div className="font-mono text-lg font-semibold text-foreground">{value}</div>
+            <div className="font-mono text-lg font-semibold tabular-nums text-foreground">{value}</div>
             <div className="mt-0.5 text-xs text-muted-foreground">{label}</div>
           </div>
         ))}
@@ -225,7 +254,10 @@ function VisualSmart() {
           ["03", "Onboarding guiado", "Entrada de clientes rastreável."],
           ["04", "Comercial organizado", "Leads, propostas e contratos."],
         ] as const).map(([n, t, d]) => (
-          <div key={n} className="bg-card p-4">
+          <div
+            key={n}
+            className="bg-card p-4 transition-colors hover:bg-muted/30"
+          >
             <span className="font-mono text-xs text-primary">{n}</span>
             <h4 className="mt-1.5 text-sm font-semibold text-foreground">{t}</h4>
             <p className="mt-1 text-sm text-muted-foreground">{d}</p>

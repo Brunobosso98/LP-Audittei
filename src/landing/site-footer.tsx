@@ -38,6 +38,16 @@ export function SiteFooter() {
               Auditoria fiscal automatizada para escritórios contábeis. Lê NF-e, valida contra a
               legislação e devolve as exceções para você revisar.
             </p>
+            <span
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-2.5 py-1 font-mono text-[11px] text-foreground/70"
+              aria-label="Status operacional do sistema"
+            >
+              <span
+                aria-hidden="true"
+                className="relative inline-flex size-1.5 rounded-full bg-emerald-500 livePulse"
+              />
+              Sistemas operacionais
+            </span>
           </div>
 
           {COLS.map((col) => (
@@ -48,9 +58,13 @@ export function SiteFooter() {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      className="group relative inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                     >
                       {l.label}
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                      />
                     </a>
                   </li>
                 ))}
@@ -61,7 +75,9 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Inttax. Itapira, SP — atendimento nacional.</p>
-          <p>Dados e indicadores exibidos são ilustrativos.</p>
+          <p className="font-mono text-xs tabular-nums text-muted-foreground/80">
+            v2026.06 · dados e indicadores exibidos são ilustrativos
+          </p>
         </div>
       </div>
     </footer>

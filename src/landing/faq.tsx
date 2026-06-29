@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Plus } from "lucide-react"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const ITEMS = [
@@ -39,6 +40,7 @@ const ITEMS = [
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
+  const prefersReducedMotion = useReducedMotion()
 
   return (
     <section id="faq" className="border-b border-border bg-secondary/40">
@@ -53,11 +55,17 @@ export function Faq() {
           O que escritórios como o seu costumam perguntar.
         </h2>
 
-        <div className="mt-10 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
+        <div className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
           {ITEMS.map((item, i) => {
             const isOpen = open === i
             return (
-              <div key={item.q}>
+              <div
+                key={item.q}
+                className={cn(
+                  "border-b border-border last:border-b-0 transition-colors duration-300",
+                  isOpen ? "bg-muted/30" : "hover:bg-muted/20",
+                )}
+              >
                 <h3>
                   <button
                     type="button"
@@ -65,27 +73,67 @@ export function Faq() {
                     aria-controls={`faq-panel-${i}`}
                     id={`faq-trigger-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors focus-visible:bg-muted/40 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
                   >
-                    <span className="text-base font-medium text-foreground">{item.q}</span>
-                    <Plus
+                    <span
                       className={cn(
-                        "size-5 shrink-0 text-muted-foreground transition-transform duration-200",
-                        isOpen && "rotate-45 text-primary",
+                        "text-base font-medium transition-colors duration-300",
+                        isOpen ? "text-primary" : "text-foreground",
+                      )}
+                    >
+                      {item.q}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={
+                        prefersReducedMotion
+                          ? { duration: 0 }
+                          : { duration: 0.25, ease: [0.22, 1, 0.36, 1] }
+                      }
+                      className={cn(
+                        "inline-flex size-5 shrink-0 items-center justify-center transition-colors duration-300",
+                        isOpen ? "text-primary" : "text-muted-foreground",
                       )}
                       aria-hidden="true"
-                    />
+                    >
+                      <Plus className="size-5" />
+                    </motion.span>
                   </button>
                 </h3>
-                <div
-                  id={`faq-panel-${i}`}
-                  role="region"
-                  aria-labelledby={`faq-trigger-${i}`}
-                  hidden={!isOpen}
-                  className="px-5 pb-5"
-                >
-                  <p className="max-w-prose leading-relaxed text-muted-foreground">{item.a}</p>
-                </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="panel"
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-trigger-${i}`}
+                      initial={
+                        prefersReducedMotion
+                          ? { opacity: 1 }
+                          : { height: 0, opacity: 0 }
+                      }
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={
+                        prefersReducedMotion
+                          ? { opacity: 0 }
+                          : { height: 0, opacity: 0 }
+                      }
+                      transition={
+                        prefersReducedMotion
+                          ? { duration: 0 }
+                          : {
+                              height: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
+                              opacity: { duration: 0.2 },
+                            }
+                      }
+                      className="overflow-hidden"
+                    >
+                      <p className="max-w-prose px-5 pb-5 leading-relaxed text-muted-foreground">
+                        {item.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             )
           })}

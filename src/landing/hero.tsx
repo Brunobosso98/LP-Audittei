@@ -26,7 +26,10 @@ export function Hero() {
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-16">
           <div className="min-w-0">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card/80 px-3 py-1 text-sm text-muted-foreground backdrop-blur-sm">
-              <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
+              <span
+                className="relative inline-flex size-1.5 rounded-full bg-primary livePulse"
+                aria-hidden="true"
+              />
               <span className="font-mono text-[11px] uppercase tracking-wider text-foreground/70">
                 Reforma Tributária
               </span>
@@ -41,7 +44,7 @@ export function Hero() {
                 para a mesa
                 <span
                   aria-hidden="true"
-                  className="absolute -bottom-1 left-0 right-0 h-[3px] bg-primary sm:h-1"
+                  className="absolute -bottom-1 left-0 right-0 h-[3px] origin-left bg-primary hairline-in sm:h-1"
                 />
               </span>{" "}
               de decisão do cliente.
@@ -59,11 +62,11 @@ export function Hero() {
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 Solicitar demonstração
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://wa.me/5519978180175"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-sm font-medium text-foreground transition-all hover:border-primary/40 hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 Falar com vendas no WhatsApp
               </a>
@@ -79,7 +82,7 @@ export function Hero() {
             <img
               src={theme === "dark" ? "/hero_dark.png" : "/hero_light.png"}
               alt="Dashboard do Simulador da Reforma Tributária"
-              className="w-full h-auto rounded-xl shadow-[0_24px_80px_-32px_oklch(0.586_0.253_17.585/0.45)]"
+              className="h-auto w-full rounded-xl shadow-[0_24px_80px_-32px_oklch(0.586_0.253_17.585/0.45)]"
             />
           </div>
         </div>
@@ -96,18 +99,30 @@ export function Hero() {
 
           <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {MODULES.map((m) => (
-              <div key={m.n} className="group relative bg-card p-5 transition-colors hover:bg-muted/40">
+              <a
+                key={m.n}
+                href={`#${m.name === "Simulador da Reforma" ? "simulador" : "plataforma"}`}
+                className="group relative block bg-card p-5 transition-colors duration-300 hover:bg-muted/40"
+              >
                 <span
                   aria-hidden="true"
-                  className="font-mono text-[5rem] font-semibold leading-none tracking-[-0.05em] text-primary transition-colors group-hover:text-primary/30 lg:text-[2rem]"
+                  className="block font-mono text-[2.5rem] font-semibold leading-none tracking-[-0.05em] text-primary transition-colors duration-300 group-hover:text-primary/30 lg:text-[2rem]"
                 >
                   {m.n}
                 </span>
-                <h3 className="mt-2 text-base font-semibold tracking-tight text-foreground">
-                  {m.name}
+                <h3 className="mt-2 flex items-baseline gap-1.5 text-base font-semibold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary">
+                  <span>{m.name}</span>
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                  />
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
-              </div>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-primary transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+                />
+              </a>
             ))}
           </div>
         </div>

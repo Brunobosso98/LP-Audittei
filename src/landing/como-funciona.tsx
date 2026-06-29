@@ -66,24 +66,27 @@ export function ComoFunciona() {
                   aria-hidden="true"
                 >
                   <span
-                    className="absolute inset-y-0 left-0 bg-primary transition-all duration-500"
+                    className="absolute inset-y-0 left-0 bg-primary transition-[width] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full"
                     style={{ width: `${((i + 1) / STEPS.length) * 100}%` }}
                   />
                 </div>
 
                 <div className="relative flex items-center gap-3">
-                  <span className="relative inline-flex size-14 items-center justify-center rounded-xl border border-border bg-card">
-                    <Icon className="size-5 text-foreground" aria-hidden="true" />
+                  <span className="relative inline-flex size-14 items-center justify-center rounded-xl border border-border bg-card transition-colors duration-300 group-hover:border-primary/50">
+                    <Icon
+                      className="size-5 text-foreground transition-colors duration-300 group-hover:text-primary"
+                      aria-hidden="true"
+                    />
                     <span
                       aria-hidden="true"
-                      className="absolute -top-2 -right-2 inline-flex size-6 items-center justify-center rounded-full bg-primary font-mono text-[10px] font-semibold text-primary-foreground"
+                      className="absolute -top-2 -right-2 inline-flex size-6 items-center justify-center rounded-full bg-primary font-mono text-[10px] font-semibold text-primary-foreground ring-2 ring-secondary/40"
                     >
                       {s.n}
                     </span>
                   </span>
                   {!isLast && (
                     <ArrowRight
-                      className="size-4 shrink-0 text-border lg:hidden"
+                      className="size-4 shrink-0 text-border transition-colors duration-300 group-hover:text-primary/50 lg:hidden"
                       aria-hidden="true"
                     />
                   )}
@@ -93,11 +96,11 @@ export function ComoFunciona() {
                   <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                     {s.label}
                   </span>
-                  <h3 className="mt-2 text-lg font-semibold tracking-tight text-foreground">
+                  <h3 className="mt-2 text-lg font-semibold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary">
                     {s.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                  <p className="mt-4 inline-flex items-center gap-2 rounded-md bg-card px-2.5 py-1 font-mono text-xs text-foreground ring-1 ring-border">
+                  <p className="mt-4 inline-flex items-center gap-2 rounded-md bg-card px-2.5 py-1 font-mono text-xs text-foreground ring-1 ring-border transition-shadow duration-300 group-hover:shadow-sm group-hover:ring-primary/40">
                     <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
                     {s.meta}
                   </p>

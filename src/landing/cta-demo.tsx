@@ -1,4 +1,4 @@
-import { MessageCircle, Mail, MapPin } from "lucide-react"
+import { MessageCircle, Mail, MapPin, ArrowUpRight } from "lucide-react"
 import { DemoForm } from "@/landing/demo-form"
 
 const CONTACTS = [
@@ -43,15 +43,21 @@ export function CtaDemo() {
               {CONTACTS.map((c) => {
                 const Icon = c.icon
                 const inner = (
-                  <div className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
+                  <div className="flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors group-hover:border-primary/40 group-hover:bg-muted/60">
                     <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-md bg-accent text-primary">
                       <Icon className="size-4" aria-hidden="true" />
                     </span>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="text-xs text-muted-foreground">{c.label}</div>
                       <div className="text-sm font-medium text-foreground">{c.value}</div>
                       <div className="text-xs text-muted-foreground">{c.meta}</div>
                     </div>
+                    {c.href && (
+                      <ArrowUpRight
+                        className="mt-1 size-4 shrink-0 text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary group-hover:opacity-100"
+                        aria-hidden="true"
+                      />
+                    )}
                   </div>
                 )
                 return (
@@ -59,12 +65,12 @@ export function CtaDemo() {
                     {c.href ? (
                       <a
                         href={c.href}
-                        className="block rounded-lg transition-colors hover:[&>div]:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                        className="group block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                       >
                         {inner}
                       </a>
                     ) : (
-                      inner
+                      <div className="group block rounded-lg">{inner}</div>
                     )}
                   </li>
                 )

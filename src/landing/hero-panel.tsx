@@ -1,4 +1,13 @@
-import { TrendingDown, TrendingUp, AlertTriangle, ArrowUpRight, Search, Bell } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import {
+  TrendingDown,
+  TrendingUp,
+  AlertTriangle,
+  ArrowUpRight,
+  Search,
+  Bell,
+} from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const KPIS = [
   { label: "Carga Tributária", atual: "R$ 184.300", novo: "R$ 169.870", delta: "-7,8%", up: false },
@@ -14,14 +23,64 @@ const NCMS = [
   { ncm: "7323.99.10", produto: "Utensílios", participacao: "7,8%", impacto: "-4,1%", risco: "Baixo" },
 ] as const
 
-function Bar({ pct, label, value, color }: { pct: number; label: string; value: string; color: string }) {
+const COMPARISON = [
+  {
+    title: "Carga Tributária",
+    rows: [
+      ["Atual", 82, "R$ 184.300"],
+      ["Pós-reforma", 76, "R$ 169.870"],
+    ],
+  },
+  {
+    title: "Margem de Contribuição",
+    rows: [
+      ["Atual", 62, "31,2%"],
+      ["Pós-reforma", 66, "33,0%"],
+    ],
+  },
+] as const
+
+const REDUCED_MOTION =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+function formatClock(date: Date) {
+  return date.toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  })
+}
+
+function Bar({
+  pct,
+  label,
+  value,
+  color,
+  animate,
+}: {
+  pct: number
+  label: string
+  value: string
+  color: string
+  animate: boolean
+}) {
   return (
     <div className="flex items-center gap-3">
       <span className="w-24 shrink-0 text-xs text-muted-foreground">{label}</span>
       <div className="relative h-5 flex-1 overflow-hidden rounded-full bg-muted">
         <div
-          className="h-full rounded-full transition-all"
-          style={{ width: `${pct}%`, backgroundColor: color }}
+          className={cn(
+            "h-full rounded-full",
+            animate && !REDUCED_MOTION && "animate-barGrowX",
+          )}
+          style={{
+            width: `${pct}%`,
+            backgroundColor: color,
+            transformOrigin: "left center",
+            animationDelay: animate && !REDUCED_MOTION ? "120ms" : undefined,
+          }}
         />
       </div>
       <span className="w-20 text-right font-mono text-xs tabular-nums text-foreground">{value}</span>
@@ -30,8 +89,45 @@ function Bar({ pct, label, value, color }: { pct: number; label: string; value: 
 }
 
 export function ReformaPanel() {
+  const [now, setNow] = useState<Date | null>(null)
+  const [animateIn, setAnimateIn] = useState(false)
+  const panelRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setNow(new Date())
+    const id = window.setInterval(() => setNow(new Date()), 1000)
+    return () => window.clearInterval(id)
+  }, [])
+
+  // Trigger bar growth + KPI reveal on first viewport entry only.
+  useEffect(() => {
+    const node = panelRef.current
+    if (!node) return
+    if (typeof IntersectionObserver === "undefined") {
+      setAnimateIn(true)
+      return
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setAnimateIn(true)
+            obs.disconnect()
+            break
+          }
+        }
+      },
+      { threshold: 0.2 },
+    )
+    obs.observe(node)
+    return () => obs.disconnect()
+  }, [])
+
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+    <div
+      ref={panelRef}
+      className="overflow-hidden rounded-xl border border-border bg-card shadow-lg"
+    >
       {/* App chrome — top bar */}
       <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
         <div className="flex items-center gap-3">
@@ -41,19 +137,43 @@ export function ReformaPanel() {
             <span className="size-2.5 rounded-full bg-emerald-500" />
           </div>
           <span className="text-sm font-semibold text-foreground">Simulador da Reforma</span>
-          <span className="hidden rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-medium text-primary sm:inline-block">
+          <span className="hidden items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-medium text-primary sm:inline-flex">
+            <span
+              aria-hidden="true"
+              className={cn(
+                "relative inline-flex size-1.5 rounded-full bg-primary",
+                !REDUCED_MOTION && "livePulse",
+              )}
+            />
             IBS + CBS
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-muted">
+          <span
+            className="hidden items-center gap-1.5 font-mono text-[10px] text-muted-foreground sm:inline-flex"
+            aria-live="off"
+          >
+            <span aria-hidden="true" className="text-foreground/60">
+              Última leitura
+            </span>
+            <span className="tabular-nums text-foreground/80">
+              {now ? formatClock(now) : "--:--:--"}
+            </span>
+          </span>
+          <button
+            className="flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            aria-label="Buscar"
+          >
             <Search className="size-3.5" />
           </button>
-          <button className="relative flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-muted">
+          <button
+            className="relative flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            aria-label="Notificações"
+          >
             <Bell className="size-3.5" />
             <span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-primary" />
           </button>
-          <div className="ml-1 flex size-6 items-center justify-center rounded-full bg-primary/20 text-[10px] font-semibold text-primary">
+          <div className="ml-1 flex size-6 items-center justify-center rounded-full bg-primary/20 text-[10px] font-semibold text-primary ring-1 ring-primary/30">
             J
           </div>
         </div>
@@ -64,11 +184,12 @@ export function ReformaPanel() {
         {["Simulador", "Impacto", "Produtos", "Alertas"].map((tab, i) => (
           <button
             key={tab}
-            className={`px-3 py-2 text-xs font-medium transition-colors ${
+            className={cn(
+              "relative px-3 py-2 text-xs font-medium transition-colors",
               i === 0
-                ? "border-b-2 border-primary text-foreground"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
+                ? "text-foreground after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-primary after:content-['']"
+                : "text-muted-foreground hover:text-foreground",
+            )}
           >
             {tab}
           </button>
@@ -77,19 +198,25 @@ export function ReformaPanel() {
 
       {/* KPI cards row */}
       <div className="grid grid-cols-2 gap-2 border-b border-border px-4 py-3 sm:grid-cols-4">
-        {KPIS.map((k) => (
-          <div key={k.label} className="rounded-lg border border-border bg-muted/30 p-2.5">
+        {KPIS.map((k, idx) => (
+          <div
+            key={k.label}
+            className={cn(
+              "rounded-lg border border-border bg-muted/30 p-2.5 transition-all duration-500",
+              !REDUCED_MOTION && animateIn && "kpi-in",
+            )}
+            style={{ transitionDelay: REDUCED_MOTION ? "0ms" : `${idx * 60}ms` }}
+          >
             <div className="truncate text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
               {k.label}
             </div>
             <div className="mt-1 flex items-baseline justify-between">
-              <span className="text-sm font-semibold text-foreground">{k.novo}</span>
+              <span className="text-sm font-semibold tabular-nums text-foreground">{k.novo}</span>
               <span
-                className={`inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${
-                  k.up
-                    ? "bg-emerald-500/10 text-emerald-600"
-                    : "bg-red-500/10 text-red-600"
-                }`}
+                className={cn(
+                  "inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[10px] font-semibold tabular-nums transition-transform group-hover:scale-105",
+                  k.up ? "bg-emerald-500/10 text-emerald-600" : "bg-red-500/10 text-red-600",
+                )}
               >
                 {k.up ? <TrendingUp className="size-2.5" /> : <TrendingDown className="size-2.5" />}
                 {k.delta}
@@ -101,28 +228,36 @@ export function ReformaPanel() {
 
       {/* Comparison bars */}
       <div className="grid gap-4 border-b border-border px-4 py-4 sm:grid-cols-2">
-        <div>
-          <h4 className="mb-2 text-xs font-semibold text-foreground">Carga Tributária</h4>
-          <div className="space-y-2">
-            <Bar pct={82} label="Atual" value="R$ 184.300" color="hsl(var(--muted-foreground))" />
-            <Bar pct={76} label="Pós-reforma" value="R$ 169.870" color="hsl(var(--primary))" />
+        {COMPARISON.map((section, idx) => (
+          <div key={section.title}>
+            <h4 className="mb-2 text-xs font-semibold text-foreground">{section.title}</h4>
+            <div className="space-y-2">
+              {section.rows.map(([label, pct, value]) => (
+                <Bar
+                  key={label}
+                  pct={pct as number}
+                  label={label}
+                  value={value}
+                  color={
+                    label === "Pós-reforma"
+                      ? "hsl(var(--primary))"
+                      : "hsl(var(--muted-foreground))"
+                  }
+                  animate={animateIn && idx === 0}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <div>
-          <h4 className="mb-2 text-xs font-semibold text-foreground">Margem de Contribuição</h4>
-          <div className="space-y-2">
-            <Bar pct={62} label="Atual" value="31,2%" color="hsl(var(--muted-foreground))" />
-            <Bar pct={66} label="Pós-reforma" value="33,0%" color="hsl(var(--primary))" />
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* NCMs table */}
       <div className="border-b border-border px-4 py-3">
         <div className="mb-2 flex items-center justify-between">
           <h4 className="text-xs font-semibold text-foreground">Produtos / NCMs mais impactados</h4>
-          <button className="flex items-center gap-0.5 text-[10px] font-medium text-primary hover:underline">
-            Ver todos <ArrowUpRight className="size-3" />
+          <button className="group/btn flex items-center gap-0.5 text-[10px] font-medium text-primary transition-colors hover:text-primary/80">
+            Ver todos
+            <ArrowUpRight className="size-3 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
           </button>
         </div>
         <div className="overflow-x-auto">
@@ -138,22 +273,30 @@ export function ReformaPanel() {
             </thead>
             <tbody>
               {NCMS.map((r) => (
-                <tr key={r.ncm} className="border-t border-border text-xs">
+                <tr
+                  key={r.ncm}
+                  className="border-t border-border text-xs transition-colors hover:bg-muted/40"
+                >
                   <td className="py-2 pr-2 font-mono text-muted-foreground">{r.ncm}</td>
                   <td className="py-2 pr-2 text-foreground">{r.produto}</td>
-                  <td className="py-2 pr-2 text-right font-mono text-foreground">{r.participacao}</td>
-                  <td className="py-2 pr-2 text-right font-mono text-foreground">{r.impacto}</td>
+                  <td className="py-2 pr-2 text-right font-mono tabular-nums text-foreground">
+                    {r.participacao}
+                  </td>
+                  <td className="py-2 pr-2 text-right font-mono tabular-nums text-foreground">
+                    {r.impacto}
+                  </td>
                   <td className="py-2 text-right">
                     <span
-                      className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                      className={cn(
+                        "inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold",
                         r.risco === "Crítico"
                           ? "bg-red-500/10 text-red-600"
                           : r.risco === "Alto"
                             ? "bg-amber-500/10 text-amber-600"
                             : r.risco === "Médio"
                               ? "bg-blue-500/10 text-blue-600"
-                              : "bg-muted text-muted-foreground"
-                      }`}
+                              : "bg-muted text-muted-foreground",
+                      )}
                     >
                       {r.risco}
                     </span>
@@ -172,8 +315,8 @@ export function ReformaPanel() {
           <p className="text-xs font-semibold text-foreground">Recomendação para o cliente</p>
           <p className="mt-0.5 text-[11px] leading-relaxed text-muted-foreground">
             Redução de <strong className="text-foreground">R$ 14.430</strong> na carga anual com
-            IBS/CBS. Revisar créditos de fornecedores e renegociar contratos — abertura de
-            <strong className="text-foreground"> +1,8 p.p.</strong> de margem.
+            IBS/CBS. Revisar créditos de fornecedores e renegociar contratos para abrir{" "}
+            <strong className="text-foreground">+1,8 p.p.</strong> de margem.
           </p>
         </div>
       </div>

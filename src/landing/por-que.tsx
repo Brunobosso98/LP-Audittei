@@ -38,22 +38,30 @@ export function PorQue() {
             {POINTS.map((p, i) => (
               <li
                 key={p.role}
-                className="grid grid-cols-[3rem_minmax(0,1fr)] gap-x-6 gap-y-1 border-t border-border py-7 first:border-t-0 first:pt-0 lg:gap-x-8 lg:py-8"
+                className="group relative grid grid-cols-[3rem_minmax(0,1fr)] gap-x-6 gap-y-1 border-t border-border py-7 transition-colors duration-300 first:border-t-0 first:pt-0 hover:bg-muted/30 lg:gap-x-8 lg:py-8"
               >
                 <span
                   aria-hidden="true"
-                  className="font-mono text-4xl font-semibold leading-none tracking-[-0.04em] text-primary sm:text-5xl"
+                  className="font-mono text-4xl font-semibold leading-none tracking-[-0.04em] text-primary transition-colors duration-300 group-hover:text-primary/30 sm:text-5xl"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                  <h3 className="inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary sm:text-xl">
                     {p.role}
+                    <span
+                      aria-hidden="true"
+                      className="size-1.5 rounded-full bg-emerald-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
                   </h3>
                   <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
                     {p.desc}
                   </p>
                 </div>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-primary transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"
+                />
               </li>
             ))}
           </ul>
