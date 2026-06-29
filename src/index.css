@@ -23,6 +23,9 @@
     --border: 0.912 0.006 22;
     --input: 0.912 0.006 22;
     --ring: 0.586 0.253 17.585;
+    --brand-surface: 0.97 0.022 18;
+    --brand-surface-foreground: 0.21 0.06 22;
+    --ink-inverse: 0.985 0.005 18;
     --chart-1: 0.586 0.253 17.585;
     --chart-2: 0.645 0.246 16.439;
     --chart-3: 0.45 0.02 25;
@@ -59,6 +62,9 @@
     --border: 1 0 0 / 10%;
     --input: 1 0 0 / 15%;
     --ring: 0.556 0 0;
+    --brand-surface: 0.205 0.04 18;
+    --brand-surface-foreground: 0.985 0.005 18;
+    --ink-inverse: 0.985 0 0;
     --chart-1: 0.87 0 0;
     --chart-2: 0.556 0 0;
     --chart-3: 0.439 0 0;

@@ -22,12 +22,17 @@ export function Simulador() {
 
   return (
     <section id="simulador" className="border-b border-border bg-background">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="max-w-3xl">
-          <p className="text-sm font-medium text-primary">Reforma Tributária</p>
-          <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+              Reforma Tributária
+            </span>
+            <span aria-hidden="true" className="h-px flex-1 bg-border" />
+          </div>
+          <h2 className="mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[3.5rem]">
             A maior mudança tributária da década, transformada em uma consultoria que o
-            cliente paga
+            cliente paga.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
             O Simulador entrega, em números, como a transição afeta custo, preço, fornecedores
@@ -171,9 +176,11 @@ function Panel({
     <div role="tabpanel" id={`panel-${id}`} aria-labelledby={`tab-${id}`}>
       <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr] lg:gap-10">
         <div>
-          <h3 className="text-pretty text-xl font-semibold tracking-tight text-foreground">{title}</h3>
-          <p className="mt-3 leading-relaxed text-muted-foreground">{desc}</p>
-          <p className="mt-5 border-l-2 border-border pl-3 text-sm text-muted-foreground">{note}</p>
+          <h3 className="text-pretty text-2xl font-medium leading-snug tracking-[-0.025em] text-foreground sm:text-3xl">
+            {title}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">{desc}</p>
+          <p className="mt-5 border-l-2 border-primary/40 pl-3 text-sm text-muted-foreground">{note}</p>
         </div>
         <div>{children}</div>
       </div>

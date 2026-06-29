@@ -38,11 +38,16 @@ const STEPS = [
 export function ComoFunciona() {
   return (
     <section id="como-funciona" className="border-b border-border bg-secondary/40">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="max-w-3xl">
-          <p className="text-sm font-medium text-primary">Como funciona</p>
-          <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Quatro passos encadeados, do operacional ao estratégico
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+              Como funciona
+            </span>
+            <span aria-hidden="true" className="h-px flex-1 bg-border" />
+          </div>
+          <h2 className="mt-5 text-balance text-3xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[3.5rem]">
+            Quatro passos encadeados, do operacional ao estratégico.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
             A Inttax não é uma ferramenta isolada: cada módulo alimenta o seguinte. O resultado é
@@ -50,22 +55,31 @@ export function ComoFunciona() {
           </p>
         </div>
 
-        <ol className="mt-14 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-16 grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => {
             const Icon = s.icon
             const isLast = i === STEPS.length - 1
             return (
               <li key={s.n} className="group relative flex flex-col">
-                <div className="absolute left-0 right-0 top-6 hidden h-px bg-border lg:block" aria-hidden="true">
+                <div
+                  className="absolute left-0 right-0 top-7 hidden h-px bg-border lg:block"
+                  aria-hidden="true"
+                >
                   <span
-                    className="absolute inset-y-0 left-0 bg-primary/40"
+                    className="absolute inset-y-0 left-0 bg-primary transition-all duration-500"
                     style={{ width: `${((i + 1) / STEPS.length) * 100}%` }}
                   />
                 </div>
 
                 <div className="relative flex items-center gap-3">
-                  <span className="inline-flex size-12 items-center justify-center rounded-xl border border-primary/25 bg-card shadow-sm ring-1 ring-inset ring-card transition-colors group-hover:border-primary/50">
-                    <Icon className="size-5 text-primary" aria-hidden="true" />
+                  <span className="relative inline-flex size-14 items-center justify-center rounded-xl border border-border bg-card">
+                    <Icon className="size-5 text-foreground" aria-hidden="true" />
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-2 -right-2 inline-flex size-6 items-center justify-center rounded-full bg-primary font-mono text-[10px] font-semibold text-primary-foreground"
+                    >
+                      {s.n}
+                    </span>
                   </span>
                   {!isLast && (
                     <ArrowRight
@@ -75,18 +89,15 @@ export function ComoFunciona() {
                   )}
                 </div>
 
-                <div className="mt-5">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-semibold tracking-widest text-primary">
-                      {s.n}
-                    </span>
-                    <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-                      {s.label}
-                    </span>
-                  </div>
-                  <h3 className="mt-2 text-base font-semibold text-foreground">{s.title}</h3>
+                <div className="mt-6">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    {s.label}
+                  </span>
+                  <h3 className="mt-2 text-lg font-semibold tracking-tight text-foreground">
+                    {s.title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                  <p className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1 font-mono text-xs text-foreground">
+                  <p className="mt-4 inline-flex items-center gap-2 rounded-md bg-card px-2.5 py-1 font-mono text-xs text-foreground ring-1 ring-border">
                     <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
                     {s.meta}
                   </p>

@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
-import { ReformaPanel } from "@/landing/hero-panel"
 
 const MODULES = [
   { n: "01", name: "Simulador da Reforma", desc: "Impacto em custo, preço, fornecedores e margem." },
@@ -13,63 +12,101 @@ export function Hero() {
   const { theme } = useTheme()
   return (
     <section id="topo" className="relative overflow-hidden border-b border-border">
-      <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
-      <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-14 lg:px-8 lg:pb-24 lg:pt-20">
-        <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground">
+      {/* Backdrop: thin vertical grid + soft primary halo, masked */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 right-[-10%] size-[40rem] rounded-full bg-primary/8 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-16">
+          <div className="min-w-0">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card/80 px-3 py-1 text-sm text-muted-foreground backdrop-blur-sm">
               <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-              Consultoria estratégica para a Reforma Tributária
+              <span className="font-mono text-[11px] uppercase tracking-wider text-foreground/70">
+                Reforma Tributária
+              </span>
+              <span aria-hidden="true" className="h-3 w-px bg-border" />
+              <span>Consultoria estratégica para o seu cliente</span>
             </div>
 
-            <h1 className="mt-5 text-pretty text-4xl font-medium leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]">
-              Transforme seu escritório em um parceiro estratégico do cliente
+            <h1 className="mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[4rem]">
+              Leve o escritório
+              <br className="hidden sm:block" />{" "}
+              <span className="relative inline-block">
+                para a mesa
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-1 left-0 right-0 h-[3px] bg-primary sm:h-1"
+                />
+              </span>{" "}
+              de decisão do cliente.
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              A Inttax tira o seu time do trabalho operacional e o coloca na mesa de decisão do
-              cliente. Comece pela Reforma Tributária: mostre, em números, o impacto que vem aí —
-              e cobre por essa consultoria.
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              A Inttax lê NF-e, valida contra a legislação vigente e devolve só as exceções
+              para você revisar. Comece pela Reforma Tributária: mostre, em números, o
+              impacto que vem aí — e cobre por essa consultoria.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#demo"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 Solicitar demonstração
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://wa.me/5519978180175"
-                className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-card px-5 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 Falar com vendas no WhatsApp
               </a>
             </div>
 
-            <p className="mt-3 text-sm text-muted-foreground">
-              Conversa de 30 minutos com o Simulador da Reforma aplicado a um caso real do seu cliente.
+            <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="size-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+              Conversa de 30 minutos com o Simulador aplicado a um caso real.
             </p>
           </div>
 
-          <img
-            src={theme === "dark" ? "/hero_dark.png" : "/hero_light.png"}
-            alt="Dashboard INTTAX"
-            className="w-full h-auto rounded-xl shadow-2xl"
-          />
+          <div className="relative min-w-0">
+            <img
+              src={theme === "dark" ? "/hero_dark.png" : "/hero_light.png"}
+              alt="Dashboard do Simulador da Reforma Tributária"
+              className="w-full h-auto rounded-xl shadow-[0_24px_80px_-32px_oklch(0.586_0.253_17.585/0.45)]"
+            />
+          </div>
         </div>
 
-        <div className="mt-14 lg:mt-20">
-          <p className="text-sm text-muted-foreground">
-            Quatro módulos, uma plataforma coesa
-          </p>
-          <div className="mt-4 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 lg:mt-28">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Quatro módulos, uma plataforma coesa
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Cobertura completa do operacional ao estratégico.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {MODULES.map((m) => (
-              <div key={m.n} className="bg-card p-5">
-                <span className="font-mono text-xs text-primary">{m.n}</span>
-                <h3 className="mt-2 text-sm font-semibold text-foreground">{m.name}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
+              <div key={m.n} className="group relative bg-card p-5 transition-colors hover:bg-muted/40">
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-[5rem] font-semibold leading-none tracking-[-0.05em] text-primary transition-colors group-hover:text-primary/30 lg:text-[2rem]"
+                >
+                  {m.n}
+                </span>
+                <h3 className="mt-2 text-base font-semibold tracking-tight text-foreground">
+                  {m.name}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
               </div>
             ))}
           </div>

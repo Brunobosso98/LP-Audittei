@@ -1,14 +1,14 @@
 const POINTS = [
   {
-    role: "Para o cliente do escritório",
+    role: "Cliente do escritório",
     desc: "Mais clareza sobre faturamento, margem, preço, custo e impactos tributários. Relatórios que ele abre sem precisar pedir.",
   },
   {
-    role: "Para a equipe fiscal",
+    role: "Equipe fiscal",
     desc: "Menos planilha, mais análise. Cobertura ampla das operações e redução drástica da dependência de amostragem.",
   },
   {
-    role: "Para o gestor do escritório",
+    role: "Gestor do escritório",
     desc: "Visão estratégica dos departamentos, indicadores, comercial e societário. Decisões com dado, não com palpite.",
   },
 ]
@@ -16,25 +16,47 @@ const POINTS = [
 export function PorQue() {
   return (
     <section className="border-b border-border bg-background">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-        <div className="max-w-3xl">
-          <p className="text-sm font-medium text-primary">Por que Inttax</p>
-          <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Três pontos de vista, um único ganho
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            O que muda para quem assina, para quem opera e para quem decide. Cada papel do
-            escritório se beneficia, sem retrabalho.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {POINTS.map((p) => (
-            <div key={p.role} className="rounded-xl border border-border bg-card p-6">
-              <h3 className="text-base font-semibold text-foreground">{p.role}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+                Por que Inttax
+              </span>
+              <span aria-hidden="true" className="h-px flex-1 bg-border" />
             </div>
-          ))}
+            <h2 className="mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl">
+              Três pontos de vista, um único ganho.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              O que muda para quem assina, para quem opera e para quem decide. Cada papel do
+              escritório se beneficia, sem retrabalho.
+            </p>
+          </div>
+
+          <ul className="grid">
+            {POINTS.map((p, i) => (
+              <li
+                key={p.role}
+                className="grid grid-cols-[3rem_minmax(0,1fr)] gap-x-6 gap-y-1 border-t border-border py-7 first:border-t-0 first:pt-0 lg:gap-x-8 lg:py-8"
+              >
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-4xl font-semibold leading-none tracking-[-0.04em] text-primary sm:text-5xl"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                    {p.role}
+                  </h3>
+                  <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                    {p.desc}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

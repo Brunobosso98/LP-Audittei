@@ -4,11 +4,16 @@ import type { ReactNode } from "react"
 export function Plataforma() {
   return (
     <section id="plataforma" className="border-b border-border bg-background">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="max-w-3xl">
-          <p className="text-sm font-medium text-primary">A plataforma completa</p>
-          <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Três módulos que completam o Simulador da Reforma
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+              A plataforma completa
+            </span>
+            <span aria-hidden="true" className="h-px flex-1 bg-border" />
+          </div>
+          <h2 className="mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[3.5rem]">
+            Três módulos que completam o Simulador da Reforma.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
             Auditoria, analytics e gestão interna. Cada módulo resolve uma dor específica;
@@ -86,22 +91,27 @@ function Module({
   children: ReactNode
 }) {
   return (
-    <article className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+    <article className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-xs text-primary">{n}</span>
-          <span className="rounded-md bg-accent px-2 py-0.5 text-xs font-medium text-accent-foreground">
+        <div className="flex items-center gap-4">
+          <span
+            aria-hidden="true"
+            className="font-mono text-[4rem] font-semibold leading-[0.85] tracking-[-0.06em] text-primary sm:text-[5rem] lg:text-[3rem]"
+          >
+            {n}.
+          </span>
+          <span className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/80">
             {name}
           </span>
         </div>
-        <h3 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground">
+        <h3 className="mt-6 text-balance text-2xl font-medium leading-[1.15] tracking-[-0.025em] text-foreground sm:text-3xl lg:text-[2.5rem]">
           {title}
         </h3>
-        <p className="mt-4 leading-relaxed text-muted-foreground">{summary}</p>
-        <ul className="mt-6 grid gap-2.5">
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">{summary}</p>
+        <ul className="mt-6 grid gap-3">
           {points.map((p) => (
-            <li key={p} className="flex items-start gap-2.5 text-sm text-foreground">
-              <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+            <li key={p} className="flex items-start gap-3 text-sm text-foreground">
+              <span className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               {p}
             </li>
           ))}

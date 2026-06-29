@@ -40,6 +40,11 @@ const config: Config = {
         border: "oklch(var(--border))",
         input: "oklch(var(--input))",
         ring: "oklch(var(--ring))",
+        brand: {
+          surface: "oklch(var(--brand-surface))",
+          "surface-foreground": "oklch(var(--brand-surface-foreground))",
+        },
+        "ink-inverse": "oklch(var(--ink-inverse))",
         chart: {
           1: "oklch(var(--chart-1))",
           2: "oklch(var(--chart-2))",
