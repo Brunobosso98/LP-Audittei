@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 import HomePage from "@/routes/home"
 import AuditorFiscalPage from "@/routes/auditor-fiscal"
 import GestaoPage from "@/routes/gestao"
+import ReformaTributariaPage from "@/routes/reforma-tributaria"
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/auditor-fiscal" element={<AuditorFiscalPage />} />
           <Route path="/gestao" element={<GestaoPage />} />
+          <Route path="/reforma-tributaria" element={<ReformaTributariaPage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors />

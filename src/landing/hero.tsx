@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { useTheme } from "@/components/theme-provider"
 import { ReformaPanel } from "@/landing/hero-panel"
 
 const MODULES = [
@@ -9,6 +10,7 @@ const MODULES = [
 ]
 
 export function Hero() {
+  const { theme } = useTheme()
   return (
     <section id="topo" className="relative overflow-hidden border-b border-border">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
@@ -51,7 +53,11 @@ export function Hero() {
             </p>
           </div>
 
-          <ReformaPanel />
+          <img
+            src={theme === "dark" ? "/hero_dark.png" : "/hero_light.png"}
+            alt="Dashboard INTTAX"
+            className="w-full h-auto rounded-xl shadow-2xl"
+          />
         </div>
 
         <div className="mt-14 lg:mt-20">

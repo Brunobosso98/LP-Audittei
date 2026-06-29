@@ -15,6 +15,7 @@ const navigationSections = [
 ]
 
 const systemLinks = [
+  { name: "Reforma Tributária", to: "/reforma-tributaria", description: "Consultoria estratégica para a Reforma" },
   { name: "Gestão", to: "/gestao", description: "Gestão de NFSe" },
   { name: "Auditor Fiscal", to: "/auditor-fiscal", description: "Auditoria Fiscal Completa" },
 ]
@@ -81,9 +82,9 @@ export default function AdvancedHeader() {
                 whileTap={{ scale: 0.95 }}
                 aria-expanded={isSystemsOpen}
                 aria-haspopup="menu"
-                aria-label="Abrir menu de produtos"
+                aria-label="Abrir menu de soluções"
               >
-                <span>Produtos</span>
+                <span>Soluções</span>
                 <motion.div animate={{ rotate: isSystemsOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                   <ChevronDown className="w-4 h-4" aria-hidden="true" />
                 </motion.div>
@@ -96,7 +97,7 @@ export default function AdvancedHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -20, scale: 0.9 }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="absolute top-full mt-4 w-64 bg-card/95 backdrop-blur-xl rounded-2xl shadow-lg border border-border overflow-hidden"
+                    className="absolute top-full mt-4 w-64 bg-popover text-popover-foreground rounded-2xl shadow-lg border border-border overflow-hidden"
                   >
                     <div className="p-2">
                       {systemLinks.map((system, index) => (
