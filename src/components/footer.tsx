@@ -1,44 +1,38 @@
-﻿import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 
 export default function Footer() {
+  const socialLinks = [
+    { icon: Facebook, label: "Facebook da Inttax", href: "#" },
+    { icon: Twitter, label: "Twitter da Inttax", href: "#" },
+    { icon: Linkedin, label: "LinkedIn da Inttax", href: "#" },
+    { icon: Instagram, label: "Instagram da Inttax", href: "#" },
+  ]
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <div className="text-2xl font-bold text-foreground mb-4">inttax</div>
             <p className="text-muted-foreground mb-4">
               Revolucionando a auditoria fiscal com inteligência artificial e automação avançada.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
+              {socialLinks.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Icon className="w-5 h-5" aria-hidden="true" />
+                </a>
+              ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h3 className="text-foreground font-semibold mb-4">Produtos</h3>
             <ul className="space-y-2">
               <li>
@@ -52,14 +46,9 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h3 className="text-foreground font-semibold mb-4">Empresa</h3>
             <ul className="space-y-2">
               <li>
@@ -78,14 +67,9 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h3 className="text-foreground font-semibold mb-4">Suporte</h3>
             <ul className="space-y-2">
               <li>
@@ -104,7 +88,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center">

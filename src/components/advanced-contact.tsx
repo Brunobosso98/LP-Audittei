@@ -33,6 +33,35 @@ const initialFormData: DemoRequestPayload = {
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? ""
 
+// Máscara para telefone no formato (XX) XXXXX-XXXX
+const formatPhone = (value: string) => {
+  const numbers = value.replace(/\D/g, "").slice(0, 11) // Limita a 11 dígitos
+  if (numbers.length === 0) return ""
+  if (numbers.length <= 2) {
+    return `(${numbers}`
+  } else if (numbers.length <= 7) {
+    return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`
+  }
+  return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7)}`
+}
+
+// Sanitizar string para prevenir XSS
+const sanitizeInput = (value: string, maxLength: number = 100) => {
+  // Remove tags HTML e limita caracteres
+  const sanitized = value.replace(/<[^>]*>/g, "").slice(0, maxLength)
+  // Escapa caracteres especiais
+  return sanitized.replace(/[&<>"']/g, (char) => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#x27;",
+    }
+    return entities[char] || char
+  })
+}
+
 export default function AdvancedContact() {
   /* ----------------------------- Hooks / State ---------------------------- */
   const containerRef = useRef<HTMLDivElement>(null)
@@ -43,7 +72,25 @@ export default function AdvancedContact() {
 
   /* -------------------------------- Events ------------------------------- */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+
+    // Aplicar máscara e validações específicas por campo
+    if (name === "phone") {
+      const formatted = formatPhone(value)
+      setFormData({ ...formData, [name]: formatted })
+    } else if (name === "name") {
+      // Limita a 60 caracteres e sanitiza
+      setFormData({ ...formData, [name]: sanitizeInput(value, 60) })
+    } else if (name === "company") {
+      // Limita a 80 caracteres e sanitiza
+      setFormData({ ...formData, [name]: sanitizeInput(value, 80) })
+    } else if (name === "email") {
+      // Limita a 100 caracteres
+      setFormData({ ...formData, [name]: value.slice(0, 100) })
+    } else if (name === "message") {
+      // Limita a 500 caracteres e sanitiza
+      setFormData({ ...formData, [name]: sanitizeInput(value, 500) })
+    }
   }
 
   const saveLead = async (payload: DemoRequestPayload) => {
@@ -71,11 +118,24 @@ export default function AdvancedContact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validação adicional antes de enviar
+    const phoneNumbers = formData.phone.replace(/\D/g, "")
+    if (phoneNumbers.length !== 10 && phoneNumbers.length !== 11) {
+      toast.error("Por favor, informe um WhatsApp válido com 10 ou 11 dígitos.")
+      return
+    }
+
+    if (formData.message.length > 500) {
+      toast.error("A mensagem excede o limite de 500 caracteres.")
+      return
+    }
+
     setIsSubmitting(true)
     try {
       await saveLead(formData)
+      toast.success("Solicitação enviada com sucesso! Em breve entraremos em contato.")
       setFormData(initialFormData)
-      toast.success("Solicitação enviada com sucesso.")
     } catch (error) {
       console.error(error)
       toast.error("Não foi possível enviar agora. Tente novamente em instantes.")
@@ -159,6 +219,7 @@ export default function AdvancedContact() {
                         type="text"
                         name="name"
                         required
+                        maxLength={60}
                         placeholder="Seu nome completo"
                         value={formData.name}
                         onChange={handleChange}
@@ -171,6 +232,7 @@ export default function AdvancedContact() {
                         type="email"
                         name="email"
                         required
+                        maxLength={100}
                         placeholder="seuemail@email.com"
                         value={formData.email}
                         onChange={handleChange}
@@ -186,6 +248,7 @@ export default function AdvancedContact() {
                       <input
                         type="text"
                         name="company"
+                        maxLength={80}
                         placeholder="Nome da empresa"
                         value={formData.company}
                         onChange={handleChange}
@@ -198,7 +261,8 @@ export default function AdvancedContact() {
                         type="tel"
                         name="phone"
                         required
-                        placeholder="(19) 97818-0175"
+                        maxLength={15}
+                        placeholder="(19) 99999-9999"
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none"
@@ -231,11 +295,15 @@ export default function AdvancedContact() {
                     <textarea
                       name="message"
                       rows={4}
+                      maxLength={500}
                       placeholder="Conte-nos mais sobre suas necessidades…"
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:border-primary outline-none resize-none"
                     />
+                    <p className="text-xs text-muted-foreground mt-1 text-right">
+                      {formData.message.length}/500 caracteres
+                    </p>
                   </div>
 
                   <motion.button

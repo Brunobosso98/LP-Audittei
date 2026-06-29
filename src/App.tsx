@@ -8,6 +8,9 @@ import GestaoPage from "@/routes/gestao"
 export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="Inttax-theme">
+      <a href="#main-content" className="skip-link">
+        Pular para o conteúdo principal
+      </a>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />

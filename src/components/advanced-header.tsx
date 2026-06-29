@@ -48,8 +48,8 @@ export default function AdvancedHeader() {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
-          : "bg-transparent"
+        ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
+        : "bg-transparent"
         }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -59,7 +59,7 @@ export default function AdvancedHeader() {
         <div className="flex items-center justify-between">
           <NttaxLogo size="md" />
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Navegação principal">
             {navigationSections.map((item, index) => (
               <motion.button
                 key={item.id}
@@ -68,6 +68,7 @@ export default function AdvancedHeader() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                aria-label={`Ir para a seção ${item.label}`}
               >
                 {item.label}
               </motion.button>
@@ -78,10 +79,13 @@ export default function AdvancedHeader() {
                 onClick={() => setIsSystemsOpen((previous) => !previous)}
                 className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors"
                 whileTap={{ scale: 0.95 }}
+                aria-expanded={isSystemsOpen}
+                aria-haspopup="menu"
+                aria-label="Abrir menu de produtos"
               >
-                <span>Módulos</span>
+                <span>Produtos</span>
                 <motion.div animate={{ rotate: isSystemsOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-4 h-4" aria-hidden="true" />
                 </motion.div>
               </motion.button>
 
@@ -128,11 +132,12 @@ export default function AdvancedHeader() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-lg bg-muted/40 border border-border"
               whileTap={{ scale: 0.9 }}
+              aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
             >
               {theme === "dark" ? (
-                <Sun className="w-5 h-5 text-foreground" />
+                <Sun className="w-5 h-5 text-foreground" aria-hidden="true" />
               ) : (
-                <Moon className="w-5 h-5 text-foreground" />
+                <Moon className="w-5 h-5 text-foreground" aria-hidden="true" />
               )}
             </motion.button>
 
@@ -162,11 +167,12 @@ export default function AdvancedHeader() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-lg bg-muted/40 border border-border"
               whileTap={{ scale: 0.9 }}
+              aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
             >
               {theme === "dark" ? (
-                <Sun className="w-5 h-5 text-foreground" />
+                <Sun className="w-5 h-5 text-foreground" aria-hidden="true" />
               ) : (
-                <Moon className="w-5 h-5 text-foreground" />
+                <Moon className="w-5 h-5 text-foreground" aria-hidden="true" />
               )}
             </motion.button>
 
@@ -174,6 +180,9 @@ export default function AdvancedHeader() {
               onClick={() => setIsMobileMenuOpen((previous) => !previous)}
               className="text-foreground p-2"
               whileTap={{ scale: 0.9 }}
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
@@ -184,7 +193,7 @@ export default function AdvancedHeader() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-6 h-6" aria-hidden="true" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -194,7 +203,7 @@ export default function AdvancedHeader() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="w-6 h-6" />
+                    <Menu className="w-6 h-6" aria-hidden="true" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -209,6 +218,9 @@ export default function AdvancedHeader() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              id="mobile-menu"
+              role="navigation"
+              aria-label="Menu mobile"
               className="md:hidden mt-4 py-4 border-t border-border bg-background/80 backdrop-blur-xl rounded-2xl"
             >
               <div className="flex flex-col space-y-4 px-4">
@@ -220,6 +232,7 @@ export default function AdvancedHeader() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
+                    aria-label={`Ir para a seção ${item.label}`}
                   >
                     {item.label}
                   </motion.button>
