@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const dotenv = require("dotenv")
 const { Pool } = require("pg")
 const { z } = require("zod")
@@ -36,6 +37,7 @@ const demoRequestSchema = z.object({
   source: z.string().trim().max(50).default("landing-page"),
 })
 
+app.use(cors())
 app.use(express.json())
 
 app.get("/api/health", async (_req, res) => {

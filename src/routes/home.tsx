@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       <AdvancedHeader />
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         <Hero />
         <Simulador />
         <Plataforma />

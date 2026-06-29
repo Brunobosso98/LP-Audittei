@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -27,6 +27,8 @@ export default function AdvancedHeader() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const { theme, setTheme } = useTheme()
   const prefersReducedMotion = useReducedMotion()
+  const systemsButtonRef = useRef<HTMLButtonElement>(null)
+  const systemsMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let ticking = false
@@ -52,6 +54,33 @@ export default function AdvancedHeader() {
     }
   }, [])
 
+  // Close Soluções menu on Escape, on outside click, and return focus to the trigger.
+  useEffect(() => {
+    if (!isSystemsOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsSystemsOpen(false)
+        systemsButtonRef.current?.focus()
+      }
+    }
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as Node
+      if (
+        systemsMenuRef.current?.contains(target) ||
+        systemsButtonRef.current?.contains(target)
+      ) {
+        return
+      }
+      setIsSystemsOpen(false)
+    }
+    document.addEventListener("keydown", onKey)
+    document.addEventListener("mousedown", onClick)
+    return () => {
+      document.removeEventListener("keydown", onKey)
+      document.removeEventListener("mousedown", onClick)
+    }
+  }, [isSystemsOpen])
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -69,7 +98,7 @@ export default function AdvancedHeader() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-40 transition-[background-color,backdrop-filter,border-color] duration-500 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
+          ? "bg-background/85 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
       initial={prefersReducedMotion ? false : { y: -16, opacity: 0 }}
@@ -100,11 +129,12 @@ export default function AdvancedHeader() {
 
             <div className="relative">
               <button
+                ref={systemsButtonRef}
                 onClick={() => setIsSystemsOpen((previous) => !previous)}
                 className="flex items-center space-x-1 py-1 text-sm text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-                whileTap={undefined}
                 aria-expanded={isSystemsOpen}
                 aria-haspopup="menu"
+                aria-controls="systems-menu"
                 aria-label="Abrir menu de soluções"
               >
                 <span>Soluções</span>
@@ -120,12 +150,15 @@ export default function AdvancedHeader() {
               <AnimatePresence>
                 {isSystemsOpen && (
                   <motion.div
+                    ref={systemsMenuRef}
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute top-full left-0 mt-3 w-64 rounded-xl border border-border bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/5 backdrop-blur-xl"
+                    id="systems-menu"
+                    className="absolute top-full left-0 mt-3 w-64 rounded-xl border border-border bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/5"
                     role="menu"
+                    aria-label="Soluções Inttax"
                   >
                     <div className="p-1">
                       {systemLinks.map((system) => (
@@ -238,7 +271,7 @@ export default function AdvancedHeader() {
               id="mobile-menu"
               role="navigation"
               aria-label="Menu mobile"
-              className="md:hidden mt-4 overflow-hidden rounded-2xl border border-border bg-background/90 py-2 backdrop-blur-xl"
+              className="md:hidden mt-4 overflow-hidden rounded-2xl border border-border bg-popover py-2"
             >
               <div className="flex flex-col gap-1 px-2 py-2">
                 {navigationSections.map((item) => (

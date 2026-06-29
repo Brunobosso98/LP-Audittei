@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -21,6 +21,44 @@ const IMPACT_TONE: Record<string, string> = {
 export function Simulador() {
   const [active, setActive] = useState<TabKey>("custo")
   const prefersReducedMotion = useReducedMotion()
+  const tabRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({
+    custo: null,
+    preco: null,
+    fornecedores: null,
+    margem: null,
+  })
+
+  const moveTab = (direction: 1 | -1) => {
+    const currentIndex = TABS.findIndex((t) => t.key === active)
+    const nextIndex = (currentIndex + direction + TABS.length) % TABS.length
+    const nextKey = TABS[nextIndex].key
+    setActive(nextKey)
+    tabRefs.current[nextKey]?.focus()
+  }
+
+  const onTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    switch (event.key) {
+      case "ArrowRight":
+        event.preventDefault()
+        moveTab(1)
+        break
+      case "ArrowLeft":
+        event.preventDefault()
+        moveTab(-1)
+        break
+      case "Home":
+        event.preventDefault()
+        setActive(TABS[0].key)
+        tabRefs.current[TABS[0].key]?.focus()
+        break
+      case "End":
+        event.preventDefault()
+        const last = TABS[TABS.length - 1].key
+        setActive(last)
+        tabRefs.current[last]?.focus()
+        break
+    }
+  }
 
   return (
     <section id="simulador" className="border-b border-border bg-background">
@@ -53,12 +91,16 @@ export function Simulador() {
             return (
               <button
                 key={t.key}
+                ref={(el) => {
+                  tabRefs.current[t.key] = el
+                }}
                 role="tab"
                 id={`tab-${t.key}`}
                 aria-selected={selected}
                 aria-controls={`panel-${t.key}`}
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(t.key)}
+                onKeyDown={onTabKeyDown}
                 className={cn(
                   "relative flex flex-col gap-1 px-4 py-4 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring",
                   selected ? "bg-card" : "bg-card/40 hover:bg-card/70",

@@ -37,7 +37,7 @@ export function Hero() {
               <span>Consultoria estratégica para o seu cliente</span>
             </div>
 
-            <h1 className="mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[4rem]">
+            <h1 className="mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[clamp(3rem,1.25rem+3.8vw,4rem)]">
               Leve o escritório
               <br className="hidden sm:block" />{" "}
               <span className="relative inline-block">
@@ -80,7 +80,7 @@ export function Hero() {
 
           <div className="relative min-w-0">
             <img
-              src={theme === "dark" ? "/hero_dark.png" : "/hero_light.png"}
+              src={theme === "dark" ? "/hero_dark.jpg" : "/hero_light.jpg"}
               alt="Dashboard do Simulador da Reforma Tributária"
               className="h-auto w-full rounded-xl shadow-[0_24px_80px_-32px_oklch(0.586_0.253_17.585/0.45)]"
             />

@@ -45,13 +45,7 @@ export function Faq() {
   return (
     <section id="faq" className="border-b border-border bg-secondary/40">
       <div className="mx-auto max-w-3xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
-            Perguntas frequentes
-          </span>
-          <span aria-hidden="true" className="h-px flex-1 bg-border" />
-        </div>
-        <h2 className="mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl">
+        <h2 className="text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl">
           O que escritórios como o seu costumam perguntar.
         </h2>
 

@@ -7,6 +7,7 @@ import {
   Search,
   Bell,
 } from "lucide-react"
+import { useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const KPIS = [
@@ -40,10 +41,6 @@ const COMPARISON = [
   },
 ] as const
 
-const REDUCED_MOTION =
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches
-
 function formatClock(date: Date) {
   return date.toLocaleTimeString("pt-BR", {
     hour: "2-digit",
@@ -71,15 +68,12 @@ function Bar({
       <span className="w-24 shrink-0 text-xs text-muted-foreground">{label}</span>
       <div className="relative h-5 flex-1 overflow-hidden rounded-full bg-muted">
         <div
-          className={cn(
-            "h-full rounded-full",
-            animate && !REDUCED_MOTION && "animate-barGrowX",
-          )}
+          className={cn("h-full rounded-full", animate && "animate-barGrowX")}
           style={{
             width: `${pct}%`,
             backgroundColor: color,
             transformOrigin: "left center",
-            animationDelay: animate && !REDUCED_MOTION ? "120ms" : undefined,
+            animationDelay: animate ? "120ms" : undefined,
           }}
         />
       </div>
@@ -90,20 +84,27 @@ function Bar({
 
 export function ReformaPanel() {
   const [now, setNow] = useState<Date | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
   const [animateIn, setAnimateIn] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
+  const reducedMotion = useReducedMotion() ?? false
+  const reducedMotionRef = useRef(reducedMotion)
+  reducedMotionRef.current = reducedMotion
 
+  // Pause the clock while the panel is off-screen or the tab is hidden.
   useEffect(() => {
+    if (!isVisible) return
+    if (document.visibilityState !== "visible") return
     setNow(new Date())
     const id = window.setInterval(() => setNow(new Date()), 1000)
     return () => window.clearInterval(id)
-  }, [])
+  }, [isVisible])
 
   // Trigger bar growth + KPI reveal on first viewport entry only.
   useEffect(() => {
     const node = panelRef.current
-    if (!node) return
-    if (typeof IntersectionObserver === "undefined") {
+    if (!node || typeof IntersectionObserver === "undefined") {
+      setIsVisible(true)
       setAnimateIn(true)
       return
     }
@@ -111,13 +112,15 @@ export function ReformaPanel() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
+            setIsVisible(true)
             setAnimateIn(true)
-            obs.disconnect()
-            break
+            // Keep observing so we can pause/resume the clock on visibility changes.
+            return
           }
+          setIsVisible(false)
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.05 },
     )
     obs.observe(node)
     return () => obs.disconnect()
@@ -142,17 +145,14 @@ export function ReformaPanel() {
               aria-hidden="true"
               className={cn(
                 "relative inline-flex size-1.5 rounded-full bg-primary",
-                !REDUCED_MOTION && "livePulse",
+                !reducedMotion && "livePulse",
               )}
             />
             IBS + CBS
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span
-            className="hidden items-center gap-1.5 font-mono text-[10px] text-muted-foreground sm:inline-flex"
-            aria-live="off"
-          >
+          <span className="hidden items-center gap-1.5 font-mono text-[10px] text-muted-foreground sm:inline-flex">
             <span aria-hidden="true" className="text-foreground/60">
               Última leitura
             </span>
@@ -179,20 +179,20 @@ export function ReformaPanel() {
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex gap-0 border-b border-border px-4">
+      {/* Module tabs — visual chrome for the screenshot, not interactive controls. */}
+      <div className="flex gap-0 border-b border-border px-4" aria-hidden="true">
         {["Simulador", "Impacto", "Produtos", "Alertas"].map((tab, i) => (
-          <button
+          <span
             key={tab}
             className={cn(
               "relative px-3 py-2 text-xs font-medium transition-colors",
               i === 0
                 ? "text-foreground after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-primary after:content-['']"
-                : "text-muted-foreground hover:text-foreground",
+                : "text-muted-foreground",
             )}
           >
             {tab}
-          </button>
+          </span>
         ))}
       </div>
 
@@ -203,9 +203,9 @@ export function ReformaPanel() {
             key={k.label}
             className={cn(
               "rounded-lg border border-border bg-muted/30 p-2.5 transition-all duration-500",
-              !REDUCED_MOTION && animateIn && "kpi-in",
+              !reducedMotion && animateIn && "kpi-in",
             )}
-            style={{ transitionDelay: REDUCED_MOTION ? "0ms" : `${idx * 60}ms` }}
+            style={{ transitionDelay: reducedMotion ? "0ms" : `${idx * 60}ms` }}
           >
             <div className="truncate text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
               {k.label}
