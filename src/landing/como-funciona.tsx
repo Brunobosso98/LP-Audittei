@@ -21,9 +21,9 @@ const STEPS = [
     n: "03",
     icon: PieChart,
     label: "Consultivo",
-    title: "Reunião com o cliente",
-    desc: "Leve a leitura para a próxima reunião: cenário de transição, ranking de risco e a recomendação fechada. Faturamento, vendas e margem na visão que o cliente entende.",
-    meta: "Material pronto para apresentar",
+    title: "Conduzir a consultoria",
+    desc: "É aqui que a operação vira reunião: cenário antes e depois, ranking de risco e a recomendação fechada — entregues no formato que o seu cliente reconhece como leitura estratégica. Faturamento, vendas e margem na visão que o cliente entende, sem precisar pedir.",
+    meta: "Reunião pronta para abrir",
   },
   {
     n: "04",
@@ -44,8 +44,9 @@ export function ComoFunciona() {
             Quatro passos encadeados, do operacional ao estratégico.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            A Inttax não é uma ferramenta isolada: cada módulo alimenta o seguinte. O resultado é
-            uma operação que opera em escala e entrega valor perceptível ao cliente final.
+            A Inttax não é uma ferramenta isolada: cada módulo alimenta o seguinte, e o ciclo
+            termina quando o escritório abre a próxima reunião de consultoria. O resultado é uma
+            operação que roda em escala e que entrega valor perceptível ao cliente final.
           </p>
         </div>
 

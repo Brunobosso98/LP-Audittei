@@ -22,12 +22,12 @@ export function Plataforma() {
             n="02"
             name="Fiscal 360"
             title="Acabe com a dependência da análise por amostragem"
-            summary="O Fiscal 360 automatiza a leitura das operações tributárias e devolve, para cada cliente da carteira, apenas as inconsistências que precisam de revisão humana. Sem planilha, sem sorte."
+            summary="O Fiscal 360 lê todas as operações tributárias e devolve, por cliente da carteira, apenas as inconsistências que pedem revisão humana. Sem planilha, sem sorte — e sobra tempo da equipe para a consultoria que o cliente reconhece como valor."
             points={[
               "Leitura ampla das operações, não por amostragem",
               "Inconsistências priorizadas por cliente",
               "Distribuição e acompanhamento por analista",
-              "Relatórios prontos para a reunião com o cliente",
+              "Pauta de revisão pronta para a reunião de consultoria",
             ]}
           >
             <VisualFiscal />
@@ -38,7 +38,7 @@ export function Plataforma() {
             n="03"
             name="Gestão"
             title="Leve conhecimento de gestão para o cliente decidir melhor"
-            summary="O cliente do escritório acompanha faturamento, vendas e margem por cliente, produto, estado e município, com variações mensais, sem precisar pedir um relatório."
+            summary="O cliente do escritório acompanha faturamento, vendas e margem por cliente, produto, estado e município — sem precisar pedir um relatório. É a leitura que sustenta a sua próxima conversa de consultoria."
             points={[
               "Painéis prontos para o cliente final",
               "Recortes por produto, cliente e região",
@@ -53,7 +53,7 @@ export function Plataforma() {
             n="04"
             name="Smart Contábil"
             title="O controle do escritório em 360 graus"
-            summary="DRE, indicadores por departamento, faturamento, tarefas, processos societários, onboarding e comercial em uma única plataforma para o proprietário do escritório."
+            summary="DRE, indicadores por departamento, tarefas, processos societários, onboarding e comercial em uma única plataforma. Ganha-se tempo de gestão interna para investir na leitura consultiva da carteira."
             points={[
               "DRE e resultado sempre atualizados",
               "Produtividade por departamento",

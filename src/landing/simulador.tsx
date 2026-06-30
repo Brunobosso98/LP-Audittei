@@ -75,10 +75,10 @@ export function Simulador() {
             cliente paga.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            O Simulador entrega, em números, como a transição afeta custo, preço, fornecedores
-            e margem dos seus clientes. É o material da próxima reunião de consultoria:
-            cenário antes e depois, NCMs mais sensíveis, ranking de risco e a recomendação
-            pronta para apresentar.
+            O Simulador transforma a Reforma em número por cliente: custo, preço, fornecedores
+            e margem projetados por cenário. É a leitura que sustenta a sua próxima reunião
+            de consultoria — antes e depois, NCMs mais sensíveis, ranking de risco e a
+            recomendação fechada, pronta para apresentar.
           </p>
         </div>
 

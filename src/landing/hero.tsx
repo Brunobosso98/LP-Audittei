@@ -51,8 +51,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Em vez de tratar a Reforma como mais uma obrigação, monte uma reunião de consultoria para o seu cliente: cenário antes e depois, NCMs mais impactados, ranking de risco e
-              a recomendação pronta para apresentar.
+              Em vez de tratar a Reforma como mais uma obrigação do mês, abra a próxima reunião de consultoria do seu cliente: cenário antes e depois, NCMs mais sensíveis,
+              ranking de risco e a recomendação pronta para apresentar.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -73,7 +73,7 @@ export function Hero() {
 
             <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
               <span className="size-1.5 rounded-full bg-success livePulse-success" aria-hidden="true" />
-              Conversa de 30 minutos com o Simulador aplicado a um caso real.
+              30 minutos com o Simulador aplicado a um cliente real da sua carteira.
             </p>
           </div>
 

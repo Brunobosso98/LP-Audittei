@@ -1,13 +1,13 @@
-import { MessageCircle, Mail, MapPin, ArrowUpRight } from "lucide-react"
+import { ArrowRight, Mail, MessageCircle, MapPin } from "lucide-react"
 import { DemoForm } from "@/landing/demo-form"
 import { cn } from "@/lib/utils"
 
-const CONTACTS = [
+const CONTATOS = [
   {
     icon: MessageCircle,
     label: "WhatsApp comercial",
     value: "(19) 97818-0175",
-    meta: "Segunda a sexta, das 8h às 17h",
+    meta: "Resposta imediata no horário comercial",
     href: "https://wa.me/5519978180175",
   },
   {
@@ -25,31 +25,34 @@ const CONTACTS = [
   },
 ]
 
-export function CtaDemo() {
+export function Cta() {
   return (
     <section id="demo" className="border-b border-border bg-background">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
-            <p className="text-sm font-medium text-primary">Demonstração</p>
-            <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-              Veja o Simulador da Reforma Tributária rodando na sua carteira
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+              Demonstração
+            </p>
+            <h2 className="mt-4 text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[3.5rem]">
+              Veja o Simulador rodando sobre um cliente da sua carteira
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Em uma conversa de 30 minutos, a Inttax roda o Simulador sobre a sua carteira. Você
-              sai com a leitura inicial de impacto nos clientes prioritários, no formato que abre
-              a próxima reunião de consultoria.
+              Em 30 minutos, a Inttax aplica o Simulador em um cliente real. Você sai com cenário antes e depois,
+              NCMs mais sensíveis, ranking de risco e o material pronto para abrir a próxima reunião e
+              justificar a próxima fatura do contrato.
             </p>
 
             <ul className="mt-8 flex flex-col gap-3">
-              {CONTACTS.map((c) => {
+              {CONTATOS.map((c) => {
                 const Icon = c.icon
                 const linkable = Boolean(c.href)
                 const inner = (
                   <div
                     className={cn(
                       "flex items-start gap-3 rounded-lg border border-border bg-card p-4",
-                      linkable && "transition-colors group-hover:border-primary/40 group-hover:bg-muted/60",
+                      linkable &&
+                        "transition-colors group-hover:border-primary/40 group-hover:bg-muted/60",
                     )}
                   >
                     <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-md bg-accent text-primary">
@@ -61,9 +64,9 @@ export function CtaDemo() {
                       <div className="text-xs text-muted-foreground">{c.meta}</div>
                     </div>
                     {linkable && (
-                      <ArrowUpRight
-                        className="mt-1 size-4 shrink-0 text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary group-hover:opacity-100"
+                      <ArrowRight
                         aria-hidden="true"
+                        className="mt-1 size-4 shrink-0 text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-primary group-hover:opacity-100"
                       />
                     )}
                   </div>

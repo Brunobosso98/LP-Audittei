@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npx tsc *)",
       "Skill(impeccable)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(mkdir -p /mnt/c/Users/bruno/Desktop/Projetos/LP-Audittei/src/landing/reforma-tributaria/sections /mnt/c/Users/bruno/Desktop/Projetos/LP-Audittei/src/landing/reforma-tributaria/prints)",
+      "Bash(mkdir -p /mnt/c/Users/bruno/Desktop/Projetos/LP-Audittei/public/reforma-tributaria)"
     ]
   }
 }

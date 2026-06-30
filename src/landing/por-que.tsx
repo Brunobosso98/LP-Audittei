@@ -5,7 +5,7 @@ const POINTS = [
   },
   {
     role: "Equipe fiscal",
-    desc: "Menos planilha, mais análise. Cobertura ampla das operações e redução drástica da dependência de amostragem.",
+    desc: "Menos planilha, mais análise. Cobertura ampla das operações, fim da dependência de amostragem — e sobra tempo para a consultoria da carteira.",
   },
   {
     role: "Gestor do escritório",

@@ -1,58 +1,46 @@
-import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
-import { ArrowLeft, Clock } from "lucide-react"
 import AdvancedHeader from "@/components/advanced-header"
-import Footer from "@/components/footer"
-import { Button } from "@/components/ui/button"
+import { SiteFooter } from "@/landing/site-footer"
+import { Hero } from "@/landing/reforma-tributaria/sections/hero"
+import { Cronograma } from "@/landing/reforma-tributaria/sections/cronograma"
+import { Showcase } from "@/landing/reforma-tributaria/sections/showcase"
+import { Capacidades } from "@/landing/reforma-tributaria/sections/capacidades"
+import { Fluxo } from "@/landing/reforma-tributaria/sections/fluxo"
+import { Faq } from "@/landing/reforma-tributaria/sections/faq"
+import { Cta } from "@/landing/reforma-tributaria/sections/cta"
 
 export default function ReformaTributariaPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
       <AdvancedHeader />
 
-      <main id="main-content" className="pt-32 pb-24">
-        <section className="container mx-auto px-4">
-          <motion.div
-            className="mx-auto max-w-2xl"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground">
-              <Clock className="size-3.5" aria-hidden="true" />
-              Página em construção
-            </span>
+      <main id="main-content" className="pt-20">
+        <Hero
+          eyebrow="Reforma Tributária"
+          titulo="A próxima reunião de consultoria começa aqui."
+          subtitulo="IBS + CBS · Cronograma CONFAZ · 2026 → 2033"
+          descricao="A Reforma Tributária vira insumo da consultoria paga pelo seu cliente. Cenário antes e depois, NCMs mais sensíveis, ranking de risco e a recomendação fechada já saem prontos para abrir a próxima reunião e justificar a próxima fatura do contrato."
+          primaryCta={{ label: "Solicitar demonstração", href: "#demo" }}
+          secondaryCta={{ label: "Falar com vendas no WhatsApp", href: "https://wa.me/5519978180175" }}
+          nota="30 minutos com o Simulador aplicado a um cliente real da sua carteira. Você sai com o material que leva impresso para a reunião."
+        />
 
-            <h1 className="mt-6 text-pretty text-4xl font-medium leading-[1.08] tracking-tight sm:text-5xl">
-              Reforma Tributária
-            </h1>
+        <Cronograma />
 
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Estamos preparando uma página dedicada à consultoria estratégica para IBS/CBS.
-              Enquanto ela não fica pronta, o conteúdo completo já está disponível no Simulador
-              da Reforma dentro da landing principal.
-            </p>
+        <Showcase
+          titulo="Cinco telas que o escritório leva para a próxima reunião."
+          descricao="O material sai pronto para apresentar e ser cobrado como consultoria. Cenário antes e depois, NCMs mais sensíveis, ranking de risco, pressão por fornecedor e a recomendação fechada. Clique em uma tela para ver como ela vira insumo da fatura seguinte."
+        />
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link to="/#simulador">
-                  <ArrowLeft className="size-4" />
-                  Ver Simulador da Reforma
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-border text-foreground hover:bg-muted"
-              >
-                <Link to="/#demo">Solicitar demonstração</Link>
-              </Button>
-            </div>
-          </motion.div>
-        </section>
+        <Capacidades />
+
+        <Fluxo />
+
+        <Faq />
+
+        <Cta />
       </main>
 
-      <Footer />
-    </div>
+      <SiteFooter />
+    </>
   )
 }

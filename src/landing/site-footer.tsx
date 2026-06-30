@@ -35,8 +35,9 @@ export function SiteFooter() {
           <div>
             <NttaxLogo size="md" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Auditoria fiscal automatizada para escritórios contábeis. Lê NF-e, valida contra a
-              legislação e devolve as exceções para você revisar.
+              Camada de inteligência tributária para escritórios contábeis. Lê as operações, devolve
+              a leitura estratégica e abre tempo para a consultoria que o seu cliente reconhece como
+              valor.
             </p>
             <span
               className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-2.5 py-1 font-mono text-[11px] text-foreground/70"
