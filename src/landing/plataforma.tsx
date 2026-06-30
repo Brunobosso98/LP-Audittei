@@ -27,7 +27,7 @@ export function Plataforma() {
               "Leitura ampla das operações, não por amostragem",
               "Inconsistências priorizadas por cliente",
               "Distribuição e acompanhamento por analista",
-              "Relatórios consultivos com valor percebido",
+              "Relatórios prontos para a reunião com o cliente",
             ]}
           >
             <VisualFiscal />
@@ -36,7 +36,7 @@ export function Plataforma() {
           <Module
             reverse
             n="03"
-            name="Analytics"
+            name="Gestão"
             title="Leve conhecimento de gestão para o cliente decidir melhor"
             summary="O cliente do escritório acompanha faturamento, vendas e margem por cliente, produto, estado e município, com variações mensais, sem precisar pedir um relatório."
             points={[

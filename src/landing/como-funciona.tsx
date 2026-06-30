@@ -21,9 +21,9 @@ const STEPS = [
     n: "03",
     icon: PieChart,
     label: "Consultivo",
-    title: "Entregar analytics",
-    desc: "Abra o dashboard de Analytics para o cliente. Faturamento, vendas, margem e variações mensais em uma visão que ele entende.",
-    meta: "Visão por cliente",
+    title: "Reunião com o cliente",
+    desc: "Leve a leitura para a próxima reunião: cenário de transição, ranking de risco e a recomendação fechada. Faturamento, vendas e margem na visão que o cliente entende.",
+    meta: "Material pronto para apresentar",
   },
   {
     n: "04",

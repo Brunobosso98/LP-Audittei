@@ -37,7 +37,8 @@ export function CtaDemo() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Em uma conversa de 30 minutos, a Inttax mostra o Simulador aplicado a um caso real
-              do escritório. Você sai com uma leitura inicial de impacto nos principais clientes.
+              da sua carteira. Você sai com a leitura inicial de impacto nos principais clientes,
+              no formato que leva para a reunião de consultoria.
             </p>
 
             <ul className="mt-8 flex flex-col gap-3">

@@ -17,6 +17,10 @@ const ITEMS = [
     a: "Não. O Fiscal 360 transforma o trabalho braçal em revisão de exceções: ele lê as operações, prioriza as inconsistências que merecem atenção e mantém a decisão final com o profissional fiscal.",
   },
   {
+    q: "O material sai pronto para a reunião com o cliente final?",
+    a: "Sim. O Simulador entrega a leitura por cliente no formato da reunião de consultoria: cenário antes e depois, NCMs mais sensíveis, ranking de risco e a recomendação fechada. O escritório conduz a conversa a partir desse material.",
+  },
+  {
     q: "Onde os dados dos clientes ficam armazenados?",
     a: "A política de armazenamento e o tratamento dos dados são detalhados na demonstração, de acordo com os requisitos do seu escritório. Fale com o time comercial para os detalhes técnicos.",
   },

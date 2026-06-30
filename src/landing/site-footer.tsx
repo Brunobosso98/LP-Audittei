@@ -6,7 +6,7 @@ const COLS = [
     links: [
       { label: "Simulador da Reforma", href: "#simulador" },
       { label: "Fiscal 360", href: "#plataforma" },
-      { label: "Analytics", href: "#plataforma" },
+      { label: "Gestão", href: "#plataforma" },
       { label: "Smart Contábil", href: "#plataforma" },
     ],
   },

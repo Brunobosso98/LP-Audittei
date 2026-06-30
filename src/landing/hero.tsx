@@ -4,7 +4,7 @@ import { useTheme } from "@/components/theme-provider"
 const MODULES = [
   { n: "01", name: "Simulador da Reforma", desc: "Impacto em custo, preço, fornecedores e margem." },
   { n: "02", name: "Fiscal 360", desc: "Leitura das operações e inconsistências por cliente." },
-  { n: "03", name: "Analytics", desc: "Faturamento, vendas e margem para o cliente final." },
+  { n: "03", name: "Gestão", desc: "Faturamento, vendas e margem para o cliente final." },
   { n: "04", name: "Smart Contábil", desc: "Gestão do escritório, do DRE ao comercial." },
 ]
 
@@ -22,8 +22,8 @@ export function Hero() {
         className="pointer-events-none absolute -top-40 right-[-10%] size-[40rem] rounded-full bg-primary/10 blur-3xl"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-16">
+      <div className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.2fr)] lg:gap-16">
           <div className="min-w-0">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card/80 px-3 py-1 text-sm text-muted-foreground backdrop-blur-sm">
               <span
@@ -37,23 +37,22 @@ export function Hero() {
               <span>Consultoria estratégica para o seu cliente</span>
             </div>
 
-            <h1 className="mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[clamp(3rem,1.25rem+3.8vw,4rem)]">
-              Leve o escritório
+            <h1 className="mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-[clamp(2.5rem,1.25rem+2.4vw,3rem)]">
+              Faça da Reforma Tributária
               <br className="hidden sm:block" />{" "}
               <span className="relative inline-block">
-                para a mesa
+                a consultoria
                 <span
                   aria-hidden="true"
                   className="absolute -bottom-1 left-0 right-0 h-[3px] origin-left bg-primary hairline-in sm:h-1"
                 />
               </span>{" "}
-              de decisão do cliente.
+              que o seu cliente reconhece como valor.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              A Inttax lê NF-e, valida contra a legislação vigente e devolve só as exceções
-              para você revisar. Comece pela Reforma Tributária: mostre, em números, o
-              impacto que vem aí — e cobre por essa consultoria.
+              Em vez de tratar a Reforma como mais uma obrigação, monte uma reunião de consultoria para o seu cliente: cenário antes e depois, NCMs mais impactados, ranking de risco e
+              a recomendação pronta para apresentar.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -80,7 +79,7 @@ export function Hero() {
 
           <div className="relative min-w-0">
             <img
-              src={theme === "dark" ? "/hero_dark.jpg" : "/hero_light.jpg"}
+              src={theme === "dark" ? "/hero_dark.png" : "/hero_light.png"}
               alt="Dashboard do Simulador da Reforma Tributária"
               className="h-auto w-full rounded-xl shadow-[0_24px_80px_-32px_oklch(0.586_0.253_17.585/0.45)]"
             />
